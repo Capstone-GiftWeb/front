@@ -53,7 +53,7 @@ const menulist = [
         price: '5,000',
         cate: '음식',
         anniversary: '생일',
-        relation: '친구',
+        relation: '연인',
         img: 'img/bugi.png'
     }
 ]
