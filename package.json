@@ -35,12 +35,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< HEAD
-=======
   },
   "devDependencies": {
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.0"
->>>>>>> da37db3d4b7fae2ac43a32d858886d82287bd279
   }
 }
