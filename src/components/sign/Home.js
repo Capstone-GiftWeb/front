@@ -10,8 +10,19 @@ const Home = () => {
 
     return (
         <>
-            <button onClick={goToLogin}>Login</button>
-            <button onClick={goToSignUp}>SignUp</button>
+        <section>
+            <div className='circle'></div>
+            <div className='content'>
+                <div className='text'>
+                    <h2>GIFT<br/>GUIDE</h2>
+                    <button onClick={goToLogin} onMouseOver>LOG IN</button>
+                    <button onClick={goToSignUp}>SIGN UP</button> 
+                </div>
+                <div className='startImg'>
+                    <img src="img/mainNavIcon.png" alt="start_logo" />
+                </div>
+            </div>
+        </section>
         </>
     )
 }

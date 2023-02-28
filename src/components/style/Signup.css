@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    padding: 40px;
+    border-radius: 20px;
+    border: 8px solid white;
+    box-shadow: -2px -2px 2px white,
+    2px 2px 2px white,
+    inset -2px -2px 2px white,
+    inset 2px 2px 2px white;
+}
+
+.container .form
+{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px
+}
+
+.container .form h2{
+    color: white;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+.container .form .inputBox{
+    position: relative;
+    width: 300px;
+}
+
+.container .form .inputBox input:valid ~ span,
+.container .form .inputBox input:focus ~ span
+{
+    color: #dc7309de;
+    border: 1px solid #dc7309de;
+    background: #fcbe80;
+    transform: translateX(25px) translateY(-7px);
+    font-size: 0.6em;
+    padding: 0 8px;
+    border-radius: 10px;
+    letter-spacing: 0.1em;
+}
+.container .form .inputBox input:valid,
+.container .form .inputBox input:focus
+{
+    border: 1px solid #dc7309de;
+}
+
+.container .form .inputBox input{
+    padding: 12px 10px 12px 48px;
+    border: none;
+    width: 100%;
+    background-color: #fcbe80;
+    color: white;
+    font-weight: 300;
+    border-radius: 25px;
+    font-size: 1em;
+    box-shadow: -2px -2px 8px white,
+    2px 2px 8px white;
+    transition: 0.5s;
+    outline: none;
+}
+
+.container .form .inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 12px 10px 12px 48px;
+    pointer-events: none;
+    font-size: 1em;
+    font-weight: 300;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    color: white;
+}
+
+.container .form .inputBox i{
+    position: absolute;
+    top: 15px;
+    left: 16px;
+    width: 25px;
+    padding-right: 8px;
+    color: #dc7309de;
+    border-right: 1px solid #dc7309de;
+}
+
+.container .form .inputBox input[type="submit"]
+{
+    border: none;
+    background: #dc7309de;
+    color: white;
+    padding: 10px 0;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: -1px -1px 1px white,
+    1px 1px 1px white,
+    inset -1px -1px -1px white,
+    inset 1px 1px 1px white;
+}
+
+.container .form p{
+    position: relative;
+    color: white;
+    font-size: 0.75em;
+    font-weight: 300;
+}
+
+.container .form p button{
+    border: none;
+    background-color: #EAA763;
+    cursor: pointer;
+    font-style: italic;
+}
