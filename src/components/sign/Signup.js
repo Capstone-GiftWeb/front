@@ -46,6 +46,9 @@ const Signup = () => {
         console.log("click login");
         console.log("ID : ", inputId);
         console.log("PW : ", inputPw);
+        console.log("Age : ", inputAge);
+        console.log("Gender : ", inputGender);
+        console.log("Name : ", inputName);
         axios({
             method: "POST",
             url: "https://2180-211-217-232-194.jp.ngrok.io/members/new",
@@ -84,28 +87,28 @@ const Signup = () => {
                 <p>
                    <span>성별</span>
                         <label for="gender">남성</label>
-                        <input id="gender" type="radio"  value="남성" onChange={handleInputGender} name="ss"></input>
+                        <input id="gender" name='gender' type="radio"  value="male" onChange={handleInputGender} ></input>
 
                         <label for="gender">여성</label>
-                        <input id="gender" type="radio" value="여성" onChange={handleInputGender} name="ss"></input>
-                </p>
+                        <input id="gender" name='gender' type="radio" value="female" onChange={handleInputGender} ></input>
+                </p>    
+                <div className='inputBox'>
+                    <input type="text" value={inputName} onChange={handleInputName} required="required"></input>
+                    <i class="fa-regular fa-user"></i>
+                    <span>name</span>
+                </div>
                 <div className='inputBox'>
                     <input type="text" value={inputAge} onChange={handleInputAge} required="required"></input>
                     <i class="fa-regular fa-user"></i>
                     <span>age</span>
-                </div>    
+                </div>
                 <div className='inputBox'>
-                    <input type="text" name="input_id" value={inputId} onChange={handleInputId} required="required"></input>
-                    <i class="fa-regular fa-user"></i>
+                    <input type="text" value={inputId} onChange={handleInputId} required="required"></input>
+                    <i class="fa-regular fa-envelope"></i>
                     <span>username</span>
                 </div>
                 <div className='inputBox'>
-                    <input type="text" required="required" value={inputName} onChange={handleInputName}></input>
-                    <i class="fa-regular fa-envelope"></i>
-                    <span>name</span>
-                </div>
-                <div className='inputBox'>
-                    <input type="password" name="input_id" value={inputPw} onChange={handleInputPw} required="required"></input>
+                    <input type="password" value={inputPw} onChange={handleInputPw} required="required"></input>
                     <i class="fa-solid fa-lock"></i>
                     <span>create password</span>
                 </div>
