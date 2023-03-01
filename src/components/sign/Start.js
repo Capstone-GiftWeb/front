@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../style/Home.css'
+import '../style/Start.css'
 
-const Home = () => {
+const Start = () => {
     const movePage = useNavigate();
 
     const goToLogin = () => movePage('/Login');
@@ -27,4 +27,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Start;
