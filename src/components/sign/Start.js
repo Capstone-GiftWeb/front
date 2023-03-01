@@ -15,7 +15,7 @@ const Start = () => {
             <div className='content'>
                 <div className='text'>
                     <h2>GIFT<br/>GUIDE</h2>
-                    <button onClick={goToLogin} onMouseOver>LOG IN</button>
+                    <button onClick={goToLogin}r>LOG IN</button>
                     <button onClick={goToSignUp}>SIGN UP</button> 
                 </div>
                 <div className='startImg'>
