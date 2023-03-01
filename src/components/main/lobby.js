@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Nav from './Nav';
-import '../style/Home.css'
+//import '../style/lobby.css'
 
 const Home = () => {
     return (
