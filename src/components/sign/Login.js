@@ -9,6 +9,7 @@ const Login = () => {
 
     const [inputId, setInputId] = useState("");
     const [inputPw, setInputPw] = useState("");
+
     
       const handleInputId = (e) => {
       setInputId(e.target.value);
@@ -18,16 +19,22 @@ const Login = () => {
       setInputPw(e.target.value);
     };
 
+    const formData=new FormData();
+    formData.append("email",inputId);
+    formData.append("password",inputPw);
+
     const onClickLogin = () => {
         console.log("click login");
         console.log("ID : ", inputId);
         console.log("PW : ", inputPw);
-        axios
-          .post("https://7db2-211-217-232-194.jp.ngrok.io/members/login", {
-            email: inputId,
-            passwd: inputPw,
-            rememberId: true
-          })
+        axios({
+            method: "POST",
+            url: "https://2180-211-217-232-194.jp.ngrok.io/members/login",
+            headers:{
+                "Content-Type":"muttipart/form-data",
+            },
+            data : formData,
+        })
         //   .then((res) => {
         //     console.log(res);
         //     console.log("res.data.userId :: ", res.data.userId);
@@ -55,15 +62,34 @@ const Login = () => {
         .then((res) => {
             console.log("hi");
         })
-          .catch();
+          .catch(
+            console.log()
+          );
       }
+
+    // const onClickLogin = () => {
+            
+	// /* 객체 생성 후 전송 */
+    //     const userData = {
+    //         email: inputId,
+    //         password: inputPw,
+    //         rememberId: true
+    //     };
+
+
+    //     API.post('https://2180-211-217-232-194.jp.ngrok.io/members/login', userData)
+    //         .then((response) => {
+    //             console.log("hi");
+    //         })
+    //         .catch((error) => console.log(error.response));
+    // };
 
     return (
         <div className='container'>
             <div className='form login'>
                 <h2>Log In</h2>
                 <div className='inputBox'>
-                    <input type="text" name="input_id" value={inputId} onChange={handleInputId} required="required"></input>
+                    <input type="email" name="input_id" value={inputId} onChange={handleInputId} required="required"></input>
                     <i class="fa-regular fa-user"></i>
                     <span>username</span>
                 </div>
