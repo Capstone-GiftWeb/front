@@ -19,7 +19,7 @@ const Home = () => {
                     <button onClick={goToSignUp}>SIGN UP</button> 
                 </div>
                 <div className='startImg'>
-                    <img src="img/mainNavIcon.png" alt="start_logo" />
+                    <img src="img/mainBuggi.png" alt="start_logo" />
                 </div>
             </div>
         </section>
