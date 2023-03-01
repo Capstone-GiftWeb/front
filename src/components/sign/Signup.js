@@ -87,10 +87,10 @@ const Signup = () => {
                 <p>
                    <span>성별</span>
                         <label for="gender">남성</label>
-                        <input id="gender" name='gender' type="radio"  value="male" onChange={handleInputGender} ></input>
+                        <input id="gender" name='gender' type="radio"  value="남자" onChange={handleInputGender} ></input>
 
                         <label for="gender">여성</label>
-                        <input id="gender" name='gender' type="radio" value="female" onChange={handleInputGender} ></input>
+                        <input id="gender" name='gender' type="radio" value="여자" onChange={handleInputGender} ></input>
                 </p>    
                 <div className='inputBox'>
                     <input type="text" value={inputName} onChange={handleInputName} required="required"></input>
