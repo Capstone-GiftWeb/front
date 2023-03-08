@@ -8,15 +8,15 @@ const Signup = () => {
     const movePage = useNavigate();
     const goToLogin = () => movePage('/Login');
 
-    const [inputId, setInputId] = useState("");
+    const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
     const [inputAge, setInputAge] = useState("");
     const [inputGender, setInputGender] = useState("");
     const [inputName, setInputName] = useState("");
 
     
-    const handleInputId = (e) => {
-      setInputId(e.target.value);
+    const handleInputEmail = (e) => {
+      setInputEmail(e.target.value);
     };
   
     const handleInputPw = (e) => {
@@ -37,14 +37,14 @@ const Signup = () => {
 
     const formData=new FormData();
     formData.append("name",inputName);
-    formData.append("email",inputId);
+    formData.append("email",inputEmail);
     formData.append("password",inputPw);
     formData.append("age", inputAge);
     formData.append("gender", inputGender);
 
     const onClickSignup = () => {
         console.log("click login");
-        console.log("ID : ", inputId);
+        console.log("ID : ", inputEmail);
         console.log("PW : ", inputPw);
         console.log("Age : ", inputAge);
         console.log("Gender : ", inputGender);
@@ -67,9 +67,9 @@ const Signup = () => {
             } else if (res.data.email === null) {
               // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
               alert("입력하신 비밀번호 가 일치하지 않습니다.");
-            } else if (res.data.email === inputId) {
+            } else if (res.data.email === inputEmail) {
               // id, pw 모두 일치 userId = userId1, msg = undefined
-              sessionStorage.setItem("user_id", inputId); // sessionStorage에 id를 user_id라는 key 값으로 저장
+              sessionStorage.setItem("user_id", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
               sessionStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
             }
             // 작업 완료 되면 페이지 이동(새로고침)
@@ -103,9 +103,9 @@ const Signup = () => {
                     <span>age</span>
                 </div>
                 <div className='inputBox'>
-                    <input type="text" value={inputId} onChange={handleInputId} required="required"></input>
+                    <input type="text" value={inputEmail} onChange={handleInputEmail} required="required"></input>
                     <i class="fa-regular fa-envelope"></i>
-                    <span>username</span>
+                    <span>email</span>
                 </div>
                 <div className='inputBox'>
                     <input type="password" value={inputPw} onChange={handleInputPw} required="required"></input>

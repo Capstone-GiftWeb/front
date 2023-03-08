@@ -25,8 +25,6 @@
     "eject": "react-scripts eject"
   },
 
-  "proxy": "https://2180-211-217-232-194.jp.ngrok.io/",
-
   "eslintConfig": {
     "extends": [
       "react-app",
