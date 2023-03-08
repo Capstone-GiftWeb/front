@@ -86,20 +86,20 @@ const Signup = () => {
                 <h2>Sign Up</h2>
                 <p>
                    <span>성별</span>
-                        <label for="gender">남성</label>
+                        <label htmlFor="gender">남성</label>
                         <input id="gender" name='gender' type="radio"  value="남자" onChange={handleInputGender} ></input>
 
-                        <label for="gender">여성</label>
+                        <label htmlFor="gender">여성</label>
                         <input id="gender" name='gender' type="radio" value="여자" onChange={handleInputGender} ></input>
                 </p>    
                 <div className='inputBox'>
                     <input type="text" value={inputName} onChange={handleInputName} required="required"></input>
-                    <i class="fa-regular fa-user"></i>
+                    <i className="fa-regular fa-user"></i>
                     <span>name</span>
                 </div>
                 <div className='inputBox'>
                     <input type="text" value={inputAge} onChange={handleInputAge} required="required"></input>
-                    <i class="fa-regular fa-user"></i>
+                    <i className="fa-regular fa-user"></i>
                     <span>age</span>
                 </div>
                 <div className='inputBox'>
@@ -109,7 +109,7 @@ const Signup = () => {
                 </div>
                 <div className='inputBox'>
                     <input type="password" value={inputPw} onChange={handleInputPw} required="required"></input>
-                    <i class="fa-solid fa-lock"></i>
+                    <i className="fa-solid fa-lock"></i>
                     <span>create password</span>
                 </div>
                 {/* <div className='inputBox'>

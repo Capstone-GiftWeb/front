@@ -63,13 +63,13 @@ const Login = () => {
             <div className='form login'>
                 <h2>Log In</h2>
                 <div className='inputBox'>
-                    <input type="email" name="input_id" value={inputEmail} onChange={handleInputEmail} required="required"></input>
-                    <i class="fa-regular fa-envelope"></i>
-                    <span>email</span>
+                    <input type="email" name="input_id" value={inputId} onChange={handleInputId} required="required"></input>
+                    <i class="fa-regular fa-user"></i>
+                    <span>username</span>
                 </div>
                 <div className='inputBox'>
                     <input type="password" name="input_pw" value={inputPw} onChange={handleInputPw} required="required"></input>
-                    <i class="fa-solid fa-lock"></i>
+                    <i className="fa-solid fa-lock"></i>
                     <span>password</span>
                 </div>
                 <div className='inputBox'>
