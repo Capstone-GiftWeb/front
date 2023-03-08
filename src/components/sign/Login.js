@@ -6,6 +6,7 @@ import axios from 'axios';
 const Login = () => {
     const movePage = useNavigate();
     const goToSignUp = () => movePage('/Signup');
+    const goToHome = () => movePage('/Home');
 
     const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
@@ -27,9 +28,10 @@ const Login = () => {
         console.log("click login");
         console.log("ID : ", inputEmail);
         console.log("PW : ", inputPw);
+
         axios({
             method: "POST",
-            url: "https://2180-211-217-232-194.jp.ngrok.io/members/login",
+            url: "https://bde0-223-194-157-60.jp.ngrok.io/members/login",
             headers:{
                 "Content-Type":"muttipart/form-data",
             },
@@ -51,7 +53,7 @@ const Login = () => {
               sessionStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
             }
             // 작업 완료 되면 페이지 이동(새로고침)
-            document.location.href = "/";
+            goToHome();
           })
           .catch(
             console.log("Fuck")
