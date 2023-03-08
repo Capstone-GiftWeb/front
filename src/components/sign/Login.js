@@ -20,9 +20,6 @@ const Login = () => {
     };
 
     const formData=new FormData();
-    formData.append("email",inputId);
-    formData.append("password",inputPw);
-
     const onClickLogin = () => {
         console.log("click login");
         console.log("ID : ", inputId);
@@ -64,7 +61,7 @@ const Login = () => {
                 <h2>Log In</h2>
                 <div className='inputBox'>
                     <input type="email" name="input_id" value={inputId} onChange={handleInputId} required="required"></input>
-                    <i class="fa-regular fa-user"></i>
+                    <i className="fa-regular fa-user"></i>
                     <span>username</span>
                 </div>
                 <div className='inputBox'>
