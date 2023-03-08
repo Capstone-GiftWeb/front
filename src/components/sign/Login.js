@@ -63,7 +63,7 @@ const Login = () => {
             <div className='form login'>
                 <h2>Log In</h2>
                 <div className='inputBox'>
-                    <input type="email" name="input_id" value={inputId} onChange={handleInputId} required="required"></input>
+                    <input type="email" name="input_email" value={inputEmail} onChange={handleInputEmail} required="required"></input>
                     <i class="fa-regular fa-user"></i>
                     <span>username</span>
                 </div>
