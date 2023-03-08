@@ -51,7 +51,7 @@ const Signup = () => {
         console.log("Name : ", inputName);
         axios({
             method: "POST",
-            url: "https://2180-211-217-232-194.jp.ngrok.io/members/new",
+            url: "https://bde0-223-194-157-60.jp.ngrok.io/members/new",
             headers:{
                 "Content-Type":"muttipart/form-data",
             },
@@ -72,8 +72,8 @@ const Signup = () => {
               sessionStorage.setItem("user_id", inputId); // sessionStorage에 id를 user_id라는 key 값으로 저장
               sessionStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
             }
-            // 작업 완료 되면 페이지 이동(새로고침)
-            document.location.href = "/";
+            // 작업 완료 되면 로그인 페이지 이동
+            goToLogin();
           })
           .catch(
             console.log("Fuck")

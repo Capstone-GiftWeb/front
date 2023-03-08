@@ -29,7 +29,7 @@
     "eject": "react-scripts eject"
   },
 
-  "proxy": "https://2180-211-217-232-194.jp.ngrok.io/",
+  "proxy": "https://bde0-223-194-157-70.jp.ngrok.io/",
 
   "eslintConfig": {
     "extends": [

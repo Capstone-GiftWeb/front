@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Nav from './Nav';
-import LoadingModal from './LoadingModal';
+import Products from './Products';
 //import '../style/lobby.css'
 
 const Home = () => {
-    const [modal, setModalShow] = useState(false);
-
-
     
     return (
         <>
             <Nav/>
+            <Products />
         </>
     )
 }
