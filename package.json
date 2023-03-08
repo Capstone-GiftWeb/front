@@ -28,7 +28,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://192.168.1.185:80",
+
+  "proxy": "https://2180-211-217-232-194.jp.ngrok.io/",
+
   "eslintConfig": {
     "extends": [
       "react-app",
