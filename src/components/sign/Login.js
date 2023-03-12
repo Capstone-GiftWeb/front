@@ -8,12 +8,12 @@ const Login = () => {
     const goToSignUp = () => movePage('/Signup');
     const goToHome = () => movePage('/Home');
 
-    const [inputId, setInputId] = useState("");
+    const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
 
     
-      const handleInputId = (e) => {
-      setInputId(e.target.value);
+      const handleInputEmail = (e) => {
+      setInputEmail(e.target.value);
     };
   
     const handleInputPw = (e) => {
@@ -21,12 +21,12 @@ const Login = () => {
     };
 
     const formData=new FormData();
-    formData.append("email",inputId);
+    formData.append("email",inputEmail);
     formData.append("password",inputPw);
 
     const onClickLogin = () => {
         console.log("click login");
-        console.log("ID : ", inputId);
+        console.log("ID : ", inputEmail);
         console.log("PW : ", inputPw);
 
         axios({
@@ -47,9 +47,9 @@ const Login = () => {
             } else if (res.data.email === null) {
               // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
               alert("입력하신 비밀번호 가 일치하지 않습니다.");
-            } else if (res.data.email === inputId) {
+            } else if (res.data.email === inputEmail) {
               // id, pw 모두 일치 userId = userId1, msg = undefined
-              sessionStorage.setItem("user_id", inputId); // sessionStorage에 id를 user_id라는 key 값으로 저장
+              sessionStorage.setItem("user_id", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
               sessionStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
             }
             // 작업 완료 되면 페이지 이동(새로고침)
@@ -65,8 +65,8 @@ const Login = () => {
             <div className='form login'>
                 <h2>Log In</h2>
                 <div className='inputBox'>
-                    <input type="email" name="input_id" value={inputId} onChange={handleInputId} required="required"></input>
-                    <i className="fa-regular fa-user"></i>
+                    <input type="email" name="input_email" value={inputEmail} onChange={handleInputEmail} required="required"></input>
+                    <i class="fa-regular fa-user"></i>
                     <span>username</span>
                 </div>
                 <div className='inputBox'>
