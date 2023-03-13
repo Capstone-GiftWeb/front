@@ -49,9 +49,10 @@ const Signup = () => {
         console.log("Age : ", inputAge);
         console.log("Gender : ", inputGender);
         console.log("Name : ", inputName);
+        
         axios({
             method: "POST",
-            url: "https://bde0-223-194-157-60.jp.ngrok.io/members/new",
+            url: "http://localhost:8080/members/new",
             headers:{
                 "Content-Type":"muttipart/form-data",
             },
