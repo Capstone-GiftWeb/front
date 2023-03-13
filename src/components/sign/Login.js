@@ -31,7 +31,7 @@ const Login = () => {
 
         axios({
             method: "POST",
-            url: "https://bde0-223-194-157-60.jp.ngrok.io/members/login",
+            url: "https://957a-223-194-157-60.jp.ngrok.io/members/login",
             headers:{
                 "Content-Type":"muttipart/form-data",
             },
@@ -49,14 +49,18 @@ const Login = () => {
               alert("입력하신 비밀번호 가 일치하지 않습니다.");
             } else if (res.data.email === inputEmail) {
               // id, pw 모두 일치 userId = userId1, msg = undefined
-              sessionStorage.setItem("user_id", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
-              sessionStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
+              localStorage.clear();
+              localStorage.setItem("user_id", res.data.email); // sessionStorage에 id를 user_id라는 key 값으로 저장
+              localStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
+              localStorage.setItem("age", res.data.age);
+              localStorage.setItem("gender", res.data.name);
+              localStorage.setItem("token", res.data.token);
             }
             // 작업 완료 되면 페이지 이동(새로고침)
             goToHome();
           })
           .catch(
-            console.log("Fuck")
+            console.log("Fail")
           );
       }
       
