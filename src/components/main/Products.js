@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import Loading from './Loading';
 import axios from 'axios';
-//import '../style/lobby.css'
+import '../style/Products.css'
 
-const Products = () => {
+const Products = ({ products, onClickFavorite = f => f}) => {
     const [loading, setLoading] = useState(false);
-    const [products, setProducts] = useState([]);
-
-    let url = "https://localhost:8080/gifts/all";
-
-    useEffect(() => {
-        
-    },[]);
 
     if(loading) return <Loading loading={loading}/>
 
     return (
-        <>
-            this is a main page!
-        </>
-    )
+        <div className="container">
+          <div className="row">
+            {products.map((product, index) => {
+              return (
+                <div className="col-md-4" key={index}>
+                    <img src={`${product.img}`} alt="" width="80%" />
+                    <h4>{product.title}</h4>
+                    <p>{product.vote_average}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+    
 }
 
 export default Products;
