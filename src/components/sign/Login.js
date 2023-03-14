@@ -12,7 +12,7 @@ const Login = () => {
     const [inputPw, setInputPw] = useState("");
 
     
-      const handleInputEmail = (e) => {
+    const handleInputEmail = (e) => {
       setInputEmail(e.target.value);
     };
   
@@ -49,12 +49,7 @@ const Login = () => {
               alert("입력하신 비밀번호 가 일치하지 않습니다.");
             } else if (res.data.email === inputEmail) {
               // id, pw 모두 일치 userId = userId1, msg = undefined
-              localStorage.clear();
-              localStorage.setItem("user_id", res.data.email); // sessionStorage에 id를 user_id라는 key 값으로 저장
-              localStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
-              localStorage.setItem("age", res.data.age);
-              localStorage.setItem("gender", res.data.name);
-              localStorage.setItem("token", res.data.token);
+              sessionStorage.setItem("user_id", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
             }
             // 작업 완료 되면 페이지 이동(새로고침)
             goToHome();

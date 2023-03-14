@@ -1,6 +1,12 @@
-.menu h1{
+.menu p{
     color: white;
     font-weight: 200;
     flex-direction: column;
+    justify-content: flex-start;
     cursor: pointer;
+}
+
+.menu{
+    position: relative;
+    justify-content: flex-start;
 }

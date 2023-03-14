@@ -5,7 +5,16 @@ import axios from 'axios';
 import '../style/Home.css'
 import { useNavigate, Link } from 'react-router-dom';
 
-const Home = () => {
+const Home = (props) => {
+
+    const isLogin = props.isLogin
+
+    const onLogout = () => {
+    	// sessionStorage 에 user_id 로 저장되어있는 아이템을 삭제한다.
+        sessionStorage.removeItem('user_id')
+        // Start로 이동(새로고침)
+        document.location.href = '/'
+    }
 
     const movePage = useNavigate();
     const goToHome = () => movePage('/Home');
@@ -33,12 +42,13 @@ const Home = () => {
     return (
         <div>
             <div className='menu'>
-                <h1 onClick={goToHome}>Main</h1>
-                <h1 onClick={goToCategory}>Category</h1>
-                <h1 onClick={goToFavorite}>Favorite</h1>
-                <h1 onClick={goToProfile}>Profile</h1>
+                <p onClick={goToHome}>Main</p>
+                <p onClick={goToCategory}>Category</p>
+                <p onClick={goToFavorite}>Favorite</p>
+                <p onClick={goToProfile}>Profile</p>
             </div>
-            {/* <button onClick={onClick}>불러오기</button> */}
+            <button onClick={onClick}>불러오기</button>
+            <button onClick={onLogout}>Logout</button>
         </div>
     )
 }
