@@ -6,7 +6,7 @@ const Nav = () => {
         <header>
             <div className="header--logo">
                 <a href="/Home" style={{ textDecoration: "none", color: "black"}}>
-                    <img src="img/pageIcon.png" alt="home_logo" />
+                    {/* <img src="img/pageIcon.jpg" alt="home_logo" /> */}
                 </a>
                 <a href="/Home" style={{ textDecoration: "none", color: "black"}}>
                     상상부기

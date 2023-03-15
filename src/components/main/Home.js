@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Nav from './Nav';
 import Products from './Products';
+<<<<<<< HEAD
 import axios from 'axios';
 import '../style/Home.css'
 import { useNavigate, Link } from 'react-router-dom';
@@ -50,6 +51,23 @@ const Home = (props) => {
             <button onClick={onClick}>불러오기</button>
             <button onClick={onLogout}>Logout</button>
         </div>
+=======
+import Data from './Data';
+//import '../style/Home.css'
+
+const Home = () => {
+    const [productData, setProductData] = useState(Data);
+
+    const onClickFavorite = () => {
+
+    }
+    
+    return (
+        <>
+            <Nav/>
+            <Products products={productData} onClickFavorite={()=>onClickFavorite}/>
+        </>
+>>>>>>> acc9dcc242ffa911eeac7ce73408a7065522094d
     )
 }
 

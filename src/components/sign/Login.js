@@ -31,7 +31,11 @@ const Login = () => {
 
         axios({
             method: "POST",
+<<<<<<< HEAD
             url: "https://957a-223-194-157-60.jp.ngrok.io/members/login",
+=======
+            url: "https://localhost:8080/members/login",
+>>>>>>> acc9dcc242ffa911eeac7ce73408a7065522094d
             headers:{
                 "Content-Type":"muttipart/form-data",
             },
@@ -65,7 +69,7 @@ const Login = () => {
                 <h2>Log In</h2>
                 <div className='inputBox'>
                     <input type="email" name="input_email" value={inputEmail} onChange={handleInputEmail} required="required"></input>
-                    <i class="fa-regular fa-user"></i>
+                    <i className="fa-regular fa-user"></i>
                     <span>username</span>
                 </div>
                 <div className='inputBox'>
