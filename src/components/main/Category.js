@@ -1,12 +1,12 @@
 import React from "react";
 import Nav from './Nav';
-import Menu from "./Menu";
+import Header from "./Header";
 
 const Category = () => {
     return (
         <>
+            <Header />
             <Nav />
-            <Menu />
         </>
     )
 }

@@ -3,7 +3,7 @@ import Nav from './Nav';
 import Products from './Products';
 import axios from 'axios';
 import Data from './Data';
-import Menu from './Menu';
+import Header from './Header';
 import '../style/Home.css'
 
 const Home = () => {
@@ -33,9 +33,9 @@ const Home = () => {
     
     return (
         <>
-            <Menu/>
+            <Nav/>
             <div className='box'>
-                <Nav/>
+                <Header/>
                 <Products products={productData} onClickFavorite={()=>onClickFavorite}/>
             </div>
         </>
