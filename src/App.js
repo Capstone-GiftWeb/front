@@ -6,6 +6,9 @@ import Home from "./components/main/Home"
 import Test from "./components/main/Test"
 import { Route, Routes } from 'react-router-dom';
 import './components/style/App.css';
+import Category from './components/main/Category';
+import Favorite from './components/main/Favorite';
+import Profile from './components/main/Profile';
 
 const App = () => (
   <Routes>
@@ -13,7 +16,10 @@ const App = () => (
     <Route path="/Login" element={<Login />} />
     <Route path="/Signup" element={<Signup />} />
     <Route path="/Home" element={<Home />} />
-    <Route path="/Test" element={<Test />} />
+    <Route path="/Category" element={<Category />} />
+    <Route path="/Favorite" element={<Favorite />} />
+    <Route path="/Profile" element={<Profile />} />
+    <Route path='/Test' element={<Test />} />
   </Routes>
 );
 

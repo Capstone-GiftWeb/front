@@ -1,12 +1,8 @@
-.menu p{
-    color: white;
-    font-weight: 200;
-    flex-direction: column;
-    justify-content: flex-start;
-    cursor: pointer;
-}
-
-.menu{
+.box {
     position: relative;
     justify-content: flex-start;
-}
+    width: 700px;
+    height: 300px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+  }
