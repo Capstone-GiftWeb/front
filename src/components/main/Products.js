@@ -12,12 +12,12 @@ const Products = ({ products, onClickFavorite = f => f}) => {
         <div className="container">
           <div className="row">
             {products.map((product, index) => {
-                if(product.vote_average > 30) {
+                if(product.price > 30000) {
                     return (
                         <div className="col-md-4" key={index}>
-                            <img src={`${product.img}`} alt="" width="80%" />
+                            <img src={`${product.image}`} alt="" width="40%" />
                             <h4>{product.title}</h4>
-                            <p>{product.vote_average}</p>
+                            <p>{product.id}</p>
                         </div>
                       );
                 }

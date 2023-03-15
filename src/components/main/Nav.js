@@ -20,6 +20,17 @@ const Nav = (props) => {
     }
 
     return (
+        <>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#interests">Interests</a></li>
+                <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
+            </ul>
+        </nav>
        <div>
             <nav>
                 <p onClick={goToHome}>Main</p>
@@ -29,6 +40,7 @@ const Nav = (props) => {
             </nav>
             <button onClick={onLogout}>Logout</button>
         </div>
+        </>
     )
 }
 
