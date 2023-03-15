@@ -12,7 +12,7 @@ const Login = () => {
     const [inputPw, setInputPw] = useState("");
 
     
-      const handleInputEmail = (e) => {
+    const handleInputEmail = (e) => {
       setInputEmail(e.target.value);
     };
   
@@ -31,7 +31,7 @@ const Login = () => {
 
         axios({
             method: "POST",
-            url: "https://localhost:8080/members/login",
+            url: "https://957a-223-194-157-60.jp.ngrok.io/members/login",
             headers:{
                 "Content-Type":"muttipart/form-data",
             },
@@ -50,13 +50,12 @@ const Login = () => {
             } else if (res.data.email === inputEmail) {
               // id, pw 모두 일치 userId = userId1, msg = undefined
               sessionStorage.setItem("user_id", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
-              sessionStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
             }
             // 작업 완료 되면 페이지 이동(새로고침)
             goToHome();
           })
           .catch(
-            console.log("Fuck")
+            console.log("Fail")
           );
       }
       

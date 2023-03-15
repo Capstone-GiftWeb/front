@@ -52,7 +52,7 @@ const Signup = () => {
         
         axios({
             method: "POST",
-            url: "http://localhost:8080/members/new",
+            url: "https://957a-223-194-157-60.jp.ngrok.io/members/new",
             headers:{
                 "Content-Type":"muttipart/form-data",
             },
@@ -70,14 +70,14 @@ const Signup = () => {
               alert("입력하신 비밀번호 가 일치하지 않습니다.");
             } else if (res.data.email === inputEmail) {
               // id, pw 모두 일치 userId = userId1, msg = undefined
-              sessionStorage.setItem("user_id", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
-              sessionStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
+              sessionStorage.setItem("email", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
+              sessionStorage.setItem("name", inputName); // sessionStorage에 id를 user_id라는 key 값으로 저장
             }
             // 작업 완료 되면 로그인 페이지 이동
             goToLogin();
           })
           .catch(
-            console.log("Fuck")
+            console.log("Fail")
           );
       }
 
@@ -86,12 +86,11 @@ const Signup = () => {
             <div className='form signup'>
                 <h2>Sign Up</h2>
                 <p>
-                   <span>성별</span>
-                        <label htmlFor="gender">남성</label>
-                        <input id="gender" name='gender' type="radio"  value="남자" onChange={handleInputGender} ></input>
+                    <label htmlFor="gender">남성</label>
+                    <input id="gender" name='gender' type="radio"  value="남자" onChange={handleInputGender} ></input>
 
-                        <label htmlFor="gender">여성</label>
-                        <input id="gender" name='gender' type="radio" value="여자" onChange={handleInputGender} ></input>
+                    <label htmlFor="gender">여성</label>
+                    <input id="gender" name='gender' type="radio" value="여자" onChange={handleInputGender} ></input>
                 </p>    
                 <div className='inputBox'>
                     <input type="text" value={inputName} onChange={handleInputName} required="required"></input>
