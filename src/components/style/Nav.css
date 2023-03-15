@@ -7,7 +7,7 @@ header {
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: indianred;
+    background-color: rgb(244, 206, 144);
     transition: 0.5s all ease;
 }
 
