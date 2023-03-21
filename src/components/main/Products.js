@@ -9,7 +9,7 @@ const Products = ({ products, onClickFavorite = f => f}) => {
     if(loading) return <Loading loading={loading}/>
 
     return (
-        <div className="container">
+        <div className="product">
           <div className="row">
             {products.map((product, index) => {
                 if(product.price > 30000) {

@@ -5,8 +5,10 @@ import Header from "./Header";
 const Favorite = () => {
     return (
         <>
-            <Header />
             <Nav />
+            <div className='box'>
+            <Header />
+            </div>
         </>
     )
 }

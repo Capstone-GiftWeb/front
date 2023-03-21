@@ -5,8 +5,10 @@ import Header from "./Header";
 const Profile = () => {
     return (
         <>
-            <Header />
             <Nav />
+            <div className='box'>
+            <Header />
+            </div>
         </>
     )
 }

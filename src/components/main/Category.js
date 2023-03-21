@@ -5,8 +5,10 @@ import Header from "./Header";
 const Category = () => {
     return (
         <>
-            <Header />
             <Nav />
+            <div className='box'>
+            <Header />
+            </div>
         </>
     )
 }

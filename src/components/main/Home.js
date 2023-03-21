@@ -5,6 +5,7 @@ import axios from 'axios';
 import Data from './Data';
 import Header from './Header';
 import '../style/Home.css'
+import styled from "styled-components";
 
 const Home = () => {
 
