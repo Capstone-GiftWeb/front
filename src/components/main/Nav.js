@@ -17,11 +17,12 @@ const Nav = () => {
         <>
             <div className='sidebar'>
                 <div className='menu'>
+                    <i className='fa fa-bars fa-3x' aria-hidden='true'></i>
                     <nav>
                         <p onClick={goToHome}>Main</p>
                         <p onClick={goToCategory}>Category</p>
-                         <p onClick={goToFavorite}>Favorite</p>
-                         <p onClick={goToProfile}>Profile</p>
+                        <p onClick={goToFavorite}>Favorite</p>
+                        <p onClick={goToProfile}>Profile</p>
                     </nav>
                 </div>
             </div>
