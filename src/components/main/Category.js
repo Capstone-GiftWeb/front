@@ -5,9 +5,11 @@ import Header from "./Header";
 const Category = () => {
     return (
         <>
-            <Nav />
-            <div className='box'>
-            <Header />
+            <div className="content">
+                <Nav />
+                <div className="box">
+                    <Header/>
+                </div>
             </div>
         </>
     )

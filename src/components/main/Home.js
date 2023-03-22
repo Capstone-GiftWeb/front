@@ -34,10 +34,12 @@ const Home = () => {
     
     return (
         <>
-            <Nav/>
-            <div className='box'>
-                <Header/>
-                <Products products={productData} onClickFavorite={()=>onClickFavorite}/>
+            <div className="content">
+                <Nav />
+                <div className="box">
+                    <Header/>
+                    <Products products={productData} onClickFavorite={()=>onClickFavorite}/>
+                </div>
             </div>
         </>
     )

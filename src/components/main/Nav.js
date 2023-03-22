@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../style/Menu.css'
 import { useNavigate } from 'react-router';
 import { Container } from 'react-bootstrap';
+import Header from './Header';
 
 const Nav = () => {
 
@@ -19,8 +20,8 @@ const Nav = () => {
                     <nav>
                         <p onClick={goToHome}>Main</p>
                         <p onClick={goToCategory}>Category</p>
-                        <p onClick={goToFavorite}>Favorite</p>
-                        <p onClick={goToProfile}>Profile</p>
+                         <p onClick={goToFavorite}>Favorite</p>
+                         <p onClick={goToProfile}>Profile</p>
                     </nav>
                 </div>
             </div>
