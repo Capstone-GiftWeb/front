@@ -3,29 +3,46 @@ import Loading from './Loading';
 import axios from 'axios';
 import '../style/Products.css'
 
-const Products = ({ products, onClickFavorite = f => f}) => {
-    const [loading, setLoading] = useState(false);
+const Products = () => {
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState({});
 
-    if(loading) return <Loading loading={loading}/>
+  useEffect(() => {
+    getProducts();
+  }, []);
 
-    return (
-        <div className="product">
-          <div className="row">
-            {products.map((product, index) => {
-                if(product.price > 30000) {
-                    return (
-                        <div className="col-md-4" key={index}>
-                            <img src={`${product.image}`} alt="" width="40%" />
-                            <h4>{product.title}</h4>
-                            <p>{product.id}</p>
-                        </div>
-                      );
-                }
-            })}
-          </div>
-        </div>
-      );
-    
+  const getProducts = async () => {
+    try {
+      setLoading(true);
+      await axios
+        .get('https://goldsergeant.github.io/testJson/')
+        .then((res) => {
+          setProducts(res.data);
+        });
+
+    } catch (e) {
+      console.log(e);
+    }
+    setLoading(false);
+  };
+
+  if (loading) return <Loading loading={loading} />
+
+  return (
+    <>
+      {
+        products.gifts && products.gifts.map((product,index) => {
+          return (
+            <div key={index}>
+              <img src={`${product.image}`} alt="" width="20%" />
+              <h4>{product.title}</h4>
+            </div>
+          );
+        })
+      }
+    </>
+  );
+
 }
 
 export default Products;
