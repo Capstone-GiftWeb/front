@@ -15,7 +15,7 @@ const Products = ({ products, onClickFavorite = f => f}) => {
                 if(product.price > 30000) {
                     return (
                         <div className="col-md-4" key={index}>
-                            <img src={`${product.image}`} alt="" width="40%" />
+                            <img src={`${product.image}`} alt="" width="20%" />
                             <h4>{product.title}</h4>
                             <p>{product.id}</p>
                         </div>

@@ -4,8 +4,8 @@ import Products from './Products';
 import axios from 'axios';
 import Data from './Data';
 import Header from './Header';
+import Banner from './Banner';
 import '../style/Home.css'
-import styled from "styled-components";
 
 const Home = () => {
 
@@ -38,6 +38,7 @@ const Home = () => {
                 <Nav />
                 <div className="box">
                     <Header/>
+                    <Banner/>
                     <Products products={productData} onClickFavorite={()=>onClickFavorite}/>
                 </div>
             </div>
