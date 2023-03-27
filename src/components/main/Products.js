@@ -30,16 +30,18 @@ const Products = (onClickFavorite) => {
 
   return (
     <>
-      {
-        products.gifts && products.gifts.map((product,index) => {
-          return (
-            <div key={index}>
-              <img src={`${product.image}`} alt="" width="20%" />
-              <h4>{product.title}</h4>
-            </div>
-          );
-        })
-      }
+      <div className='products'>
+        {
+          products.gifts && products.gifts.map((product, index) => {
+            return (
+              <div key={index}>
+                <img src={`${product.image}`} alt="" width="20%" />
+                <h4>{product.title}</h4>
+              </div>
+            );
+          })
+        }
+      </div>
     </>
   );
 
