@@ -2,27 +2,41 @@ import React from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/swiper.min.css"
 import "swiper/components/navigation/navigation.min.css";
+import "swiper/components/pagination/pagination.min.css";
 import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper";
+import "../style/Banner.css"
 
 const Banner = () => {
 
     SwiperCore.use([Navigation, Pagination, Autoplay]);
+    const items = [
+        {src: "img/banner.png"},
+        {src: "img/banner.png"},
+        {src: "img/banner.png"},
+        {src: "img/banner.png"}
+    ];
 
     return(
-        <div>
-            <Swiper 
-                className="banner"
-                spaceBetween={50}
-                slidesPerView={1}
-                navigation
-                pagination={{clickable: true}}
-                autoplay={{delay: 2000}}
-            >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-            </Swiper>
+        <div className="swiper-container">
+            <div className="swiper-wrapper">
+                <Swiper 
+                    style={{height:'200px'}}
+                    className="banner"
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    navigation
+                    pagination={{clickable: true}}
+                    autoplay={{delay: 2000}}
+                >
+                    {items.map((item, idx) => {
+                        return (
+                            <SwiperSlide key={idx}>
+                            <img src={item.src} />
+                            </SwiperSlide>
+                        );
+                    })}
+                </Swiper>
+            </div>
         </div>
     )
 }
