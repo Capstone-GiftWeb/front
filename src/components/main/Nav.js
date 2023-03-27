@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import '../style/Menu.css'
+import '../style/Nav.css'
 import { useNavigate } from 'react-router';
-import { Container } from 'react-bootstrap';
-import Header from './Header';
 
 const Nav = () => {
 

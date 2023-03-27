@@ -18,7 +18,7 @@ const Home = () => {
                 <div className="box">
                     <Header/>
                     <Banner/>
-                    <Products/>
+                    <Products onClickFavorite={onClickFavorite}/>
                 </div>
             </div>
         </>

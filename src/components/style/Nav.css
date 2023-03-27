@@ -1,53 +1,38 @@
-header {
-    /* position: fixed; */
-    /* z-index: 999; */
-    top: 0;
-    left: 0;
-    right: 0;
-    /* height: 60px; */
-    display: flex;
-    align-items: center;
-    background-color: none;
-    transition: 0.5s all ease;
-}
-
-.header--logo {
-    height: 60px;
-    margin-left: 20px;
-    margin-right: 60px;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-}
-
-.header--logo img {
-    height: 55px;
-}
-
-.header--user {
-    position: absolute;
-    margin-left: 94%;
-    height: 35px;
-}
-
-.header--user img {
-    border-radius: 50%;
-    height: 100%;
-}
-
-.header--logout {
-    position: absolute;
-    margin-left: 90%;
-    height: 20px;
-}
-
-.header--logout button{
-    background-color: #ffffff;
-    border: 3px solid white;
-    border-radius: 15px;
+.menu p{
+    color: white;
+    padding: 15px;
+    font-weight: 200;
     cursor: pointer;
+    border-radius: 30px 0px 0px 30px;
 }
 
-a {
-    padding: 10px;
+.menu i{
+    justify-content: first;
+    margin-bottom: 150px;
+    margin-left: 10px;
+    color: white;
+}
+
+.menu p:hover{
+    color: rgb(194, 191, 191);
+    background-color: rgb(255, 202, 87);
+}
+
+.menu{
+
+    display:flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-bottom: 400px;
+}
+
+.sidebar{
+    height: 100%;
+    display: flex;
+    float: left;
+    position: relative;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
 }
