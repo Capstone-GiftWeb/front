@@ -1,7 +1,9 @@
 .swiper-container {
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-left: 15px;
+    margin-right: 45px;
 	border-radius: 10px;
+    object-fit: contain;
+    width: 100%;
 }
 
 .swiper-slide {
@@ -9,4 +11,22 @@
 	display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
 	align-items:center; /* 위아래 기준 중앙정렬 */
 	justify-content:center; /* 좌우 기준 중앙정렬 */
+    object-fit: cover;
+}
+
+.swiper-button-prev {
+    font-weight: bold;
+    color: #fff;
+}
+.swiper-button-next {
+    font-weight: bold;
+    color: #fff;
+}
+
+.swiper-pagination {
+    color:#fff;
+}
+
+.swiper-slide img{
+    width: 1400px;
 }

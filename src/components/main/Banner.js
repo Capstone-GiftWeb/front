@@ -11,9 +11,9 @@ const Banner = () => {
     SwiperCore.use([Navigation, Pagination, Autoplay]);
     const items = [
         {src: "img/banner.png"},
-        {src: "img/banner.png"},
-        {src: "img/banner.png"},
-        {src: "img/banner.png"}
+        {src: "img/banner2.png"},
+        {src: "img/banner3.png"},
+        {src: "img/banner4.png"}
     ];
 
     return(
@@ -22,7 +22,7 @@ const Banner = () => {
                 <Swiper 
                     style={{height:'200px'}}
                     className="banner"
-                    spaceBetween={50}
+                    spaceBetween={30}
                     slidesPerView={1}
                     navigation
                     pagination={{clickable: true}}
@@ -31,7 +31,7 @@ const Banner = () => {
                     {items.map((item, idx) => {
                         return (
                             <SwiperSlide key={idx}>
-                            <img src={item.src} />
+                            <img resizeMode="stretch" src={item.src} />
                             </SwiperSlide>
                         );
                     })}
