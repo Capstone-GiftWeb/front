@@ -3,7 +3,7 @@ import Loading from './Loading';
 import axios from 'axios';
 import '../style/Products.css'
 
-const Products = () => {
+const Products = (onClickFavorite) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState({});
 

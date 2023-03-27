@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../style/Nav.css'
+import '../style/Header.css'
 
 const Header = (props) => {
 

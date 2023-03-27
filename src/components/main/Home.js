@@ -16,7 +16,7 @@ const Home = () => {
                 <Nav />
                 <div className="box">
                     <Header/>
-                    <Products/>
+                    <Products onClickFavorite={onClickFavorite}/>
                 </div>
             </div>
         </>
