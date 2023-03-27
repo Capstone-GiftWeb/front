@@ -31,9 +31,7 @@
     height: 100%;
     display: flex;
     float: left;
-    position: fixed;
-    top: 4%;
-    right: 83%;
+    position: relative;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
