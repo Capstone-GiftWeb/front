@@ -10,6 +10,7 @@ const Home = () => {
     const onClickFavorite = () => {
 
     }
+
     
     return (
         <>
@@ -17,8 +18,10 @@ const Home = () => {
                 <Nav />
                 <div className="box">
                     <Header/>
+                    <div className='scroll-box'>
                     <Banner/>
                     <Products onClickFavorite={onClickFavorite}/>
+                    </div>
                 </div>
             </div>
         </>
