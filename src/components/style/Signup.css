@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+:root {
+    accent-color: rgb(255, 157, 66);
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -125,4 +129,6 @@ body{
     background-color: #EAA763;
     cursor: pointer;
     font-style: italic;
+    text-decoration: underline;
+    margin-left: 5px;
 }

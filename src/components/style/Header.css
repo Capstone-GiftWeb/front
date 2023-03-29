@@ -41,13 +41,11 @@ header {
     height: 20px;
 }
 
-.header--logout button{
-    background-color: #ffffff;
-    border: 3px solid white;
-    border-radius: 15px;
+.header--logout {
     cursor: pointer;
 }
 
 a {
+    font-size: 15px;
     padding: 10px;
 }

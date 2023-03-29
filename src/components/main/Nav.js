@@ -9,7 +9,7 @@ const Nav = () => {
     const goToCategory = () => movePage('/Category');
     const goToFavorite = () => movePage('/Favorite');
     const goToProfile = () => movePage('/Profile');
-
+    const goToStart = () => movePage('/');
 
     return (
         <>
@@ -23,6 +23,9 @@ const Nav = () => {
                         <p onClick={goToProfile}>Profile</p>
                     </nav>
                 </div>
+                <button onClick={goToStart}>
+                    <i className="fa-solid fa-chevron-left fa-1x"></i>
+                </button>
             </div>
         </>
     )

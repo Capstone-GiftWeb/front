@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../style/Signup.css'
 import axios from 'axios';
+import setAuthorizationToken from '../utils/setAuthorizationToken';
 
 
 const Signup = () => {
@@ -38,14 +39,12 @@ const Signup = () => {
     const formData=new FormData();
     formData.append("name",inputName);
     formData.append("email",inputEmail);
-    formData.append("password",inputPw);
     formData.append("age", inputAge);
     formData.append("gender", inputGender);
 
     const onClickSignup = () => {
         console.log("click login");
         console.log("ID : ", inputEmail);
-        console.log("PW : ", inputPw);
         console.log("Age : ", inputAge);
         console.log("Gender : ", inputGender);
         console.log("Name : ", inputName);
@@ -59,7 +58,6 @@ const Signup = () => {
             data : formData,
         })
           .then((res) => {
-            console.log(res);
             console.log("res.data.userId :: ", res.data.userId);
             console.log("res.data.msg :: ", res.data.msg);
             if (res.data.email === undefined) {
@@ -121,7 +119,7 @@ const Signup = () => {
                     <input type="submit" onClick={onClickSignup} value="Create Account"></input>
                 </div>
                 <p>Already a member ?
-                <button onClick={goToLogin}>Log in</button>
+                  <button onClick={goToLogin}>Log in</button>
                 </p>
             </div>
         </div>
