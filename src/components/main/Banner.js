@@ -31,7 +31,7 @@ const Banner = () => {
                     {items.map((item, idx) => {
                         return (
                             <SwiperSlide key={idx}>
-                            <img resizeMode="stretch" src={item.src} />
+                            <img resizeMode="stretch" src={item.src} alt="banner img" />
                             </SwiperSlide>
                         );
                     })}
