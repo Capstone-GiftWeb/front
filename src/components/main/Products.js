@@ -8,11 +8,13 @@ const Products = (onClickFavorite) => {
   const [products, setProducts] = useState({});
 
   useEffect(() => {
+    // 컴포넌트가 마운트 됐을 때, 상품 데이터를 가져오는 함수 호출
     getProducts();
   }, []);
 
   const getProducts = async () => {
     try {
+      // 로딩창을 실행
       setLoading(true);
       await axios
         .get('https://goldsergeant.github.io/testJson/')
@@ -29,20 +31,22 @@ const Products = (onClickFavorite) => {
   if (loading) return <Loading loading={loading} />
 
   return (
-    <>
-      <div className='products'>
+    <div className='container'>
+      <div className='row'>
         {
           products.gifts && products.gifts.map((product, index) => {
-            return (
-              <div key={index}>
-                <img src={`${product.image}`} alt="" width="20%" />
-                <h4>{product.title}</h4>
-              </div>
-            );
+            if (index < 10) {
+              return (
+                <div key={index} className="col-md-4 gird">
+                  <a href={product.href}>{product.title}</a>
+                  <img src={`${product.image}`} alt="" width="90%" />
+                </div>
+              );
+            }
           })
         }
       </div>
-    </>
+    </div>
   );
 
 }

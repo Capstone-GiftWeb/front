@@ -9,10 +9,8 @@
   }
 
   .scroll-box {
-    margin-top: 10px;
     overflow-x: hidden;
     overflow-y: scroll;
-    border: solid black 1px;
     width: 1000px;
     height: 750px;
   }
