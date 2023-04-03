@@ -1,12 +1,8 @@
-.products {
+.container {
     position: relative;
     width: 100%;
     height: 120px;
     margin-top: 10%;
     margin-left: 2%;
-    padding: 10px;
-    width: 950px;
-    height: 47%;
-    border: 1px solid rgb(255, 202, 87);
-    border-radius: 20px;
+    width: 930px;
 }
