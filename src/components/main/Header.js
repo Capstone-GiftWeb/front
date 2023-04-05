@@ -7,9 +7,7 @@ const Header = (props) => {
 
     const onLogout = () => {
     	// sessionStorage 에 user_id 로 저장되어있는 아이템을 삭제한다.
-        sessionStorage.removeItem('user_id')
-        // Start로 이동(새로고침)
-        document.location.href = '/'
+        //sessionStorage.removeItem('user_id')
     }
 
 
@@ -29,7 +27,9 @@ const Header = (props) => {
                 </a>
             </div>
             <div className="header--logout">
-                <button onClick={onLogout}>Logout</button>
+                <a href='/' style={{ textDecoration: "none", color: "black"}} onClick={onLogout}>
+                    Logout
+                </a>
             </div>
         </header>
     );

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../style/Signup.css'
 import axios from 'axios';
+import { setCookie, getCookie } from '../utils/Cookie';
 
 const Login = () => {
     const movePage = useNavigate();
@@ -34,11 +35,20 @@ const Login = () => {
             url: "https://957a-223-194-157-60.jp.ngrok.io/members/login",
             headers:{
                 "Content-Type":"muttipart/form-data",
+                //Authorization: `Bearer ${getCookie("is_login")}`,
             },
             data : formData,
         })
           .then((res) => {
+
             console.log(res);
+            const accessToken = res.data['access-token'];
+            const refreshToken = res.data['refresh-token'];
+            setCookie("access_token", `${accessToken}`); 
+            setCookie("refresh_token", `${refreshToken}`);
+            //const token = getCookie("access-token");
+            //axios.defaults.headers.common['Authorization'] = `Bearer ${getCookie("is_login")}`;
+
             console.log("res.data.userId :: ", res.data.userId);
             console.log("res.data.msg :: ", res.data.msg);
             if (res.data.email === undefined) {
@@ -49,10 +59,10 @@ const Login = () => {
               alert("입력하신 비밀번호 가 일치하지 않습니다.");
             } else if (res.data.email === inputEmail) {
               // id, pw 모두 일치 userId = userId1, msg = undefined
-              sessionStorage.setItem("user_id", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
+              //sessionStorage.setItem("user_id", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
             }
-            // 작업 완료 되면 페이지 이동(새로고침)
             goToHome();
+           // return res.data;
           })
           .catch(
             console.log("Fail")
@@ -77,7 +87,7 @@ const Login = () => {
                     <input type="submit" onClick={onClickLogin} value="LOGIN"></input>
                 </div>
                 <p>Not Registered ?
-                <button onClick={goToSignUp}>Create an account</button>
+                  <button onClick={goToSignUp}>Create an account</button>
                 </p>
             </div>
         </div>

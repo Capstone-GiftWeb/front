@@ -38,14 +38,12 @@ const Signup = () => {
     const formData=new FormData();
     formData.append("name",inputName);
     formData.append("email",inputEmail);
-    formData.append("password",inputPw);
     formData.append("age", inputAge);
     formData.append("gender", inputGender);
 
     const onClickSignup = () => {
         console.log("click login");
         console.log("ID : ", inputEmail);
-        console.log("PW : ", inputPw);
         console.log("Age : ", inputAge);
         console.log("Gender : ", inputGender);
         console.log("Name : ", inputName);
@@ -59,7 +57,6 @@ const Signup = () => {
             data : formData,
         })
           .then((res) => {
-            console.log(res);
             console.log("res.data.userId :: ", res.data.userId);
             console.log("res.data.msg :: ", res.data.msg);
             if (res.data.email === undefined) {
@@ -70,8 +67,8 @@ const Signup = () => {
               alert("입력하신 비밀번호 가 일치하지 않습니다.");
             } else if (res.data.email === inputEmail) {
               // id, pw 모두 일치 userId = userId1, msg = undefined
-              sessionStorage.setItem("email", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
-              sessionStorage.setItem("name", inputName); // sessionStorage에 id를 user_id라는 key 값으로 저장
+              //sessionStorage.setItem("email", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
+              //sessionStorage.setItem("name", inputName); // sessionStorage에 id를 user_id라는 key 값으로 저장
             }
             // 작업 완료 되면 로그인 페이지 이동
             goToLogin();
@@ -121,7 +118,7 @@ const Signup = () => {
                     <input type="submit" onClick={onClickSignup} value="Create Account"></input>
                 </div>
                 <p>Already a member ?
-                <button onClick={goToLogin}>Log in</button>
+                  <button onClick={goToLogin}>Log in</button>
                 </p>
             </div>
         </div>
