@@ -35,7 +35,7 @@ const Login = () => {
             url: "https://957a-223-194-157-60.jp.ngrok.io/members/login",
             headers:{
                 "Content-Type":"muttipart/form-data",
-                Authorization: `Bearer ${getCookie("is_login")}`,
+                //Authorization: `Bearer ${getCookie("is_login")}`,
             },
             data : formData,
         })
@@ -43,11 +43,11 @@ const Login = () => {
 
             console.log(res);
             const accessToken = res.data['access-token'];
-            //const accessToken = res.data.token;
-            setCookie("is_login", `${accessToken}`); 
-            localStorage.setItem('refresh-token', res.data['refresh-token']);
+            const refreshToken = res.data['refresh-token'];
+            setCookie("access_token", `${accessToken}`); 
+            setCookie("refresh_token", `${refreshToken}`);
             //const token = getCookie("access-token");
-            axios.defaults.headers.common['Authorization'] = `Bearer ${getCookie("is_login")}`;
+            //axios.defaults.headers.common['Authorization'] = `Bearer ${getCookie("is_login")}`;
 
             console.log("res.data.userId :: ", res.data.userId);
             console.log("res.data.msg :: ", res.data.msg);

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../style/Signup.css'
 import axios from 'axios';
-import setAuthorizationToken from '../utils/setAuthorizationToken';
 
 
 const Signup = () => {
