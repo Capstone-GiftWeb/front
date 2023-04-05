@@ -82,10 +82,9 @@ const Signup = () => {
         <div className='container'>
             <div className='form signup'>
                 <h2>Sign Up</h2>
-                <p>
+                <p className='radio'>
                     <label htmlFor="gender">남성</label>
                     <input id="gender" name='gender' type="radio"  value="남자" onChange={handleInputGender} ></input>
-
                     <label htmlFor="gender">여성</label>
                     <input id="gender" name='gender' type="radio" value="여자" onChange={handleInputGender} ></input>
                 </p>    
@@ -121,6 +120,7 @@ const Signup = () => {
                   <button onClick={goToLogin}>Log in</button>
                 </p>
             </div>
+            <a href='/'>return</a>
         </div>
     )
 }

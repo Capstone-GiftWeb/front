@@ -4,11 +4,11 @@ import './components/style/index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
-import { getCookie } from './components/utils/Cookie';
+import { getCookie, setCookie } from './components/utils/Cookie';
+import { Cookies } from 'react-cookie';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-//setAuthorizationToken(localStorage.jwtToken);
 //axios.defaults.withCredentials = true;
 
 const axiosInstance = axios.create({
@@ -41,8 +41,8 @@ axiosInstance.interceptors.response.use(
         })
         .then(response => {
           const accessToken = response.data.accessToken;
-          // 발급받은 access token을 localStorage에 저장합니다.
-          localStorage.setItem('accessToken', accessToken);
+          // 발급받은 access token을 Cookie에 저장합니다.
+          setCookie('access_Token', accessToken);
           // 기존 request의 header에 새로운 access token을 포함시킵니다.
           originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
           // 새로운 access token을 사용하여 기존 request를 다시 보냅니다.

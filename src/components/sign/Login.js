@@ -32,22 +32,19 @@ const Login = () => {
 
         axios({
             method: "POST",
-            url: "https://957a-223-194-157-60.jp.ngrok.io/members/login",
+            url: "https://957a-223-194-157-60.jp.ngrok.io/auth/login",
             headers:{
                 "Content-Type":"muttipart/form-data",
-                //Authorization: `Bearer ${getCookie("is_login")}`,
             },
             data : formData,
         })
           .then((res) => {
 
             console.log(res);
-            const accessToken = res.data['access-token'];
-            const refreshToken = res.data['refresh-token'];
+            const accessToken = res.data['accessToken'];
+            const refreshToken = res.data['refreshToken'];
             setCookie("access_token", `${accessToken}`); 
             setCookie("refresh_token", `${refreshToken}`);
-            //const token = getCookie("access-token");
-            //axios.defaults.headers.common['Authorization'] = `Bearer ${getCookie("is_login")}`;
 
             console.log("res.data.userId :: ", res.data.userId);
             console.log("res.data.msg :: ", res.data.msg);
@@ -90,6 +87,8 @@ const Login = () => {
                   <button onClick={goToSignUp}>Create an account</button>
                 </p>
             </div>
+            
+            <a href='/'>return</a>
         </div>
     )
 }

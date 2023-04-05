@@ -30,6 +30,7 @@ body {
 }
 
 .content .text{
+    font-family: 'SUIT-Regular';
     position: relative;
     max-width: 600px;
     margin-left: -100px;

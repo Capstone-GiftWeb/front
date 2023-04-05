@@ -132,3 +132,15 @@ body{
     text-decoration: underline;
     margin-left: 5px;
 }
+
+.menu i{
+    justify-content: first;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    margin-left: 15px;
+    color: white;
+}
+
+.radio{
+    margin: 0px;
+}

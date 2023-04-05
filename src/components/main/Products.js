@@ -31,7 +31,7 @@ const Products = (onClickFavorite) => {
   if (loading) return <Loading loading={loading} />
 
   return (
-    <div className='container'>
+    <div className='container-pd'>
       <div className='row'>
         {
           products.gifts && products.gifts.map((product, index) => {
