@@ -12,7 +12,7 @@ const Start = () => {
     return (
         <>
         <div>
-            <section>
+            <section className='col-md-4'>
                 <div className='circle'></div>
                 <div className='content'>
                     <div className='text'>
