@@ -13,13 +13,9 @@ const Header = (props) => {
 
     return (
         <header>
-            <div className="header--logo">
-                <a href="/Home" style={{ textDecoration: "none", color: "black"}}>
-                    {/* <img src="img/pageIcon.jpg" alt="home_logo" /> */}
-                </a>
-                <a href="/Home" style={{ textDecoration: "none", color: "black"}}>
-                    상상부기
-                </a>
+            <div className="search-window">
+                    <input type="text" id="search" placeholder="검색"/>
+                    <span id="search-icon"><i className="fas fa-search" ></i></span>
             </div>
             <div className="header--user">
                 <a href='/Profile'>
