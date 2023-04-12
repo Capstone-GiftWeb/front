@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import '../style/Header.css'
+import { getCookie, removeCookie } from '../utils/Cookie';
+import axiosInstance from '../..';
 
 const Header = (props) => {
 
     const isLogin = props.isLogin
 
     const onLogout = () => {
-    	// sessionStorage 에 user_id 로 저장되어있는 아이템을 삭제한다.
-        //sessionStorage.removeItem('user_id')
+        const accessToken = getCookie("accessToken");
+        axiosInstance.delete("/auth/logout",{
+            accessToken: accessToken
+        })
+        .then(response => {
+
+        })
+        .catch((e)=>{
+            console.log(e);
+            console.log("Fail");
+        });
     }
 
 
