@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Loading from './Loading';
-import axios from 'axios';
 import '../style/Products.css'
 import axiosInstance from '../..';
 
@@ -31,17 +29,18 @@ const Products = (onClickFavorite) => {
   };
 
   if (loading) return <Loading loading={loading} />
+const Products = ({ props, onClickProduct }) => {
 
   return (
     <div className='container-pd'>
       <div className='row'>
         {
-          products.gifts && products.gifts.map((product, index) => {
+          props.map((product, index) => {
             if (index < 10) {
               return (
-                <div key={index} className="col-md-4 gird">
-                  <a href={product.href}>{product.title}</a>
-                  <img src={`${product.image}`} alt="" width="90%" />
+                <div key={index} className="col-md-3 gird">
+                  <img src={`${product.image}`} alt="" width="100%" />
+                  <p onClick={(e) => onClickProduct( e, product.href)}>{product.title}</p>
                 </div>
               );
             }

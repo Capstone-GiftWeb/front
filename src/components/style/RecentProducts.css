@@ -1,0 +1,28 @@
+.lasted {
+  position: absolute;
+  width: 250px;
+  height: 650px;
+  margin-left: 1190px;
+  background-color: #F5F5F5;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.lasted h5 {
+  padding-top: 10px;
+}
+
+.lasted img {
+  width: 80%;
+  border-radius: 12%;
+  margin: auto;
+}
+
+.lasted p {
+  height: 40px;
+  margin-top: 6px;
+}
+
+.row {
+  margin: 8px;
+}
