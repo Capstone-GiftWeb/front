@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Loading from './Loading';
 import axios from 'axios';
 import '../style/Products.css'
+import axiosInstance from '../..';
 
 const Products = (onClickFavorite) => {
   const [loading, setLoading] = useState(false);
@@ -17,7 +18,8 @@ const Products = (onClickFavorite) => {
       // 로딩창을 실행
       setLoading(true);
       await axios
-        .get('https://goldsergeant.github.io/testJson/')
+        .get('https://638b-223-194-155-186.ngrok-free.app/gifts', { withCredentials: true })
+        //CORS문제발생
         .then((res) => {
           setProducts(res.data);
         });

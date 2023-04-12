@@ -7,6 +7,7 @@ import axios from 'axios';
 const Signup = () => {
     const movePage = useNavigate();
     const goToLogin = () => movePage('/Login');
+    const goToHome = () => movePage('/');
 
     const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
@@ -51,7 +52,7 @@ const Signup = () => {
         
         axios({
             method: "POST",
-            url: "https://e410-223-194-156-95.jp.ngrok.io/auth/signup",
+            url: "https://638b-223-194-155-186.ngrok-free.app/auth/signup",
             headers:{
                 "Content-Type":"application/json",
             },
@@ -127,7 +128,12 @@ const Signup = () => {
                   <button onClick={goToLogin}>Log in</button>
                 </p>
             </div>
-            <a href='/'>return</a>
+            
+            <div className='back'>
+              <button onClick={goToHome}>
+                      <i className="fa-solid fa-chevron-left fa-1x"></i>
+              </button>
+            </div>
         </div>
     )
 }

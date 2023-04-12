@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../style/Signup.css'
 import axios from 'axios';
 import { setCookie, getCookie } from '../utils/Cookie';
+import axiosInstance from '../..';
 
 const Login = () => {
     const movePage = useNavigate();
@@ -30,9 +31,9 @@ const Login = () => {
         console.log("ID : ", inputEmail);
         console.log("PW : ", inputPw);
 
-        axios({
+        axiosInstance({
             method: "POST",
-            url: "https://e410-223-194-156-95.jp.ngrok.io/auth/login",
+            url: "/auth/login",
             headers:{
                 "Content-Type":"application/json",
             },
@@ -46,17 +47,18 @@ const Login = () => {
             console.log(res);
             const accessToken = res.data['accessToken'];
             const refreshToken = res.data['refreshToken'];
-            setCookie("access_token", `${accessToken}`); 
-            setCookie("refresh_token", `${refreshToken}`);
+            setCookie("accessToken", `${accessToken}`); 
+            setCookie("refreshToken", `${refreshToken}`);
 
             console.log("res.data.userId :: ", res.data.userId);
             console.log("res.data.msg :: ", res.data.msg);
             goToHome();
-           // return res.data;
+           return res.data;
           })
-          .catch(
-            console.log("Fail")
-          );
+          .catch((e)=>{
+            console.log(e);
+            console.log("Fail");
+          });
       }
       
     return (
@@ -81,7 +83,11 @@ const Login = () => {
                 </p>
             </div>
             
-            <a href='/'>return</a>
+            <div className='back'>
+            <button onClick={goToHome}>
+                    <i className="fa-solid fa-chevron-left fa-1x"></i>
+            </button>
+            </div>
         </div>
     )
 }
