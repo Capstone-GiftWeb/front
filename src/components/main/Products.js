@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../style/Products.css'
 
-const Products = ({ props, onClickProduct }) => {
+const Products = ({ props , onClickProduct}) => {
 
   return (
     <div className='container'>
@@ -12,7 +12,7 @@ const Products = ({ props, onClickProduct }) => {
               return (
                 <div key={index} className="col-md-3 gird">
                   <img src={`${product.image}`} alt="" width="100%" />
-                  <p onClick={(e) => onClickProduct( e, product.href)}>{product.title}</p>
+                  <p onClick={() => onClickProduct(product.href)}>{product.title}</p>
                 </div>
               );
             }
