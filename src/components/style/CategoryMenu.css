@@ -1,0 +1,11 @@
+.category-menu-container {
+    padding: 10px
+}
+
+li {
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: antiquewhite;
+}
