@@ -11,7 +11,10 @@ const Products = ({ props, onClickProduct }) => {
             return (
               <div key={index} className="col-md-3 gird">
                 <img src={`${product.image}`} alt="" width="100%" />
+                <div className='product-title'>
                 <p onClick={() => onClickProduct(product.href)}>{product.title}</p>
+                <button>☆</button>
+                </div>
               </div>
             );
 

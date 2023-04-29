@@ -1,8 +1,23 @@
-.product-container {
-    position: relative;
-    text-align: center;
-}
-
 img {
     border-radius: 6%;
+}
+
+p {
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 10px;
+}
+
+.product-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button {
+    border: none;
+    margin-bottom: 10px;
+    background-color: white;
 }
