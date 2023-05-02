@@ -1,16 +1,15 @@
 import React from "react";
 import Nav from './Nav';
 import Header from "./Header";
-import Banner from "./Banner";
+import '../style/Favorite.css'
 
 const Favorite = () => {
     return (
         <>
-            <div className="content">
+            <div className="favorite-content">
                 <Nav />
-                <div className="box">
+                <div className="favorite-box">
                     <Header/>
-                    <Banner/>
                 </div>
             </div>
         </>

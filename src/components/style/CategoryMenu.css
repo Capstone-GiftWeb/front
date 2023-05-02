@@ -6,6 +6,10 @@ li {
     cursor: pointer;
 }
 
-li:hover {
+li:hover:not(.click) {
+    background-color: whitesmoke;
+}
+
+.click {
     background-color: antiquewhite;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../style/CategoryMenu.css';
 
 const categories = [
@@ -17,14 +17,24 @@ const categories = [
 ];
 
 const CategoryMenu = ({onCategorySelect }) => {
+    const [isBtnActive, setIsBtnActive] = useState(0);
+
+    useState(() => {
+
+    }, []);
+
     return (
         <div className='category-menu-container'>
             <ul className="list-group list-group-horizontal">
                 {categories.map((category) => (
                     <li
                         key={category.id}
-                        className="list-group-item"
-                        onClick={() => onCategorySelect(category.id)}
+                        className={"list-group-item " + (category.id === isBtnActive ? "click" : "")}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            onCategorySelect(category.id);
+                            setIsBtnActive(category.id);
+                        }}
                     >
                         {category.name}
                     </li>

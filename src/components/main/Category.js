@@ -18,7 +18,7 @@ const Category = () => {
       }
 
     const onCategorySelect = (id) => {
-        setSelectedCategory(id)
+        setSelectedCategory(id);
     }
 
     useEffect(() => {
