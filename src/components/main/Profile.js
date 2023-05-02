@@ -6,10 +6,10 @@ import ProfileDetails from "./ProfileDetails";
 const Profile = () => {
     return (
         <>
-            <div className="content">
+            <div className="profile-content">
                 <Nav />
-                <div className="box">
-                    <ProfileDetails/>
+                <div className="profile-box">
+                    <Header/>
                 </div>
             </div>
         </>

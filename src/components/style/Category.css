@@ -1,4 +1,4 @@
-.home-box {
+.category-box {
     float: right;
     position: relative;
     justify-content:space-between;
@@ -12,12 +12,9 @@
     overflow-x: hidden;
     overflow-y: scroll;
     width: 1050px;
+    height: 670px;
   }
 
 .scroll-box::-webkit-scrollbar {
     display: none;
-  }
-
-  .top-rank-products {
-    margin-top: 30px;
   }

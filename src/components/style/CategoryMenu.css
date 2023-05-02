@@ -1,0 +1,15 @@
+.category-menu-container {
+    padding: 10px
+}
+
+li {
+    cursor: pointer;
+}
+
+li:hover:not(.click) {
+    background-color: whitesmoke;
+}
+
+.click {
+    background-color: antiquewhite;
+}

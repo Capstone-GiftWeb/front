@@ -18,12 +18,12 @@ const Home = () => {
     const onClickProduct = (href) => {
         const productHref = href.replace("product/", "").trim();
         setClickedProductList(prevData => [productHref, ...prevData]);
-    
+
         if (clickedProductList.length > 5) {
-          setClickedProductList(clickedProductList.slice(0, 5));
+            setClickedProductList(clickedProductList.slice(0, 5));
         }
         setCookie('recentProducts', JSON.stringify(clickedProductList));
-      }
+    }
 
     // Data.js의 getProducts를 사용하여 데이터를 불러와 useState에 저장
     useEffect(() => {
@@ -48,13 +48,15 @@ const Home = () => {
 
     return (
         <>
-            <div className="content">
+            <div className="home-content">
                 <Nav />
-                <div className="box">
+                <div className="home-box">
                     <Header />
                     <div className='scroll-box'>
                         <Banner />
-                        <Products props={data} onClickProduct={onClickProduct} />
+                        <div className='top-rank-products'>
+                            <Products props={data} onClickProduct={onClickProduct} />
+                        </div>
                     </div>
                 </div>
                 <RecentProducts props={recentProductList} />

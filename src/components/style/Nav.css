@@ -56,3 +56,7 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.navClick {
+    background-color: rgb(255, 202, 87);
+}
