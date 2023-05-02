@@ -1,0 +1,28 @@
+.profileBox{
+    margin: 30px;
+    width: 1300px;
+    height: 720px;
+    border: none;
+    border-radius: 30px;
+    background-color: #F5F5F5;
+    flex-direction: row;
+}
+
+.user{
+    padding: 30px;
+}
+
+.user p{
+    font-size: 35px;
+}
+
+.user img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.information{
+
+}

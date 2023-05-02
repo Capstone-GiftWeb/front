@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 //axios.defaults.withCredentials = true;
 
 const axiosInstance = axios.create({
-  baseURL: 'https://638b-223-194-155-186.ngrok-free.app',
+  baseURL: 'https://b034-223-194-154-22.ngrok-free.app',
   withCredentials: true,
   //true 설정 해줘야 refershToken cookie를 주고받을수있음.
 });

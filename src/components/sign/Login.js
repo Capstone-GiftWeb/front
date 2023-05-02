@@ -52,6 +52,7 @@ const Login = () => {
 
             console.log("res.data.userId :: ", res.data.userId);
             console.log("res.data.msg :: ", res.data.msg);
+            alert("로그인 성공 !");
             goToHome();
            return res.data;
           })

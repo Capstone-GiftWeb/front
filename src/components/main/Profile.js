@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from './Nav';
 import Header from "./Header";
+import ProfileDetails from "./ProfileDetails";
 
 const Profile = () => {
     return (
@@ -8,7 +9,7 @@ const Profile = () => {
             <div className="content">
                 <Nav />
                 <div className="box">
-                    <Header/>
+                    <ProfileDetails/>
                 </div>
             </div>
         </>

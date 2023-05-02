@@ -52,7 +52,7 @@ const Signup = () => {
         
         axios({
             method: "POST",
-            url: "https://638b-223-194-155-186.ngrok-free.app/auth/signup",
+            url: "https://b034-223-194-154-22.ngrok-free.app/auth/signup",
             headers:{
                 "Content-Type":"application/json",
             },
@@ -79,6 +79,7 @@ const Signup = () => {
               //sessionStorage.setItem("name", inputName); // sessionStorage에 id를 user_id라는 key 값으로 저장
             }
             // 작업 완료 되면 로그인 페이지 이동
+            alert("회원가입을 환영합니다 :)")
             goToLogin();
           })
           .catch(
