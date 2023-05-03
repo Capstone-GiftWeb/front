@@ -52,7 +52,7 @@ const Signup = () => {
         
         axios({
             method: "POST",
-            url: "https://rotten-flies-draw-223-194-159-126.loca.lt/auth/signup",
+            url: " https://0621-223-194-159-126.ngrok-free.app'/auth/signup",
             headers:{
                 "Content-Type":"application/json",
             },

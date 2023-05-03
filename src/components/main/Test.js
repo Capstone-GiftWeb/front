@@ -5,7 +5,7 @@ import axiosInstance from "../..";
 const Test = () => {
       axiosInstance({
         method: "GET",
-        url: "https://5462-223-194-159-126.ngrok-free.app/gifts",
+        url: "/gifts",
         headers:{"Content-Type":"application/json",},
       })
       .then((res) => {

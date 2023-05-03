@@ -9,14 +9,22 @@ import { Cookies } from 'react-cookie';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-//axios.defaults.withCredentials = true;
-
 const axiosInstance = axios.create({
-  baseURL: 'https://2748-223-194-159-126.ngrok-free.app',
+  baseURL: 'https://0621-223-194-159-126.ngrok-free.app',
   headers: { "Content-type": "application/json" },
   withCredentials: true,
-  //true 설정 해줘야 refershToken cookie를 주고받을수있음.
 });
+
+axiosInstance.interceptors.request.use(
+  async (config) => {
+    const accessToken = await getCookie("accessToken");
+
+    config.headers.common = config.headers.common || {}; // 초기화
+    config.headers.common["Authorization"] = `Bearer ${accessToken}`
+    
+    return config;
+  }
+)
 
 axiosInstance.interceptors.response.use(
   response => response,
@@ -27,6 +35,7 @@ axiosInstance.interceptors.response.use(
       
       const refreshToken = getCookie('refreshToken');
       if (refreshToken) {
+        //config.headers.Authorization = `Bearer ${accessToken}`;
         return axios.post('/auth/reissue', {
           refreshToken: refreshToken
         })

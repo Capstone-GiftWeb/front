@@ -7,20 +7,7 @@ const Header = (props) => {
 
     const isLogin = props.isLogin
 
-    const onLogout = () => {
-        const accessToken = getCookie("accessToken");
-        axiosInstance.delete("/auth/logout",{
-            accessToken: accessToken
-        })
-        .then(response => {
-
-        })
-        .catch((e)=>{
-            console.log(e);
-            console.log("Fail");
-        });
-    }
-
+    const username = getCookie("name");
 
     return (
         <header>
@@ -34,8 +21,8 @@ const Header = (props) => {
                 </a>
             </div>
             <div className="header--logout">
-                <a href='/' style={{ textDecoration: "none", color: "black"}} onClick={onLogout}>
-                    Logout
+                <a href='/Profile' style={{ textDecoration: "none", color: "black"}}>
+                    {username}
                 </a>
             </div>
         </header>

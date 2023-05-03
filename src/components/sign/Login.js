@@ -44,12 +44,9 @@ const Login = () => {
             console.log(res);
             const accessToken = res.data['accessToken'];
             const refreshToken = res.data['refreshToken'];
-            const name = res.data['name'];
-            const email = res.data['email'];
+            
             setCookie("accessToken", `${accessToken}`); 
             setCookie("refreshToken", `${refreshToken}`);
-            setCookie("name", `${name}`);
-            setCookie("email", `${email}`);
 
             alert("로그인 성공 !");
             goToHome();
