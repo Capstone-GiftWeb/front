@@ -1,5 +1,6 @@
 import React from "react";
 import '../style/ProfileDetails.css';
+import { getCookie } from "../utils/Cookie";
 
 const ProfileDetails = () => {
 
@@ -24,6 +25,8 @@ const ProfileDetails = () => {
     //     console.log("Fail")
     //   );
 
+    const name = getCookie("name");
+
     return(
         <div className="content-pf">
             <div className="title">
@@ -43,7 +46,7 @@ const ProfileDetails = () => {
                             <p>username@naver.com</p>
 
                             <button>Edit Profile</button>
-                            <button>change password</button>
+                            <button>Logout</button>
                         </div>
                     </div>
                 </div>
