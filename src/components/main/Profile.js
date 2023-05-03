@@ -1,6 +1,5 @@
 import React from "react";
 import Nav from './Nav';
-import Header from "./Header";
 import ProfileDetails from "./ProfileDetails";
 
 const Profile = () => {
@@ -9,7 +8,7 @@ const Profile = () => {
             <div className="profile-content">
                 <Nav />
                 <div className="profile-box">
-                    <Header/>
+                    <ProfileDetails/>
                 </div>
             </div>
         </>

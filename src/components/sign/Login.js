@@ -9,6 +9,7 @@ const Login = () => {
     const movePage = useNavigate();
     const goToSignUp = () => movePage('/Signup');
     const goToHome = () => movePage('/Home');
+    const goToStart = () => movePage('/');
 
     const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
@@ -21,10 +22,6 @@ const Login = () => {
     const handleInputPw = (e) => {
       setInputPw(e.target.value);
     };
-
-    //const formData=new FormData();
-    //formData.append("email",inputEmail);
-    //formData.append("password",inputPw);
 
     const onClickLogin = () => {
         console.log("click login");
@@ -50,8 +47,6 @@ const Login = () => {
             setCookie("accessToken", `${accessToken}`); 
             setCookie("refreshToken", `${refreshToken}`);
 
-            console.log("res.data.userId :: ", res.data.userId);
-            console.log("res.data.msg :: ", res.data.msg);
             alert("로그인 성공 !");
             goToHome();
            return res.data;
@@ -85,7 +80,7 @@ const Login = () => {
             </div>
             
             <div className='back'>
-            <button onClick={goToHome}>
+            <button onClick={goToStart}>
                     <i className="fa-solid fa-chevron-left fa-1x"></i>
             </button>
             </div>
