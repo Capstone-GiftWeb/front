@@ -1,0 +1,65 @@
+.profile-box {
+    margin-top: 20px;
+    float: right;
+    position: relative;
+    justify-content:space-between;
+    border-radius: 20px;
+    width: 1400px;
+    height: 820px;
+    background-color: rgb(255, 255, 255);
+}
+
+.profile{
+    margin-left: 30px;
+    width: 1340px;
+    height: 720px;
+    border: none;
+    border-radius: 30px;
+    background-color: #F5F5F5;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.pic{
+    margin-top: 100px;
+    float: left;
+    width: 670px;
+    height: 360px;
+}
+
+.content-pf{
+    flex-direction: row;
+}
+
+.content-pf h2{
+    justify-content: flex-start;
+    font-size: 40px;
+    margin-top: 5px;
+    margin-left: 50px;
+}
+
+.content-pf img{
+    width: 350px;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.information {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.detail{
+    text-align: left;
+    font-size: 20px;
+}
+
+.detailbox{
+    margin-top: 150px;
+    width: 600px;
+    height: 500px;
+    float: left;
+}

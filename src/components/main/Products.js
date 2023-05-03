@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import '../style/Products.css'
+import axiosInstance from '../..';
 
 const Products = ({ props, onClickProduct }) => {
 
   return (
-    <div className='product-container'>
+    <div className='container-pd'>
       <div className='row'>
         {
           props.map((product, index) => {

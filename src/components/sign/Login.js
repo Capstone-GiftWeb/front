@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import '../style/Signup.css'
 import axios from 'axios';
 import { setCookie, getCookie } from '../utils/Cookie';
+import axiosInstance from '../..';
 
 const Login = () => {
     const movePage = useNavigate();
     const goToSignUp = () => movePage('/Signup');
     const goToHome = () => movePage('/Home');
+    const goToStart = () => movePage('/');
 
     const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
@@ -21,52 +23,38 @@ const Login = () => {
       setInputPw(e.target.value);
     };
 
-    const formData=new FormData();
-    formData.append("email",inputEmail);
-    formData.append("password",inputPw);
-
     const onClickLogin = () => {
         console.log("click login");
         console.log("ID : ", inputEmail);
         console.log("PW : ", inputPw);
 
-        axios({
+        axiosInstance({
             method: "POST",
-            url: "https://957a-223-194-157-60.jp.ngrok.io/members/login",
+            url: "/auth/login",
             headers:{
-                "Content-Type":"muttipart/form-data",
-                //Authorization: `Bearer ${getCookie("is_login")}`,
+                "Content-Type":"application/json",
             },
-            data : formData,
+            data : {
+              email: inputEmail,
+              password: inputPw,
+            },
         })
           .then((res) => {
 
             console.log(res);
-            const accessToken = res.data['access-token'];
-            const refreshToken = res.data['refresh-token'];
-            setCookie("access_token", `${accessToken}`); 
-            setCookie("refresh_token", `${refreshToken}`);
-            //const token = getCookie("access-token");
-            //axios.defaults.headers.common['Authorization'] = `Bearer ${getCookie("is_login")}`;
+            const accessToken = res.data['accessToken'];
+            const refreshToken = res.data['refreshToken'];
+            setCookie("accessToken", `${accessToken}`); 
+            setCookie("refreshToken", `${refreshToken}`);
 
-            console.log("res.data.userId :: ", res.data.userId);
-            console.log("res.data.msg :: ", res.data.msg);
-            if (res.data.email === undefined) {
-              // id 일치하지 않는 경우 userId = undefined, msg = '입력하신 id 가 일치하지 않습니다.'
-              alert("입력하신 id 가 일치하지 않습니다.");
-            } else if (res.data.email === null) {
-              // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
-              alert("입력하신 비밀번호 가 일치하지 않습니다.");
-            } else if (res.data.email === inputEmail) {
-              // id, pw 모두 일치 userId = userId1, msg = undefined
-              //sessionStorage.setItem("user_id", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
-            }
+            alert("로그인 성공 !");
             goToHome();
-           // return res.data;
+           return res.data;
           })
-          .catch(
-            console.log("Fail")
-          );
+          .catch((e)=>{
+            console.log(e);
+            console.log("Fail");
+          });
       }
       
     return (
@@ -89,6 +77,12 @@ const Login = () => {
                 <p>Not Registered ?
                   <button onClick={goToSignUp}>Create an account</button>
                 </p>
+            </div>
+            
+            <div className='back'>
+            <button onClick={goToStart}>
+                    <i className="fa-solid fa-chevron-left fa-1x"></i>
+            </button>
             </div>
         </div>
     )

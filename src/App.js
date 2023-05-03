@@ -8,6 +8,7 @@ import './components/style/App.css';
 import Category from './components/main/Category';
 import Favorite from './components/main/Favorite';
 import Profile from './components/main/Profile';
+import Test from './components/main/Test';
 
 const App = () => (
   <Routes>
@@ -18,6 +19,7 @@ const App = () => (
     <Route path="/Category" element={<Category />} />
     <Route path="/Favorite" element={<Favorite />} />
     <Route path="/Profile" element={<Profile />} />
+    <Route path="/Test" element={<Test />} />
   </Routes>
 );
 

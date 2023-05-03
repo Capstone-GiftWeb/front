@@ -7,6 +7,7 @@ import axios from 'axios';
 const Signup = () => {
     const movePage = useNavigate();
     const goToLogin = () => movePage('/Login');
+    const goToHome = () => movePage('/');
 
     const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
@@ -35,11 +36,11 @@ const Signup = () => {
         setInputName(e.target.value);
       };
 
-    const formData=new FormData();
-    formData.append("name",inputName);
-    formData.append("email",inputEmail);
-    formData.append("age", inputAge);
-    formData.append("gender", inputGender);
+    //const formData=new FormData();
+    //formData.append("name",inputName);
+    //formData.append("email",inputEmail);
+    //formData.append("age", inputAge);
+    //formData.append("gender", inputGender);
 
     const onClickSignup = () => {
         console.log("click login");
@@ -47,14 +48,21 @@ const Signup = () => {
         console.log("Age : ", inputAge);
         console.log("Gender : ", inputGender);
         console.log("Name : ", inputName);
+        console.log("PassWord : ", inputPw);
         
         axios({
             method: "POST",
-            url: "https://957a-223-194-157-60.jp.ngrok.io/members/new",
+            url: "https://b034-223-194-154-22.ngrok-free.app/auth/signup",
             headers:{
-                "Content-Type":"muttipart/form-data",
+                "Content-Type":"application/json",
             },
-            data : formData,
+            data : {
+              name: inputName,
+              email: inputEmail,
+              age: inputAge,
+              gender: inputGender,
+              password: inputPw,
+            },
         })
           .then((res) => {
             console.log("res.data.userId :: ", res.data.userId);
@@ -71,6 +79,7 @@ const Signup = () => {
               //sessionStorage.setItem("name", inputName); // sessionStorage에 id를 user_id라는 key 값으로 저장
             }
             // 작업 완료 되면 로그인 페이지 이동
+            alert("회원가입을 환영합니다 :)")
             goToLogin();
           })
           .catch(
@@ -82,10 +91,9 @@ const Signup = () => {
         <div className='container'>
             <div className='form signup'>
                 <h2>Sign Up</h2>
-                <p>
+                <p className='radio'>
                     <label htmlFor="gender">남성</label>
                     <input id="gender" name='gender' type="radio"  value="남자" onChange={handleInputGender} ></input>
-
                     <label htmlFor="gender">여성</label>
                     <input id="gender" name='gender' type="radio" value="여자" onChange={handleInputGender} ></input>
                 </p>    
@@ -120,6 +128,12 @@ const Signup = () => {
                 <p>Already a member ?
                   <button onClick={goToLogin}>Log in</button>
                 </p>
+            </div>
+            
+            <div className='back'>
+              <button onClick={goToHome}>
+                      <i className="fa-solid fa-chevron-left fa-1x"></i>
+              </button>
             </div>
         </div>
     )
