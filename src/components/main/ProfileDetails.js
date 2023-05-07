@@ -1,28 +1,49 @@
 import React from "react";
 import '../style/ProfileDetails.css';
+import { getCookie, setCookie } from "../utils/Cookie";
+import axiosInstance from "../..";
+import { useHref, useNavigate } from "react-router-dom";
 
 const ProfileDetails = () => {
 
-    // axios({
-    //     method: "POST",
-    //     url: "https://b034-223-194-154-22.ngrok-free.app/auth/signup",
-    //     headers:{
-    //         "Content-Type":"application/json",
-    //     },
-    //     data : {
-    //       name: inputName,
-    //       email: inputEmail,
-    //       age: inputAge,
-    //       gender: inputGender,
-    //       password: inputPw,
-    //     },
-    // })
-    //   .then((res) => {
-    //     alert("변경 완료")
-    //   })
-    //   .catch(
-    //     console.log("Fail")
-    //   );
+    axiosInstance({
+        method: "GET",
+        url: "/member/me",
+        headers:{
+            "Content-Type":"application/json",
+        },
+        data : {
+        },
+    })
+      .then((res) => {
+            const name = res.data['name'];
+            const email = res.data['email'];
+            setCookie("name", `${name}`);
+            setCookie("email", `${email}`);
+      })
+      .catch(
+        console.log("FailProfile")
+      );
+
+    const name = getCookie("name");
+    const email = getCookie("email");
+
+    const movePage = useNavigate();
+    const goToHome = movePage("/")
+
+    const onLogout = () => {
+        const accessToken = getCookie("accessToken");
+        axiosInstance.delete("/auth/logout",{
+            accessToken: accessToken
+        })
+        .then(response => {
+            goToHome();
+        })
+        .catch((e)=>{
+            console.log(e);
+            console.log("Fail");
+        });
+    }
 
     return(
         <div className="content-pf">
@@ -38,12 +59,12 @@ const ProfileDetails = () => {
                     <div className="detailbox">
                         <div className="detail">
                             <p>Name : </p>
-                            <p>username</p>
+                            <p> {name} </p>
                             <p>Email : </p>
-                            <p>username@naver.com</p>
+                            <p> {email}</p>
 
                             <button>Edit Profile</button>
-                            <button>change password</button>
+                            <button onClick={onLogout}>Logout</button>
                         </div>
                     </div>
                 </div>

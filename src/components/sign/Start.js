@@ -19,8 +19,6 @@ const Start = () => {
                         <h2>GIFT<br/>GUIDE</h2>
                         <button onClick={goToLogin}>Log In</button>
                         <button onClick={goToSignUp}>Sign Up</button> 
-                        <br></br>
-                        <button onClick={goToHome}>Guest</button>
                     </div>
                     <div className='startImg'>
                         <img src="img/mainBuggi.png" alt="start_logo" />

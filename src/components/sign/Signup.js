@@ -11,6 +11,7 @@ const Signup = () => {
 
     const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
+    const [confirmPw, setconfirmPw] = useState("");
     const [inputAge, setInputAge] = useState("");
     const [inputGender, setInputGender] = useState("");
     const [inputName, setInputName] = useState("");
@@ -22,6 +23,10 @@ const Signup = () => {
   
     const handleInputPw = (e) => {
       setInputPw(e.target.value);
+    };
+
+    const handleconfirmPw = (e) => {
+      setconfirmPw(e.target.value);
     };
 
     const handleInputAge = (e) => {
@@ -36,12 +41,6 @@ const Signup = () => {
         setInputName(e.target.value);
       };
 
-    //const formData=new FormData();
-    //formData.append("name",inputName);
-    //formData.append("email",inputEmail);
-    //formData.append("age", inputAge);
-    //formData.append("gender", inputGender);
-
     const onClickSignup = () => {
         console.log("click login");
         console.log("ID : ", inputEmail);
@@ -49,10 +48,34 @@ const Signup = () => {
         console.log("Gender : ", inputGender);
         console.log("Name : ", inputName);
         console.log("PassWord : ", inputPw);
+
+        if (inputGender === "") {
+          return alert("성별을 선택해주세요.");
+        }
+
+        if (inputName === "") {
+           return alert("이름을 입력해주세요.");
+        }
+
+        if (inputEmail === "") {
+          return alert("이메일을 입력해주세요.");
+        }
+
+        if (inputAge === "") {
+          return alert("나이를 입력해주세요.");
+        }
+        
+        if (inputPw === "") {
+          return alert("비밀번호를 입력해주세요.");
+        }
+
+        if (inputPw !== confirmPw) {
+          return alert('비밀번호 확인이 일치하지 않습니다.');
+        }
         
         axios({
             method: "POST",
-            url: "https://b034-223-194-154-22.ngrok-free.app/auth/signup",
+            url: " https://0621-223-194-159-126.ngrok-free.app'/auth/signup",
             headers:{
                 "Content-Type":"application/json",
             },
@@ -65,20 +88,7 @@ const Signup = () => {
             },
         })
           .then((res) => {
-            console.log("res.data.userId :: ", res.data.userId);
-            console.log("res.data.msg :: ", res.data.msg);
-            if (res.data.email === undefined) {
-              // id 일치하지 않는 경우 userId = undefined, msg = '입력하신 id 가 일치하지 않습니다.'
-              alert("입력하신 id 가 일치하지 않습니다.");
-            } else if (res.data.email === null) {
-              // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
-              alert("입력하신 비밀번호 가 일치하지 않습니다.");
-            } else if (res.data.email === inputEmail) {
-              // id, pw 모두 일치 userId = userId1, msg = undefined
-              //sessionStorage.setItem("email", inputEmail); // sessionStorage에 id를 user_id라는 key 값으로 저장
-              //sessionStorage.setItem("name", inputName); // sessionStorage에 id를 user_id라는 key 값으로 저장
-            }
-            // 작업 완료 되면 로그인 페이지 이동
+            
             alert("회원가입을 환영합니다 :)")
             goToLogin();
           })
@@ -117,11 +127,11 @@ const Signup = () => {
                     <i className="fa-solid fa-lock"></i>
                     <span>create password</span>
                 </div>
-                {/* <div className='inputBox'>
-                    <input type="password" required="required"></input>
+                <div className='inputBox'>
+                    <input type="password" value={confirmPw} onChange={handleconfirmPw} required="required"></input>
                     <i class="fa-solid fa-lock"></i>
                     <span>confirm password</span>
-                </div> */}
+                </div>
                 <div className='inputBox'>
                     <input type="submit" onClick={onClickSignup} value="Create Account"></input>
                 </div>
