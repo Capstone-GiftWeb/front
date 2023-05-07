@@ -2,7 +2,7 @@ import React from "react";
 import '../style/ProfileDetails.css';
 import { getCookie, setCookie } from "../utils/Cookie";
 import axiosInstance from "../..";
-import { useNavigate } from "react-router-dom";
+import { useHref, useNavigate } from "react-router-dom";
 
 const ProfileDetails = () => {
 

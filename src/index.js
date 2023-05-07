@@ -35,7 +35,7 @@ axiosInstance.interceptors.response.use(
       
       const refreshToken = getCookie('refreshToken');
       if (refreshToken) {
-        //config.headers.Authorization = `Bearer ${accessToken}`;
+        //config.headers.Authorization = `Bearer ${refreshToken}`;
         return axios.post('/auth/reissue', {
           refreshToken: refreshToken
         })

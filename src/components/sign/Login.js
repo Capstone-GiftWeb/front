@@ -28,6 +28,14 @@ const Login = () => {
         console.log("ID : ", inputEmail);
         console.log("PW : ", inputPw);
 
+        if (inputEmail === "") {
+          return alert("이메일을 입력해주세요.");
+        }
+        
+        if (inputPw === "") {
+          return alert("비밀번호를 입력해주세요.");
+        }
+
         axiosInstance({
             method: "POST",
             url: "/auth/login",
@@ -53,6 +61,8 @@ const Login = () => {
            return res.data;
           })
           .catch((e)=>{
+
+            alert("회원정보를 다시 확인해주세요");
             console.log(e);
             console.log("Fail");
           });
@@ -65,7 +75,7 @@ const Login = () => {
                 <div className='inputBox'>
                     <input type="email" name="input_email" value={inputEmail} onChange={handleInputEmail} required="required"></input>
                     <i className="fa-regular fa-user"></i>
-                    <span>username</span>
+                    <span>email</span>
                 </div>
                 <div className='inputBox'>
                     <input type="password" name="input_pw" value={inputPw} onChange={handleInputPw} required="required"></input>
