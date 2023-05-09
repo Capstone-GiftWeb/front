@@ -6,7 +6,7 @@ import '../style/Favorite.css'
 const Favorite = () => {
     return (
         <>
-            <div className="favorite-content">
+            <div className="content">
                 <Nav />
                 <div className="favorite-box">
                     <Header/>

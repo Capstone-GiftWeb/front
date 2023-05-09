@@ -31,6 +31,10 @@ const ProfileDetails = () => {
     const movePage = useNavigate();
     const goToHome = movePage("/")
 
+    const onEdit = () => {
+        
+    }
+
     const onLogout = () => {
         const accessToken = getCookie("accessToken");
         axiosInstance.delete("/auth/logout",{
@@ -63,7 +67,7 @@ const ProfileDetails = () => {
                             <p>Email : </p>
                             <p> {email}</p>
 
-                            <button>Edit Profile</button>
+                            <button onClick={onEdit}>Edit Profile</button>
                             <button onClick={onLogout}>Logout</button>
                         </div>
                     </div>

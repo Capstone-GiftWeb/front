@@ -48,7 +48,7 @@ const Home = () => {
 
     return (
         <>
-            <div className="home-content">
+            <div className="content">
                 <Nav />
                 <div className="home-box">
                     <Header />

@@ -43,7 +43,7 @@ const Category = () => {
 
     return (
         <>
-            <div className="category-content">
+            <div className="content">
             <Nav />
                 <div className="category-box">
                     <Header />

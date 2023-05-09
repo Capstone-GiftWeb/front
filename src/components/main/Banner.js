@@ -10,10 +10,10 @@ const Banner = () => {
 
     SwiperCore.use([Navigation, Pagination, Autoplay]);
     const items = [
-        {src: "img/banner.png"},
-        {src: "img/banner2.png"},
         {src: "img/banner3.png"},
-        {src: "img/banner4.png"}
+        {src: "img/banner.png"},
+        {src: "img/banner4.png"},
+        {src: "img/banner2.png"}
     ];
 
     return(
