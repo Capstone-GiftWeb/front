@@ -10,15 +10,11 @@ const Nav = () => {
   const goToFavorite = () => movePage('/Favorite');
   const goToProfile = () => movePage('/Profile');
   const goToStart = () => movePage('/');
-  const [isNavActive, setIsNavActive] = useState('');
+  const [isNavActive, setIsNavActive] = useState('Home');
 
   useEffect(() => {
     setIsNavActive(location.pathname);
   }, [location.pathname]);
-
-  useEffect(() => {
-    setIsNavActive(location.pathname); // 컴포넌트가 마운트될 때 현재 경로를 설정하여 초기 활성화 상태를 지정
-  }, []);
 
   return (
     <>
@@ -28,38 +24,22 @@ const Nav = () => {
           <nav>
             <p
               className={isNavActive === '/Home' ? 'navClick' : ''}
-              onClick={() => {
-                goToHome();
-                setIsNavActive('/Home');
-              }}
-            >
+              onClick={goToHome}>
               Main
             </p>
             <p
               className={isNavActive === '/Category' ? 'navClick' : ''}
-              onClick={() => {
-                goToCategory();
-                setIsNavActive('/Category');
-              }}
-            >
+              onClick={goToCategory}>
               Category
             </p>
             <p
               className={isNavActive === '/Favorite' ? 'navClick' : ''}
-              onClick={() => {
-                goToFavorite();
-                setIsNavActive('/Favorite');
-              }}
-            >
+              onClick={goToFavorite}>
               Favorite
             </p>
             <p
               className={isNavActive === '/Profile' ? 'navClick' : ''}
-              onClick={() => {
-                goToProfile();
-                setIsNavActive('/Profile');
-              }}
-            >
+              onClick={goToProfile}>
               Profile
             </p>
           </nav>

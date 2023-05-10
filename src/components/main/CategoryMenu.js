@@ -19,10 +19,6 @@ const categories = [
 const CategoryMenu = ({onCategorySelect }) => {
     const [isBtnActive, setIsBtnActive] = useState(0);
 
-    useState(() => {
-
-    }, []);
-
     return (
         <div className='category-menu-container'>
             <ul className="list-group list-group-horizontal">
