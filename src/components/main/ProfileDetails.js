@@ -67,7 +67,7 @@ const ProfileDetails = () => {
                             <p>Email : </p>
                             <p> {email}</p>
 
-                            <button onClick={onEdit}>Edit Profile</button>
+                            {/* <button onClick={onEdit}>Edit Profile</button> */}
                             <button onClick={onLogout}>Logout</button>
                         </div>
                     </div>
