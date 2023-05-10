@@ -12,8 +12,6 @@ const Nav = () => {
     const goToStart = () => movePage('/');
     const [isNavActive, setIsNavActive] = useState("Home");
 
-
-    
     return (
         <>
             <div className='sidebar'>

@@ -9,13 +9,13 @@
     background-color: rgb(255, 255, 255);
   }
 
-  .scroll-box {
+  .category-box .scroll-box {
     overflow-x: hidden;
     overflow-y: scroll;
     width: 1050px;
     height: 670px;
   }
 
-.scroll-box::-webkit-scrollbar {
+  .category-box .scroll-box::-webkit-scrollbar {
     display: none;
   }

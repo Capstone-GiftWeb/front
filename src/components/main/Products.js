@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+
 import '../style/Products.css'
-import axiosInstance from '../..';
 
 const Products = ({ props, onClickProduct }) => {
 
@@ -10,11 +10,11 @@ const Products = ({ props, onClickProduct }) => {
         {
           props.map((product, index) => {
             return (
-              <div key={index} className="col-md-3 gird">
-                <img src={`${product.image}`} alt="" width="100%" />
+              <div key={index} className="col-md-3 grid">
+                <img src={`${product.image}`} alt="" />
                 <div className='product-title'>
-                <p onClick={() => onClickProduct(product.href)}>{product.title}</p>
-                <button>♡</button>
+                  <p onClick={() => {onClickProduct(product.href)}}>{product.title}</p>
+                  <button>♡</button>
                 </div>
               </div>
             );
