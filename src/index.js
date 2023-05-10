@@ -27,17 +27,24 @@ axiosInstance.interceptors.request.use(
 )
 
 axiosInstance.interceptors.response.use(
-  response => response,
-  error => {
-    const originalRequest = error.config;
+  (response) => {return response},
+  async (error) => {
 
-    if (error.response && error.response.status === 401) {
-      
+    const originalRequest = config;
+
+    const {
+      config,
+      response: {status},
+    } = error;
+
+    if (status === 401 && originalRequest._retry) {
+      console.log("token expired");
+
       const refreshToken = getCookie('refreshToken');
       if (refreshToken) {
-        //config.headers.Authorization = `Bearer ${refreshToken}`;
         return axios.post('/auth/reissue', {
-          refreshToken: refreshToken
+          refreshToken: refreshToken,
+          headers: { authorization: `Bearer ${refreshToken}` }
         })
         .then(response => {
           const accessToken = response.data['accessToken'];

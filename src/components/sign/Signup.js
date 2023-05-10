@@ -89,10 +89,11 @@ const Signup = () => {
         })
           .then((res) => {
             
-            alert("회원가입을 환영합니다 :)")
+            alert("회원가입을 환영합니다 :)");
             goToLogin();
           })
           .catch(
+            alert("회원가입 정보를 다시 한번 확인해주세요."),
             console.log("Fail")
           );
       }

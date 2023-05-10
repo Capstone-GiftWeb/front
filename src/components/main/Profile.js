@@ -5,7 +5,7 @@ import ProfileDetails from "./ProfileDetails";
 const Profile = () => {
     return (
         <>
-            <div className="profile-content">
+            <div className="content">
                 <Nav />
                 <div className="profile-box">
                     <ProfileDetails/>

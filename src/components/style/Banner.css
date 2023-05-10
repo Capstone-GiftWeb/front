@@ -10,7 +10,6 @@
 	text-align:center;
 	display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
 	align-items:center; /* 위아래 기준 중앙정렬 */
-	justify-content:center; /* 좌우 기준 중앙정렬 */
     object-fit: cover;
 }
 
@@ -28,5 +27,5 @@
 }
 
 .swiper-slide img{
-    width: 1400px;
+    width: 1000px;
 }

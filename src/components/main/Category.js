@@ -67,8 +67,8 @@ const Category = () => {
 
     return (
         <>
-            <div className="category-content">
-                <Nav />
+            <div className="content">
+            <Nav />
                 <div className="category-box">
                     <Header />
                     <CategoryMenu selectedCategory={selectedCategory} onCategorySelect={onCategorySelect} />
