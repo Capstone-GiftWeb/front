@@ -25,7 +25,7 @@ const Start = () => {
                     </div>
 
                     <div className='wishy-image'>
-                        <img src="img/mainBuggi.png" alt='부기'/>
+                        <img src="img/mainBuggi.png" alt='부기' width={400}/>
                     </div>
                 </section>
             </div>

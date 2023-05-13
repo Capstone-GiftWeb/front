@@ -27,7 +27,7 @@ body {
     height: 100%;
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(to right, #EAA763, #FDBB7D, #FFFFFF);
+    background: linear-gradient(to right, #FDBB7d, #EAA763, #dc7309de 10);
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -62,10 +62,6 @@ body {
     font-size: 15px;
     line-height: 1.9;
     margin-bottom: 40px;
-}
-.wishy-image {
-    width: 700px;
-    height: auto;
 }
 .wishy-text button {
     display: inline-block;
