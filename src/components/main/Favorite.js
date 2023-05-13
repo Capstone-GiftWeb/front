@@ -31,12 +31,14 @@ const Favorite = () => {
 
     return (
         <>
-            <div className="content">
-                <Nav />
-                <div className="favorite-box">
-                    <Header/>
-                    <div className='scroll-box'>
-                        <Products props={data} onClickProduct={onClickProduct}/>
+            <div className='favorite-body'>
+                <div className="content">
+                    <Nav />
+                    <div className="favorite-box">
+                        <Header />
+                        <div className='scroll-box'>
+                            <Products props={data} onClickProduct={onClickProduct} />
+                        </div>
                     </div>
                 </div>
             </div>

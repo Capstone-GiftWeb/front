@@ -11,7 +11,7 @@ const Start = () => {
         <>
             <div className='start'>
                 <header>
-                    <a href="#" class="logo">WishyMatch</a>
+                    <p class="logo">WishyMatch</p>
                 </header>
 
                 <section className='wishy'>
@@ -20,8 +20,8 @@ const Start = () => {
                         <h4>Lead Supercell</h4>
                         <h1>WishyMatch</h1>
                         <p>이 웹사이트는 캡-스톤 에이지 팀이 만들었음!</p>
-                        <p onClick={goToLogin}>Login</p>
-                        <p onClick={goToSignUp} className='ctaa'>SignUp</p> />
+                        <button onClick={goToLogin}>Login</button>
+                        <button onClick={goToSignUp} className='signupBtn'>SignUp</button>
                     </div>
 
                     <div className='wishy-image'>

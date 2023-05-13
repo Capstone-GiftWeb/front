@@ -14,7 +14,7 @@ const Category = () => {
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(0);
-    
+
     const [clickedItem, setClickedItem] = useState("");
     const [clickedProductList, setClickedProductList] = useState([]);
     const [cookieList, setCookieList] = useState(getCookie('recentProducts'));
@@ -67,16 +67,18 @@ const Category = () => {
 
     return (
         <>
-            <div className="content">
-            <Nav />
-                <div className="category-box">
-                    <Header />
-                    <CategoryMenu selectedCategory={selectedCategory} onCategorySelect={onCategorySelect} />
-                    <div className='scroll-box'>
-                        <Products props={filteredData} onClickProduct={onClickProduct}/>
+            <div className='category-body'>
+                <div className="content">
+                    <Nav />
+                    <div className="category-box">
+                        <Header />
+                        <CategoryMenu selectedCategory={selectedCategory} onCategorySelect={onCategorySelect} />
+                        <div className='scroll-box'>
+                            <Products props={filteredData} onClickProduct={onClickProduct} />
+                        </div>
                     </div>
+                    <RecentProducts props={recentProductList} />
                 </div>
-                <RecentProducts props={recentProductList}/>
             </div>
         </>
     )

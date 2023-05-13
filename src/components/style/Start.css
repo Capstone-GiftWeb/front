@@ -27,7 +27,7 @@ body {
     height: 100%;
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(245.59deg, #4d9559 0%, #38703d 28.53%, #133917 75.52%);
+    background: linear-gradient(to right, #EAA763, #FDBB7D, #FFFFFF);
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -38,4 +38,55 @@ body {
 .start section {
     padding: 0 19%;
 }
-
+.wishy-text h5{
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 40px;
+}
+.wishy-text h1 {
+    font-family: 'Montserrat', cursive;
+    font-size: 90px;
+    line-height: 1;
+    color: white;
+    margin:  0 0 45px;
+}
+.wishy-text h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 10px;
+}
+.wishy-text p {
+    color: white;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 40px;
+}
+.wishy-image {
+    width: 700px;
+    height: auto;
+}
+.wishy-text button {
+    display: inline-block;
+    color: white;
+    background: #ffce2f;
+    border: 1px solid transparent;
+    padding: 12px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease;
+}
+.wishy-text button:hover {
+    background: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+}
+.wishy-text button.signupBtn {
+    background: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+}

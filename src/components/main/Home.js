@@ -51,18 +51,20 @@ const Home = () => {
 
     return (
         <>
-            <div className="content">
-                <Nav />
-                <div className="home-box">
-                    <Header />
-                    <div className='scroll-box'>
-                        <Banner />
-                        <div className='top-rank-products'>
-                            <Products props={data} onClickProduct={onClickProduct} />
+            <div className='home-body'>
+                <div className="content">
+                    <Nav />
+                    <div className="home-box">
+                        <Header />
+                        <div className='scroll-box'>
+                            <Banner />
+                            <div className='top-rank-products'>
+                                <Products props={data} onClickProduct={onClickProduct} />
+                            </div>
                         </div>
                     </div>
+                    <RecentProducts props={recentProductList} />
                 </div>
-                <RecentProducts props={recentProductList}/>
             </div>
         </>
     )

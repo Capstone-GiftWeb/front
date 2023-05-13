@@ -1,3 +1,10 @@
+.favorite-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .favorite-box {
     margin-top: 20px;
     float: right;
