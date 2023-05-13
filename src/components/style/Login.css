@@ -4,7 +4,7 @@
     accent-color: rgb(255, 157, 66);
 }
 
-.signup-body{
+.login-body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,8 +15,8 @@
     font-size: 'Poppins', sans-serif;
 }
 
-.signup-body .container{
-    width: 25%;
+.login-body .container{
+    width: 21%;
     padding: 40px;
     border-radius: 20px;
     border: 8px solid white;
@@ -26,7 +26,7 @@
     inset 2px 2px 2px white;
 }
 
-.signup-body .container .form
+.login-body .container .form
 {
     display: flex;
     justify-content:center;
@@ -35,19 +35,19 @@
     gap: 25px
 }
 
-.signup-body .container .form h2{
+.login-body .container .form h2{
     color: white;
     font-weight: 500;
     letter-spacing: 0.1em;
 }
 
-.signup-body .container .form .inputBox{
+.login-body .container .form .inputBox{
     position: relative;
     width: 300px;
 }
 
-.signup-body .container .form .inputBox input:valid ~ span,
-.signup-body .container .form .inputBox input:focus ~ span
+.login-body .container .form .inputBox input:valid ~ span,
+.login-body .container .form .inputBox input:focus ~ span
 {
     color: #dc7309de;
     border: 1px solid #dc7309de;
@@ -58,13 +58,14 @@
     border-radius: 10px;
     letter-spacing: 0.1em;
 }
-.signup-body .container .form .inputBox input:valid,
-.signup-body .container .form .inputBox input:focus
+
+.login-body .container .form .inputBox input:valid,
+.login-body .container .form .inputBox input:focus
 {
     border: 1px solid #dc7309de;
 }
 
-.signup-body .container .form .inputBox input{
+.login-body .container .form .inputBox input{
     padding: 12px 10px 12px 48px;
     border: none;
     width: 100%;
@@ -79,7 +80,7 @@
     outline: none;
 }
 
-.signup-body .container .form .inputBox span{
+.login-body .container .form .inputBox span{
     position: absolute;
     left: 0;
     padding: 12px 10px 12px 48px;
@@ -91,7 +92,7 @@
     color: white;
 }
 
-.signup-body .container .form .inputBox i{
+.login-body .container .form .inputBox i{
     position: absolute;
     top: 15px;
     left: 16px;
@@ -101,7 +102,7 @@
     border-right: 1px solid #dc7309de;
 }
 
-.signup-body .container .form .inputBox input[type="submit"]
+.login-body .container .form .inputBox input[type="submit"]
 {
     border: none;
     background: #dc7309de;
@@ -115,14 +116,14 @@
     inset 1px 1px 1px white;
 }
 
-.signup-body .container .form p{
+.login-body .container .form p{
     position: relative;
     color: white;
     font-size: 0.75em;
     font-weight: 300;
 }
 
-.signup-body .container .form p button{
+.login-body .container .form p button{
     border: none;
     background-color: #EAA763;
     cursor: pointer;
@@ -131,11 +132,7 @@
     margin-left: 5px;
 }
 
-.signup-body .radio{
-    margin: 0px;
-}
-
-.signup-body .back button{
+.login-body .back button{
     width: 40px;
     height: 30px;
     background-color: #EAA763;
@@ -145,6 +142,6 @@
     cursor: pointer;
 }
 
-.signup-body .back button:hover{
+.login-body .back button:hover{
     background-color: rgb(255, 202, 87);
 }

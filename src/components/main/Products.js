@@ -6,14 +6,14 @@ import '../style/Products.css'
 const Products = ({ props, onClickProduct }) => {
 
   const onClickFavorite = (product) => {
-    const href = product.href
+    const href = product.href;
     // 버튼 색 변경
     product.favorite = !product.favorite
 
     // 서버로 전송
     axiosInstance({
       method: "POST",
-      url: "/favorite/" + href,
+      url: "/" + href,
       headers: {
         "Content-Type": "application/json",
       },
@@ -29,6 +29,10 @@ const Products = ({ props, onClickProduct }) => {
       });
   }
 
+  useEffect(() => {
+
+  },[])
+
   return (
     <div className='container-pd'>
       <div className='row'>
@@ -41,7 +45,7 @@ const Products = ({ props, onClickProduct }) => {
                   <p onClick={() => { onClickProduct(product.href) }}>{product.title}</p>
                   <div className='icons'>
                     {product.favorite?
-                    <HeartFilled style={{ color: "red", fontSize: "20px" }} onClick={() => onClickFavorite(product)} />:
+                    <HeartFilled style={{ color: "red", fontSize: "20px" }} onClick={() => onClickFavorite(product)} /> :
                     <HeartOutlined style={{ fontSize: "20px" }} onClick={() => onClickFavorite(product)} />}
                   </div>
                 </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import Nav from './Nav';
 import Header from './Header';
 import Products from './Products';
-import { getProducts } from "../utils/Data";
+import { getCategoryProducts } from "../utils/Data";
 import { getCookie, setCookie } from '../utils/Cookie';
 import Loading from "./Loading";
 import CategoryMenu from './CategoryMenu';
@@ -40,7 +40,7 @@ const Category = () => {
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
-            const res = await getProducts();
+            const res = await getCategoryProducts();
             if (res) { // res가 undefined인 경우에는 setData를 실행하지 않음
                 setData(res.gifts);
             }
