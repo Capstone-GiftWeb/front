@@ -56,13 +56,13 @@ const Login = () => {
             setCookie("accessToken", `${accessToken}`); 
             setCookie("refreshToken", `${refreshToken}`);
 
-            alert("로그인 성공 !");
+            alert("로그인 성공");
             goToHome();
            return res.data;
           })
           .catch((e)=>{
 
-            alert("회원정보를 다시 확인해주세요");
+            alert("로그인 오류");
             console.log(e);
             console.log("Fail");
           });

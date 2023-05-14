@@ -16,9 +16,9 @@ const Nav = () => {
     setIsNavActive(location.pathname);
   }, [location.pathname]);
 
-  useEffect(() => {
-    setIsNavActive(location.pathname); // 컴포넌트가 마운트될 때 현재 경로를 설정하여 초기 활성화 상태를 지정
-  }, []);
+//   useEffect(() => {
+//     setIsNavActive(location.pathname); // 컴포넌트가 마운트될 때 현재 경로를 설정하여 초기 활성화 상태를 지정
+//   }, []);
 
   return (
     <>

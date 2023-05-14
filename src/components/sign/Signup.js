@@ -75,7 +75,7 @@ const Signup = () => {
         
         axios({
             method: "POST",
-            url: " https://0621-223-194-159-126.ngrok-free.app'/auth/signup",
+            url: "http://13.125.82.232/auth/signup",
             headers:{
                 "Content-Type":"application/json",
             },
@@ -93,7 +93,6 @@ const Signup = () => {
             goToLogin();
           })
           .catch(
-            alert("회원가입 정보를 다시 한번 확인해주세요."),
             console.log("Fail")
           );
       }

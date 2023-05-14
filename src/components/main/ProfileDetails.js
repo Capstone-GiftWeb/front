@@ -2,7 +2,7 @@ import React from "react";
 import '../style/ProfileDetails.css';
 import { getCookie, setCookie } from "../utils/Cookie";
 import axiosInstance from "../..";
-import { useHref, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ProfileDetails = () => {
 
@@ -31,9 +31,9 @@ const ProfileDetails = () => {
     const movePage = useNavigate();
     const goToHome = movePage("/")
 
-    const onEdit = () => {
+    // const onEdit = () => {
         
-    }
+    // }
 
     const onLogout = () => {
         const accessToken = getCookie("accessToken");
