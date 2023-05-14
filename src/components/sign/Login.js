@@ -1,68 +1,67 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import '../style/Signup.css'
-import axios from 'axios';
+import '../style/Login.css'
 import { setCookie, getCookie } from '../utils/Cookie';
 import axiosInstance from '../..';
 
 const Login = () => {
-    const movePage = useNavigate();
-    const goToSignUp = () => movePage('/Signup');
-    const goToHome = () => movePage('/Home');
-    const goToStart = () => movePage('/');
+  const movePage = useNavigate();
+  const goToSignUp = () => movePage('/Signup');
+  const goToHome = () => movePage('/Home');
+  const goToStart = () => movePage('/');
 
-    const [inputEmail, setInputEmail] = useState("");
-    const [inputPw, setInputPw] = useState("");
+  const [inputEmail, setInputEmail] = useState("");
+  const [inputPw, setInputPw] = useState("");
 
-    
-    const handleInputEmail = (e) => {
-      setInputEmail(e.target.value);
-    };
-  
-    const handleInputPw = (e) => {
-      setInputPw(e.target.value);
-    };
 
-    const onClickLogin = () => {
-        console.log("click login");
-        console.log("ID : ", inputEmail);
-        console.log("PW : ", inputPw);
+  const handleInputEmail = (e) => {
+    setInputEmail(e.target.value);
+  };
 
-        if (inputEmail === "") {
-          return alert("이메일을 입력해주세요.");
-        }
-        
-        if (inputPw === "") {
-          return alert("비밀번호를 입력해주세요.");
-        }
+  const handleInputPw = (e) => {
+    setInputPw(e.target.value);
+  };
 
-        axiosInstance({
-            method: "POST",
-            url: "/auth/login",
-            headers:{
-                "Content-Type":"application/json",
-            },
-            data : {
-              email: inputEmail,
-              password: inputPw,
-            },
-        })
-          .then((res) => {
+  const onClickLogin = () => {
+    console.log("click login");
+    console.log("ID : ", inputEmail);
+    console.log("PW : ", inputPw);
 
-            console.log(res);
-            const accessToken = res.data['accessToken'];
-            const refreshToken = res.data['refreshToken'];
-            
-            setCookie("accessToken", `${accessToken}`); 
-            setCookie("refreshToken", `${refreshToken}`);
+    if (inputEmail === "") {
+      return alert("이메일을 입력해주세요.");
+    }
 
-            alert("로그인 성공");
-            goToHome();
-           return res.data;
-          })
-          .catch((e)=>{
+    if (inputPw === "") {
+      return alert("비밀번호를 입력해주세요.");
+    }
 
-            alert("로그인 오류");
+    axiosInstance({
+      method: "POST",
+      url: "/auth/login",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: {
+        email: inputEmail,
+        password: inputPw,
+      },
+    })
+      .then((res) => {
+
+        console.log(res);
+        const accessToken = res.data['accessToken'];
+        const refreshToken = res.data['refreshToken'];
+
+        setCookie("accessToken", `${accessToken}`);
+        setCookie("refreshToken", `${refreshToken}`);
+
+        alert("로그인 성공 !");
+        goToHome();
+        return res.data;
+      })
+      .catch((e) => {
+
+            alert("회원정보를 다시 확인해주세요");
             console.log(e);
             console.log("Fail");
           });

@@ -1,24 +1,32 @@
 .home-box {
-    float: right;
-    position: relative;
-    justify-content:space-between;
-    border-radius: 20px;
-    margin-top: 20px;
-    width: 1400px;
-    height: 820px;
-    background-color: rgb(255, 255, 255);
-  }
+  float: right;
+  position: relative;
+  justify-content: space-between;
+  border-radius: 20px;
+  margin-top: 20px;
+  width: 1400px;
+  height: 820px;
+  background-color: rgb(255, 255, 255);
+}
 
-  .scroll-box {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    width: 1050px;
-  }
+.home-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-.scroll-box::-webkit-scrollbar {
-    display: none;
-  }
+.home-box .scroll-box {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 1050px;
+  height: 735px;
+}
 
-  .top-rank-products {
-    margin-top: 30px;
-  }
+.home-box .scroll-box::-webkit-scrollbar {
+  display: none;
+}
+
+.top-rank-products {
+  margin-top: 30px;
+}

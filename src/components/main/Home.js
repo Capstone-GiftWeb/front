@@ -12,17 +12,21 @@ import '../style/Home.css';
 const Home = () => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
+    const [clickedItem, setClickedItem] = useState("");
+    const [clickedProductList, setClickedProductList] = useState([]);
+    const [cookieList, setCookieList] = useState(getCookie('recentProducts'));
     const [recentProductList, setRecentProductList] = useState([]);
-    const [clickedProductList, setClickedProductList] = useState([])
 
     const onClickProduct = (href) => {
-        const productHref = href.replace("product/", "").trim();
-        setClickedProductList(prevData => [productHref, ...prevData]);
+        setClickedItem(href);
+        setClickedProductList(prevData => [href, ...prevData]);
+        setClickedProductList([...new Set(clickedProductList)]);
 
         if (clickedProductList.length > 5) {
             setClickedProductList(clickedProductList.slice(0, 5));
         }
         setCookie('recentProducts', JSON.stringify(clickedProductList));
+        setCookieList(getCookie('recentProducts'));
     }
 
     // Data.js의 getProducts를 사용하여 데이터를 불러와 useState에 저장
@@ -39,27 +43,28 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        const cookieList = getCookie('recentProducts') || [];
-        const products = data.filter(item => cookieList.includes(item.href.replace("product/", "")));
+        const products = data.filter(item => cookieList.includes(item.href));
         setRecentProductList(products);
-    }, [clickedProductList, data])
+    }, [data, cookieList])
 
     if (loading) return <Loading loading={loading} />
 
     return (
         <>
-            <div className="content">
-                <Nav />
-                <div className="home-box">
-                    <Header />
-                    <div className='scroll-box'>
-                        <Banner />
-                        <div className='top-rank-products'>
-                            <Products props={data} onClickProduct={onClickProduct} />
+            <div className='home-body'>
+                <div className="content">
+                    <Nav />
+                    <div className="home-box">
+                        <Header />
+                        <div className='scroll-box'>
+                            <Banner />
+                            <div className='top-rank-products'>
+                                <Products props={data} onClickProduct={onClickProduct} />
+                            </div>
                         </div>
                     </div>
+                    <RecentProducts props={recentProductList} />
                 </div>
-                <RecentProducts props={recentProductList} />
             </div>
         </>
     )

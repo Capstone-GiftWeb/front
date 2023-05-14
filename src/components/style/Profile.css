@@ -1,3 +1,10 @@
+.profile-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .profile-box {
     float: right;
     position: relative;
