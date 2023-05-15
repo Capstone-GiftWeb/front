@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../style/Signup.css'
 import axios from 'axios'
+import CheckBox from '../utils/CheckBox'
 
 
 const Signup = () => {
@@ -102,12 +103,27 @@ const Signup = () => {
       <div className='container'>
         <div className='form'>
           <h2>Sign Up</h2>
-          <p className='radio'>
-            <label htmlFor="gender">남성</label>
-            <input id="gender" name='gender' type="radio" value="남자" onChange={handleInputGender} ></input>
-            <label htmlFor="gender">여성</label>
-            <input id="gender" name='gender' type="radio" value="여자" onChange={handleInputGender} ></input>
-          </p>
+          <div className="checkbox-group">
+            남성
+            <label htmlFor="male">
+              <CheckBox
+                checked={inputGender === '남자'}
+                onChange={handleInputGender}
+                value="남자"
+                id="male"
+              />
+            </label>
+            
+            여성
+            <label htmlFor="female">
+              <CheckBox
+                checked={inputGender === '여자'}
+                onChange={handleInputGender}
+                value="여자"
+                id="female"
+              />
+            </label>
+          </div>
           <div className='inputBox'>
             <input type="text" value={inputName} onChange={handleInputName} required="required"></input>
             <i className="fa-regular fa-user"></i>

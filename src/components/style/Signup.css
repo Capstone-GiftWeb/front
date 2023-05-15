@@ -148,3 +148,11 @@
 .signup-body .back button:hover{
     background-color: rgb(255, 202, 87);
 }
+
+.signup-body .checkbox-group{
+    font-size: 0.85em;
+}
+
+.checkbox-group label{
+    margin-top: 1;
+}
