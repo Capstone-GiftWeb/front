@@ -1,32 +1,27 @@
 import React, { useEffect, useState } from 'react';
+
 import Nav from './Nav';
 import Products from './Products';
 import Header from './Header';
 import Banner from './Banner';
 import RecentProducts from './RecentProducts';
-import { getProducts } from "../utils/Data";
-import { getCookie, setCookie } from '../utils/Cookie';
 import Loading from "./Loading";
+
+import { getProducts } from "../utils/Data";
+import { setRecentHistory, filterDataByCookie } from '../utils/ClickUtils'
+
 import '../style/Home.css';
 
 const Home = () => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
-    const [clickedItem, setClickedItem] = useState("");
-    const [clickedProductList, setClickedProductList] = useState([]);
-    const [cookieList, setCookieList] = useState(getCookie('recentProducts'));
-    const [recentProductList, setRecentProductList] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
 
     const onClickProduct = (href) => {
-        setClickedItem(href);
-        setClickedProductList(prevData => [href, ...prevData]);
-        setClickedProductList([...new Set(clickedProductList)]);
+        setRecentHistory(href); // 로컬 스토리지에 저장
 
-        if (clickedProductList.length > 5) {
-            setClickedProductList(clickedProductList.slice(0, 5));
-        }
-        setCookie('recentProducts', JSON.stringify(clickedProductList));
-        setCookieList(getCookie('recentProducts'));
+        const filtered = filterDataByCookie(data); // 리스트로 데이터 필터링
+        setFilteredData(filtered); // 필터링된 데이터 설정
     }
 
     // Data.js의 getProducts를 사용하여 데이터를 불러와 useState에 저장
@@ -43,9 +38,11 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        const products = data.filter(item => cookieList.includes(item.href));
-        setRecentProductList(products);
-    }, [data, cookieList])
+        if (data.length > 0) {
+            const filtered = filterDataByCookie(data);
+            setFilteredData(filtered);
+        }
+    }, [data])
 
     if (loading) return <Loading loading={loading} />
 
@@ -63,7 +60,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <RecentProducts props={recentProductList} />
+                    <RecentProducts props={filteredData} />
                 </div>
             </div>
         </>

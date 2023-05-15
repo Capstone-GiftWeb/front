@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
+
 import Nav from './Nav';
 import Header from "./Header";
 import Products from './Products';
 import Loading from './Loading';
+
 import { getFavoriteProducts } from "../utils/Data";
+
 import '../style/Favorite.css'
 
 const Favorite = () => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
 
-    const onClickProduct = () => {
+    const onClickProduct = (href) => {
 
-    };
+    }
 
     // Data.js의 getFavoriteProducts를 사용하여 데이터를 불러와 useState에 저장
     useEffect(() => {

@@ -15,12 +15,12 @@
     background-color: rgb(255, 255, 255);
   }
 
-  .scroll-box {
+  profile-body .scroll-box {
     overflow-x: hidden;
     overflow-y: scroll;
     width: 1050px;
   }
 
-.scroll-box::-webkit-scrollbar {
+  profile-body .scroll-box::-webkit-scrollbar {
     display: none;
   }

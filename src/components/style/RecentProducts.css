@@ -7,24 +7,35 @@
   background-color: #F5F5F5;
   border-radius: 15px;
   text-align: center;
+  padding: 15px;
 }
 
 .lasted h5 {
-  padding-top: 10px;
+  margin-bottom: 20px;
 }
 
 .lasted img {
-  width: 60%;
-  border-radius: 12%;
+  width: 70%;
+  border-radius: 25%;
   margin: auto;
+  margin-top: 10px;
 }
 
-.lasted p {
+.lasted .recentContents p {
   height: 40px;
-  margin-top: 6px;
-  font-size: 14px;
+  margin-top: 10px;
+  font-size: 11px;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: aqua;
 }
 
 .recentContents .row {
-  margin: 8px;
+  border-radius: 10%;
+  background-color: white;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 20px;
 }

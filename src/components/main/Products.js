@@ -31,29 +31,31 @@ const Products = ({ props, onClickProduct }) => {
 
   useEffect(() => {
 
-  },[])
+  }, [])
 
   return (
-    <div className='container-pd'>
-      <div className='row'>
-        {
-          props.map((product, index) => {
-            return (
-              <div key={index} className="col-md-3 grid">
-                <img src={`${product.image}`} alt="" />
-                <div className='product-title'>
-                  <p onClick={() => { onClickProduct(product.href) }}>{product.title}</p>
-                  <div className='icons'>
-                    {product.favorite?
-                    <HeartFilled style={{ color: "red", fontSize: "20px" }} onClick={() => onClickFavorite(product)} /> :
-                    <HeartOutlined style={{ fontSize: "20px" }} onClick={() => onClickFavorite(product)} />}
+    <div className='product-body'>
+      <div className='container'>
+        <div className='row'>
+          {
+            props.map((product, index) => {
+              return (
+                <div key={index} className="col-md-3 grid">
+                  <img src={`${product.image}`} alt="" />
+                  <div className='product-title'>
+                    <p onClick={() => { onClickProduct(product.href) }}>{product.title}</p>
+                    <div className='icons'>
+                      {product.favorite ?
+                        <HeartFilled style={{ color: "red", fontSize: "20px" }} onClick={() => onClickFavorite(product)} /> :
+                        <HeartOutlined style={{ fontSize: "20px" }} onClick={() => onClickFavorite(product)} />}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
+              );
 
-          })
-        }
+            })
+          }
+        </div>
       </div>
     </div>
   );
