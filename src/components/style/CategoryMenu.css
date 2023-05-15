@@ -1,18 +1,18 @@
-.category-menu-container {
+.category-menu .container {
     padding: 10px;
     margin-left: 3px;
     margin-bottom: 10px;
     font-size: 14px;
 }
 
-li {
+.category-menu li {
     cursor: pointer;
 }
 
-li:hover:not(.click) {
+.category-menu li:hover:not(.click) {
     background-color: whitesmoke;
 }
 
-.click {
+.category-menu .click {
     background-color: antiquewhite;
 }

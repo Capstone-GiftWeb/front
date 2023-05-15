@@ -16,25 +16,27 @@ const categories = [
     { id: 11, name: '반려동물' }
 ];
 
-const CategoryMenu = ({onCategorySelect }) => {
+const CategoryMenu = ({ onCategorySelect }) => {
     const [isBtnActive, setIsBtnActive] = useState(0);
 
     return (
-        <div className='category-menu-container'>
-            <ul className="list-group list-group-horizontal">
-                {categories.map((category) => (
-                    <li
-                        key={category.id}
-                        className={"list-group-item " + (category.id === isBtnActive ? "click" : "")}
-                        onClick={() => {
-                            onCategorySelect(category.id);
-                            setIsBtnActive(category.id);
-                        }}
-                    >
-                        {category.name}
-                    </li>
-                ))}
-            </ul>
+        <div className='category-menu'>
+            <div className='container'>
+                <ul className="list-group list-group-horizontal">
+                    {categories.map((category) => (
+                        <li
+                            key={category.id}
+                            className={"list-group-item " + (category.id === isBtnActive ? "click" : "")}
+                            onClick={() => {
+                                onCategorySelect(category.id);
+                                setIsBtnActive(category.id);
+                            }}
+                        >
+                            {category.name}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };

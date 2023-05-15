@@ -10,7 +10,7 @@ const Header = (props) => {
     const username = getCookie("name");
 
     return (
-        <header>
+        <header className='header-body'>
             <div className="search-window">
                     <input type="text" id="search" placeholder="검색"/>
                     <span id="search-icon"><i className="fas fa-search" ></i></span>
