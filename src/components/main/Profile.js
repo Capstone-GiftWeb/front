@@ -4,6 +4,8 @@ import ProfileDetails from "./ProfileDetails";
 import '../style/Profile.css'
 
 const Profile = () => {
+
+    
     return (
         <>
             <div className="profile-body">

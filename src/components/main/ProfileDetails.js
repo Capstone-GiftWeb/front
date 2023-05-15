@@ -3,51 +3,47 @@ import '../style/ProfileDetails.css';
 import { getCookie, setCookie } from "../utils/Cookie";
 import axiosInstance from "../..";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const ProfileDetails = () => {
 
-    axiosInstance({
-        method: "GET",
-        url: "/member/me",
-        headers:{
-            "Content-Type":"application/json",
+const movePage = useNavigate();
+
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const response = await axiosInstance.get("/member/me");
+        const name = response.data.name;
+        const email = response.data.email;
+        setCookie("name", name);
+        setCookie("email", email);
+      } catch (error) {
+        console.log("FailProfile", error);
+      }
+    };
+
+    fetchProfileData();
+  }, []);
+
+  const name = getCookie("name");
+  const email = getCookie("email");
+
+  const onLogout = () => {
+    const accessToken = getCookie("accessToken");
+    axiosInstance
+      .delete("/auth/logout", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
         },
-        data : {
-        },
-    })
-      .then((res) => {
-            const name = res.data['name'];
-            const email = res.data['email'];
-            setCookie("name", `${name}`);
-            setCookie("email", `${email}`);
       })
-      .catch(
-        console.log("FailProfile")
-      );
-
-    const name = getCookie("name");
-    const email = getCookie("email");
-
-    const movePage = useNavigate();
-    const goToHome = movePage("/")
-
-    // const onEdit = () => {
-        
-    // }
-
-    const onLogout = () => {
-        const accessToken = getCookie("accessToken");
-        axiosInstance.delete("/auth/logout",{
-            accessToken: accessToken
-        })
-        .then(response => {
-            goToHome();
-        })
-        .catch((e)=>{
-            console.log(e);
-            console.log("Fail");
-        });
-    }
+      .then(() => {
+        movePage("/");
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("Fail");
+      });
+  };
 
     return(
         <div className="content-pf">

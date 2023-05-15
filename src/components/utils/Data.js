@@ -1,6 +1,5 @@
 import axios from "axios";
 import axiosInstance from "../..";
-import axios from "axios";
 
 export const getProducts = async () => {
   try {
