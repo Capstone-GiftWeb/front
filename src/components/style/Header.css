@@ -14,22 +14,12 @@ header {
 .header--user {
     position: absolute;
     margin-left: 90%;
-    justify-content: center;
-    align-items: center;
     height: 35px;
-    display: flex;
-    flex-direction: row;
-}
-
-.header--user .name{
-    margin: 0;
-    padding: 0;
 }
 
 .header--user img {
+    border-radius: 50%;
     height: 100%;
-    width: 45px;
-    height: 45px;
 }
 
 .header-body a {
@@ -58,4 +48,5 @@ header {
 
 #search-icon {
     padding: 4px;
+    cursor: pointer;
 }
