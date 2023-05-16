@@ -1,28 +1,43 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url(C:\workspace\VisualStudioCode_Workspace\GiftWebProject\proj\public\font\Montserrat-VariableFont_wght.ttf) format("truetype");
+    unicode-range: U+0041-005A, U+0061-007A;
+}
+@font-face {
+    font-family: 'SUITE';
+    src: url(C:\workspace\VisualStudioCode_Workspace\GiftWebProject\proj\public\font\SUITE-Regular.ttf) format("truetype");
+    unicode-range: U+AC00-D7A3;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'SUITE', sans-serif;
     list-style: none;
     text-decoration: none;
 }
+
 .start header {
     position: fixed;
     right: 0;
     top: 0;
     z-index: 1000;
     width: 100%;
-    padding: 33px 9%;
+    padding: 33px 7%;
     background: transparent;
 }
+
 body {
     background-color: #EAA763;
 }
+
 .start .logo {
     font-size: 30px;
     font-weight: 700;
     color: white;
 }
+
 .wishy {
     height: 100%;
     width: 100%;
@@ -38,31 +53,36 @@ body {
 .start section {
     padding: 0 19%;
 }
-.wishy-text h5{
+
+.wishy-text h5 {
     font-size: 14px;
     font-weight: 400;
     color: white;
     margin-bottom: 40px;
 }
+
 .wishy-text h1 {
-    font-family: 'Montserrat', cursive;
+    font-weight: 700;
     font-size: 90px;
     line-height: 1;
     color: white;
-    margin:  0 0 45px;
+    margin: 0 0 45px;
 }
+
 .wishy-text h4 {
     font-size: 18px;
     font-weight: 600;
     color: white;
     margin-bottom: 10px;
 }
+
 .wishy-text p {
     color: white;
     font-size: 15px;
     line-height: 1.9;
     margin-bottom: 40px;
 }
+
 .wishy-text button {
     display: inline-block;
     color: white;
@@ -76,11 +96,13 @@ body {
     text-transform: uppercase;
     transition: all .55s ease;
 }
+
 .wishy-text button:hover {
     background: transparent;
     border: 1px solid white;
     transform: translateX(8px);
 }
+
 .wishy-text button.signupBtn {
     background: transparent;
     border: 1px solid white;
