@@ -68,6 +68,7 @@ const Login = () => {
       }
       
     return (
+      <div className='login-body'>
         <div className='container'>
             <div className='form login'>
                 <h2>Log In</h2>
@@ -95,6 +96,7 @@ const Login = () => {
             </button>
             </div>
         </div>
+      </div>
     )
 }
 

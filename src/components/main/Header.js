@@ -16,13 +16,11 @@ const Header = (props) => {
                     <span id="search-icon"><i className="fas fa-search" ></i></span>
             </div>
             <div className="header--user">
-                <a href='/Profile'>
-                    <img src="http://occ-0-3996-1361.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY5cwIbM7shRfcXmfQg98cqMqiZZ8sReZnj4y_keCAHeXmG_SoqLD8SXYistPtesdqIjcsGE-tHO8RR92n7NyxZpqcFS80YfbRFz.png?r=229" alt="User" />
+                <a href='Profile' className='name' style={{ textDecoration: "none", color: "black"}}>
+                    jihyun{username}
                 </a>
-            </div>
-            <div className="header--logout">
-                <a href='/Profile' style={{ textDecoration: "none", color: "black"}}>
-                    {username}
+                <a href='/Profile'>
+                    <img src="img/circleprofile.png" alt="User" />
                 </a>
             </div>
         </header>

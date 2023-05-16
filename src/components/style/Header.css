@@ -13,23 +13,18 @@ header {
 
 .header--user {
     position: absolute;
-    margin-left: 94%;
+    margin-left: 90%;
+    justify-content: center;
+    align-items: center;
     height: 35px;
+    display: flex;
+    flex-direction: row;
 }
 
 .header--user img {
-    border-radius: 50%;
     height: 100%;
-}
-
-.header--logout {
-    position: absolute;
-    margin-left: 89%;
-    height: 20px;
-}
-
-.header--logout {
-    cursor: pointer;
+    width: 45px;
+    height: 45px;
 }
 
 .header-body a {

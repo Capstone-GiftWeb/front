@@ -54,7 +54,7 @@ const movePage = useNavigate();
             <div className="profile">
                 <div className="information">
                     <div className="pic">
-                        <img src="http://occ-0-3996-1361.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY5cwIbM7shRfcXmfQg98cqMqiZZ8sReZnj4y_keCAHeXmG_SoqLD8SXYistPtesdqIjcsGE-tHO8RR92n7NyxZpqcFS80YfbRFz.png?r=229" alt="User" />
+                        <img src="img/profile.png" alt="User" />
                     </div>
                     <div className="detailbox">
                         <div className="detail">
