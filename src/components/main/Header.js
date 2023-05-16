@@ -3,9 +3,7 @@ import '../style/Header.css'
 import { getCookie, removeCookie } from '../utils/Cookie';
 import axiosInstance from '../..';
 
-const Header = (props) => {
-
-    const isLogin = props.isLogin
+const Header = () => {
 
     const username = getCookie("name");
 
