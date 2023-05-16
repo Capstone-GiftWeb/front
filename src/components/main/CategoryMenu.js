@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import '../style/CategoryMenu.css';
 
 const categories = [
-    { id: 0, name: "전체" },
-    { id: 4, name: '식품' },
-    { id: 5, name: '화장품/향수' },
-    { id: 1, name: '패션' },
-    { id: 2, name: '리빙' },
-    { id: 8, name: '건강' },
-    { id: 9, name: '명품 패션' },
-    { id: 7, name: '가전/디지털' },
-    { id: 10, name: '꽃배달/도서' },
-    { id: 6, name: '레저/스포츠' },
-    { id: 3, name: '출산/유아동' },
-    { id: 11, name: '반려동물' }
+    { id: 0, name: "전체", img:"img/category/total.png" },
+    { id: 4, name: '식품', img:"img/category/food.png" },
+    { id: 5, name: '화장품/향수', img:"img/category/beauty.png" },
+    { id: 1, name: '패션', img:"img/category/clothes.png" },
+    { id: 2, name: '리빙', img:"img/category/living.png" },
+    { id: 8, name: '건강', img:"img/category/health.png" },
+    { id: 9, name: '명품 패션', img:"img/category/luxury.png" },
+    { id: 7, name: '가전/디지털', img:"img/category/digital.png" },
+    { id: 10, name: '꽃배달/도서', img:"img/category/plant.png" },
+    { id: 6, name: '레저/스포츠', img:"img/category/sports.png" },
+    { id: 3, name: '출산/유아동', img:"img/category/baby.png" },
+    { id: 11, name: '반려동물', img:"img/category/pet.png" }
 ];
 
 const CategoryMenu = ({ onCategorySelect }) => {
@@ -26,14 +26,14 @@ const CategoryMenu = ({ onCategorySelect }) => {
                     {categories.map((category) => (
                         <li
                             key={category.id}
-                            className={"list-group-item " + (category.id === isBtnActive ? "click" : "")}
+                            className={(category.id === isBtnActive ? "click" : "nonClick")}
                             onClick={() => {
                                 onCategorySelect(category.id);
                                 setIsBtnActive(category.id);
                             }}
                         >
-                            <image src="" alt="menu image" />
-                            {category.name}
+                            <img src={category.img} alt='menu_image' width={"52%"}/>
+                            <p>{category.name}</p>
                         </li>
                     ))}
                 </ul>

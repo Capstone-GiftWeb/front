@@ -1,3 +1,10 @@
+.home-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .home-box {
   float: right;
   position: relative;
@@ -9,11 +16,9 @@
   background-color: rgb(255, 255, 255);
 }
 
-.home-body {
+.home-box .horizontal-box {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  flex-direction: row;
 }
 
 .home-box .scroll-box {
@@ -27,6 +32,20 @@
   display: none;
 }
 
-.top-rank-products {
+.home-box .top-rank-products {
   margin-top: 30px;
+}
+
+.home-box .nonScroll-box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.home-box .nonScroll-box #topBtn {
+  cursor: pointer;
+  height: 5%;
+  margin-top: 600px;
+  margin-left: 8px;
+  margin-right: 32px;
 }

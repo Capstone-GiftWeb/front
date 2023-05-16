@@ -7,7 +7,6 @@ import Loading from "./Loading";
 import CategoryMenu from './CategoryMenu';
 import RecentProducts from './RecentProducts';
 
-import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import { getCategoryProducts } from "../utils/Data";
 import { setRecentHistory, filterDataByCookie } from '../utils/ClickUtils'
 
@@ -17,7 +16,7 @@ const Category = () => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
-    
+
     const [selectedCategory, setSelectedCategory] = useState(0);
     const [categoryData, setCategoryData] = useState([]);
 
@@ -26,10 +25,10 @@ const Category = () => {
     const onScrollToTop = () => {
         if (setScrollRef.current) {
             setScrollRef.current.scrollTo({
-              top: 0,
-              behavior: 'smooth'
+                top: 0,
+                behavior: 'smooth'
             });
-          }
+        }
     }
 
     const onCategorySelect = (id) => {
@@ -68,7 +67,7 @@ const Category = () => {
         if (data.length > 0) {
             const filtered = filterDataByCookie(data);
             setFilteredData(filtered);
-          }
+        }
     }, [data])
 
     if (loading) return <Loading loading={loading} />
@@ -81,12 +80,16 @@ const Category = () => {
                     <div className="category-box">
                         <Header />
                         <CategoryMenu selectedCategory={selectedCategory} onCategorySelect={onCategorySelect} />
-                        <div className='scroll-box'>
-                            <Products props={categoryData} onClickProduct={onClickProduct} />
+                        <div className='horizontal-box'>
+                            <div className='scroll-box' ref={setScrollRef}>
+                                <Products props={categoryData} onClickProduct={onClickProduct} />
+                            </div>
+                            <div className='nonScroll-box'>
+                                <img src='img/topBtn.png' onClick={onScrollToTop} alt="topBtn" id='topBtn'/>
+                                <RecentProducts props={filteredData} />
+                            </div>
                         </div>
                     </div>
-                    <VerticalAlignTopOutlined style={{ color: "black", fontSize: "30px"}} onClick={onScrollToTop} />
-                    <RecentProducts props={filteredData} />
                 </div>
             </div>
         </>
