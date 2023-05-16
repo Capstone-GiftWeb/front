@@ -34,21 +34,20 @@ const Products = ({ props, onClickProduct }) => {
   }, [])
 
   return (
-    <div className='product-body'>
+    <div className='products-body'>
       <div className='container'>
         <div className='row'>
           {
             props.map((product, index) => {
               return (
-                <div key={index} className="col-md-3 grid">
+                <div key={index} className="product col-md-3 grid">
                   <img src={`${product.image}`} alt="" />
-                  <div className='product-title'>
-                    <p onClick={() => { onClickProduct(product.href) }}>{product.title}</p>
-                    <div className='icons'>
-                      {product.favorite ?
-                        <HeartFilled style={{ color: "red", fontSize: "20px" }} onClick={() => onClickFavorite(product)} /> :
-                        <HeartOutlined style={{ fontSize: "20px" }} onClick={() => onClickFavorite(product)} />}
-                    </div>
+                  <p className='product-title' onClick={() => { onClickProduct(product.href) }}>{product.title}</p>
+                  <p className='product-price'>{product.price}원</p>
+                  <div className='icons'>
+                    {product.favorite ?
+                      <HeartFilled style={{ color: "red", fontSize: "20px" }} onClick={() => onClickFavorite(product)} /> :
+                      <HeartOutlined style={{ fontSize: "20px" }} onClick={() => onClickFavorite(product)} />}
                   </div>
                 </div>
               );

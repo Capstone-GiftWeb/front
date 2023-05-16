@@ -4,14 +4,17 @@ import { getCookie, removeCookie } from '../utils/Cookie';
 import axiosInstance from '../..';
 
 const Header = () => {
-
     const username = getCookie("name");
+
+    const onSearchProduct = (value) => {
+
+    }
 
     return (
         <header className='header-body'>
             <div className="search-window">
                     <input type="text" id="search" placeholder="검색"/>
-                    <span id="search-icon"><i className="fas fa-search" ></i></span>
+                    <span id="search-icon"><i className="fas fa-search" onClick={() => {onSearchProduct()}}></i></span>
             </div>
             <div className="header--user">
                 <a href='Profile' className='name' style={{ textDecoration: "none", color: "black"}}>

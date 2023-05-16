@@ -19,11 +19,11 @@ const setRecentHistory = (href) => {
   };
   
 
-// 전체 데이터와 쿠키 리스트를 받아서, 데이터를 비교하여 보내는 함수
-const filterDataByCookie = (data) => {
-    // 쿠키 값과 데이터를 비교하여 필터링된 데이터 반환
-    const cookieList = getRecentHistory();
-    return data.filter(item => cookieList.includes(item.href));
+// 전체 데이터와 로컬 스토리지 리스트를 받아서, 데이터를 비교하여 보내는 함수
+const filterDataByList = (data) => {
+    // 스토리지지 값과 데이터를 비교하여 필터링된 데이터 반환
+    const list = getRecentHistory();
+    return data.filter(item => list.includes(item.href));
 };
 
-export { setRecentHistory, filterDataByCookie };
+export { setRecentHistory, filterDataByList };

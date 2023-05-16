@@ -24,7 +24,7 @@
 .category-box .scroll-box {
   overflow-x: hidden;
   overflow-y: scroll;
-  width: 1050px;
+  width: 1115px;
   height: 650px;
 }
 
@@ -34,14 +34,15 @@
 
 .category-box .nonScroll-box {
   display: flex;
-  flex-direction: row;
-  margin-top: -75px;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -50px;
+  margin-left: 14px;
 }
 
 .category-box .nonScroll-box #topBtn {
   cursor: pointer;
-  height: 5%;
-  margin-top: 600px;
-  margin-left: 8px;
-  margin-right: 32px;
+  width: 50px;
+  height: 30px;
+  margin-top: 10px;
 }

@@ -8,7 +8,7 @@ import CategoryMenu from './CategoryMenu';
 import RecentProducts from './RecentProducts';
 
 import { getCategoryProducts } from "../utils/Data";
-import { setRecentHistory, filterDataByCookie } from '../utils/ClickUtils'
+import { setRecentHistory, filterDataByList } from '../utils/ClickUtils'
 
 import '../style/Category.css';
 
@@ -38,7 +38,7 @@ const Category = () => {
     const onClickProduct = (href) => {
         setRecentHistory(href); // 로컬 스토리지에 저장
 
-        const filtered = filterDataByCookie(data); // 리스트로 데이터 필터링
+        const filtered = filterDataByList(data); // 리스트로 데이터 필터링
         setFilteredData(filtered); // 필터링된 데이터 설정
     }
 
@@ -65,7 +65,7 @@ const Category = () => {
 
     useEffect(() => {
         if (data.length > 0) {
-            const filtered = filterDataByCookie(data);
+            const filtered = filterDataByList(data);
             setFilteredData(filtered);
         }
     }, [data])
@@ -85,8 +85,8 @@ const Category = () => {
                                 <Products props={categoryData} onClickProduct={onClickProduct} />
                             </div>
                             <div className='nonScroll-box'>
-                                <img src='img/topBtn.png' onClick={onScrollToTop} alt="topBtn" id='topBtn'/>
                                 <RecentProducts props={filteredData} />
+                                <img src='img/topBtn.png' onClick={onScrollToTop} alt="topBtn" id='topBtn' />
                             </div>
                         </div>
                     </div>

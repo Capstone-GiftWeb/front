@@ -1,6 +1,7 @@
 import axios from "axios";
 import axiosInstance from "../..";
 
+// 전체 랭킹 데이터 > 프론트가 받아와서 메인 페이지에 랜더링
 export const getProducts = async () => {
   try {
     const response = await axios.get('https://goldsergeant.github.io/testJson/');
@@ -26,6 +27,17 @@ export const getCategoryProducts = async () => {
 export const getFavoriteProducts = async () => {
   try {
     const response = await axios.get('https://goldsergeant.github.io/testJson/favorite');
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+// 검색한 아이템 전체 > 프론트가 받아와서 검색 페이지에 랜더링
+export const getSearchProducts = async () => {
+  try {
+    const response = await axios.get('https://goldsergeant.github.io/testJson/search');
     return response.data;
   } catch (error) {
     console.error(error);
