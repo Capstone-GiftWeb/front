@@ -104,7 +104,7 @@ const Signup = () => {
         <div className='form'>
           <h2>Sign Up</h2>
           <div className="checkbox-group">
-            남성
+            <p>남성</p>
             <label htmlFor="male">
               <CheckBox
                 checked={inputGender === '남자'}
@@ -114,7 +114,7 @@ const Signup = () => {
               />
             </label>
             
-            여성
+            <p>여성</p>
             <label htmlFor="female">
               <CheckBox
                 checked={inputGender === '여자'}

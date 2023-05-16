@@ -1,9 +1,6 @@
 .lasted {
-  position: absolute;
   width: 240px;
-  height: 670px;
-  margin-top: 110px;
-  margin-left: 1200px;
+  height: 690px;
   background-color: #F5F5F5;
   border-radius: 15px;
   text-align: center;
@@ -11,7 +8,8 @@
 }
 
 .lasted h5 {
-  margin-bottom: 12px;
+  margin-top: 5px;
+  margin-bottom: 17px;
 }
 
 .lasted img {

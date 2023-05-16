@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import '../style/Login.css'
-import { setCookie, getCookie } from '../utils/Cookie';
+import { setCookie } from '../utils/Cookie';
 import axiosInstance from '../..';
+import '../style/Login.css'
 
 const Login = () => {
   const movePage = useNavigate();
@@ -61,43 +61,43 @@ const Login = () => {
       })
       .catch((e) => {
 
-            alert("회원정보를 다시 확인해주세요");
-            console.log(e);
-            console.log("Fail");
-          });
-      }
-      
-    return (
-      <div className='login-body'>
-        <div className='container'>
-            <div className='form login'>
-                <h2>Log In</h2>
-                <div className='inputBox'>
-                    <input type="email" name="input_email" value={inputEmail} onChange={handleInputEmail} required="required"></input>
-                    <i className="fa-regular fa-user"></i>
-                    <span>email</span>
-                </div>
-                <div className='inputBox'>
-                    <input type="password" name="input_pw" value={inputPw} onChange={handleInputPw} required="required"></input>
-                    <i className="fa-solid fa-lock"></i>
-                    <span>password</span>
-                </div>
-                <div className='inputBox'>
-                    <input type="submit" onClick={onClickLogin} value="LOGIN"></input>
-                </div>
-                <p>Not Registered ?
-                  <button onClick={goToSignUp}>Create an account</button>
-                </p>
-            </div>
-            
-            <div className='back'>
-            <button onClick={goToStart}>
-                    <i className="fa-solid fa-chevron-left fa-1x"></i>
-            </button>
-            </div>
+        alert("회원정보를 다시 확인해주세요");
+        console.log(e);
+        console.log("Fail");
+      });
+  }
+
+  return (
+    <div className='login-body'>
+      <div className='container'>
+        <div className='form login'>
+          <h2>Log In</h2>
+          <div className='inputBox'>
+            <input type="email" name="input_email" value={inputEmail} onChange={handleInputEmail} required="required"></input>
+            <i className="fa-regular fa-user"></i>
+            <span>email</span>
+          </div>
+          <div className='inputBox'>
+            <input type="password" name="input_pw" value={inputPw} onChange={handleInputPw} required="required"></input>
+            <i className="fa-solid fa-lock"></i>
+            <span>password</span>
+          </div>
+          <div className='inputBox'>
+            <input type="submit" onClick={onClickLogin} value="LOGIN"></input>
+          </div>
+          <p>Not Registered ?
+            <button onClick={goToSignUp}>Create an account</button>
+          </p>
+        </div>
+
+        <div className='back'>
+          <button onClick={goToStart}>
+            <i className="fa-solid fa-chevron-left fa-1x"></i>
+          </button>
         </div>
       </div>
-    )
+    </div>
+  )
 }
 
 export default Login;

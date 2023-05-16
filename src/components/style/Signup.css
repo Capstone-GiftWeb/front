@@ -150,10 +150,12 @@
 }
 
 .signup-body .checkbox-group{
+    display: flex;
+    flex-direction: row;
     font-size: 0.85em;
     color: white;
 }
 
 .checkbox-group label{
-    margin-top: 1;
+    height: 15px;
 }
