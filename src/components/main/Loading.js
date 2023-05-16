@@ -1,17 +1,18 @@
 import React from 'react';
-import { ClipLoader } from "react-spinners";
+import { RingLoader } from "react-spinners";
 
 const override = {
-    display: "flex",
-    margin: "0 auto",
-    borderColor: "#E50915",
-    textAlign: "center",
+    position: "fixed",
+    top: "38%",
+    left: "48%"
+    
 };
 
-const Loading = ({loading}) => {
+const Loading = ({ loading }) => {
     return (
         <div>
-            <ClipLoader color="#EAA763" loading={loading} cssOverride={override} size={150} />
+            <RingLoader color="#ffca57"
+                speedMultiplier={1} loading={loading} cssOverride={override} size={120} />
         </div>
     )
 }

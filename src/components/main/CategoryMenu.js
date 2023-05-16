@@ -32,6 +32,7 @@ const CategoryMenu = ({ onCategorySelect }) => {
                                 setIsBtnActive(category.id);
                             }}
                         >
+                            <image src="" alt="menu image" />
                             {category.name}
                         </li>
                     ))}

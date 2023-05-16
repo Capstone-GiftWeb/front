@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import Nav from './Nav';
 import Products from './Products';
@@ -7,6 +7,7 @@ import Banner from './Banner';
 import RecentProducts from './RecentProducts';
 import Loading from "./Loading";
 
+import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import { getProducts } from "../utils/Data";
 import { setRecentHistory, filterDataByCookie } from '../utils/ClickUtils'
 
@@ -16,12 +17,22 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+    const setScrollRef = useRef(0)
 
     const onClickProduct = (href) => {
         setRecentHistory(href); // 로컬 스토리지에 저장
 
         const filtered = filterDataByCookie(data); // 리스트로 데이터 필터링
         setFilteredData(filtered); // 필터링된 데이터 설정
+    }
+    
+    const onScrollToTop = () => {
+        if (setScrollRef.current) {
+            setScrollRef.current.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          }
     }
 
     // Data.js의 getProducts를 사용하여 데이터를 불러와 useState에 저장
@@ -53,13 +64,14 @@ const Home = () => {
                     <Nav />
                     <div className="home-box">
                         <Header />
-                        <div className='scroll-box'>
+                        <div className='scroll-box' ref={setScrollRef}>
                             <Banner />
                             <div className='top-rank-products'>
                                 <Products props={data} onClickProduct={onClickProduct} />
                             </div>
                         </div>
                     </div>
+                    <VerticalAlignTopOutlined style={{ color: "black", fontSize: "30px"}} onClick={onScrollToTop} />
                     <RecentProducts props={filteredData} />
                 </div>
             </div>

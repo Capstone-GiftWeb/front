@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import Nav from './Nav';
 import Header from './Header';
@@ -7,6 +7,7 @@ import Loading from "./Loading";
 import CategoryMenu from './CategoryMenu';
 import RecentProducts from './RecentProducts';
 
+import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import { getCategoryProducts } from "../utils/Data";
 import { setRecentHistory, filterDataByCookie } from '../utils/ClickUtils'
 
@@ -19,6 +20,17 @@ const Category = () => {
     
     const [selectedCategory, setSelectedCategory] = useState(0);
     const [categoryData, setCategoryData] = useState([]);
+
+    const setScrollRef = useRef(0)
+
+    const onScrollToTop = () => {
+        if (setScrollRef.current) {
+            setScrollRef.current.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          }
+    }
 
     const onCategorySelect = (id) => {
         setSelectedCategory(id);
@@ -73,6 +85,7 @@ const Category = () => {
                             <Products props={categoryData} onClickProduct={onClickProduct} />
                         </div>
                     </div>
+                    <VerticalAlignTopOutlined style={{ color: "black", fontSize: "30px"}} onClick={onScrollToTop} />
                     <RecentProducts props={filteredData} />
                 </div>
             </div>
