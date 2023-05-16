@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import axiosInstance from '../..';
 import '../style/Products.css'

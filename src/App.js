@@ -1,14 +1,18 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+
 import Start from "./components/sign/Start";
 import Login from "./components/sign/Login";
 import Signup from "./components/sign/Signup";
 import Home from "./components/main/Home"
-import { Route, Routes } from 'react-router-dom';
-import './components/style/App.css';
 import Category from './components/main/Category';
 import Favorite from './components/main/Favorite';
 import Profile from './components/main/Profile';
+import Search from './components/main/Search';
+
 import Test from './components/main/Test';
+
+import './components/style/App.css';
 
 const App = () => (
   <Routes>
@@ -19,6 +23,7 @@ const App = () => (
     <Route path="/Category" element={<Category />} />
     <Route path="/Favorite" element={<Favorite />} />
     <Route path="/Profile" element={<Profile />} />
+    <Route path="/Search" element={<Search />} />
     <Route path="/Test" element={<Test />} />
   </Routes>
 );
