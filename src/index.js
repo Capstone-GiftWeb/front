@@ -19,8 +19,8 @@ axiosInstance.interceptors.request.use(
   async (config) => {
     const accessToken = await getCookie("accessToken");
     console.log(accessToken);
-    config.headers.common = config.headers.common || {}; // 초기화
-    config.headers.common["Authorization"] = `Bearer ${accessToken}`
+    config.headers = config.headers || {}; // 초기화
+    config.headers["Authorization"] = `Bearer ${accessToken}`
     
     return config;
   }
