@@ -29,24 +29,24 @@ const movePage = useNavigate();
   const email = getCookie("email");
 
   const onLogout = () => {
-    sessionStorage.clear('recentProducts');
+    localStorage.clear('recentProducts');
     removeCookie('name');
     removeCookie('email');
     movePage("/");
     const accessToken = getCookie("accessToken");
-    axiosInstance
-      .delete("/auth/logout", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      })
-      .then(() => {
-        movePage("/");
-      })
-      .catch((error) => {
-        console.log(error);
-        console.log("Fail");
-      });
+    // axiosInstance
+    //   .delete("/auth/logout", {
+    //     headers: {
+    //       Authorization: `Bearer ${accessToken}`,
+    //     },
+    //   })
+    //   .then(() => {
+    //     movePage("/");
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     console.log("Fail");
+    //   });
   };
 
     return(
@@ -71,6 +71,9 @@ const movePage = useNavigate();
                             <button onClick={onLogout}>Logout</button>
                         </div>
                     </div>
+                </div>
+                <div className="like">
+                    <p>Like♥</p>
                 </div>
             </div>
         </div>
