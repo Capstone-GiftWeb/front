@@ -1,6 +1,6 @@
 import React from "react";
 import '../style/ProfileDetails.css';
-import { getCookie, setCookie } from "../utils/Cookie";
+import { getCookie, removeCookie, setCookie } from "../utils/Cookie";
 import axiosInstance from "../..";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -29,6 +29,10 @@ const movePage = useNavigate();
   const email = getCookie("email");
 
   const onLogout = () => {
+    sessionStorage.clear('recentProducts');
+    removeCookie('name');
+    removeCookie('email');
+    movePage("/");
     const accessToken = getCookie("accessToken");
     axiosInstance
       .delete("/auth/logout", {

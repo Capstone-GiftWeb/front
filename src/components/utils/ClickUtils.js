@@ -2,7 +2,7 @@ const MAX_HISTORY_SIZE = 4; // 쿠키 배열의 최대 크기
 
 // 상품을 클릭하면 해당 상품 href를 로컬 스토리지에 넣는 함수
 const setRecentHistory = (href) => {
-    let existingHistory = JSON.parse(localStorage.getItem('recentProducts')) || [];
+    let existingHistory = JSON.parse(sessionStorage.getItem('recentProducts')) || [];
   
     if (!existingHistory.includes(href)) {
       existingHistory.unshift(href); // 가장 최근 항목을 배열 맨 앞에 추가
@@ -11,11 +11,11 @@ const setRecentHistory = (href) => {
       }
     }
   
-    localStorage.setItem('recentProducts', JSON.stringify(existingHistory));
+    sessionStorage.setItem('recentProducts', JSON.stringify(existingHistory));
   };
   
   const getRecentHistory = () => {
-    return JSON.parse(localStorage.getItem('recentProducts')) || [];
+    return JSON.parse(sessionStorage.getItem('recentProducts')) || [];
   };
   
 

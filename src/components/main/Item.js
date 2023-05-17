@@ -7,7 +7,7 @@ export const Item = (product) => {
                 </div>
                 <div className="item-info">
                     <h3>{product.title}</h3>
-                    <h3>{product.price}원</h3>
+                    <h3>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</h3>
                 </div>
                 <button>
                     Add To Cart
