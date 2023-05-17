@@ -10,9 +10,16 @@ const setRecentHistory = (href) => {
         existingHistory = existingHistory.slice(0, MAX_HISTORY_SIZE); // 최대 크기 제한
       }
     }
-  
     localStorage.setItem('recentProducts', JSON.stringify(existingHistory));
   };
+
+  // 버튼을 클릭하면 해당 상품을 로컬에서 지우는 함수
+  const deleteRecentHistory = (href) => {
+    let existingHistory = JSON.parse(localStorage.getItem('recentProducts')) || [];
+    
+    existingHistory = existingHistory.filter((element) => element !== href);
+    localStorage.setItem('recentProducts', JSON.stringify(existingHistory));
+  }
   
   const getRecentHistory = () => {
     return JSON.parse(localStorage.getItem('recentProducts')) || [];
@@ -26,4 +33,4 @@ const filterDataByList = (data) => {
     return data.filter(item => list.includes(item.href));
 };
 
-export { setRecentHistory, filterDataByList };
+export { setRecentHistory, filterDataByList, deleteRecentHistory };

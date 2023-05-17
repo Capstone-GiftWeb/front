@@ -8,7 +8,7 @@ import CategoryMenu from './CategoryMenu';
 import RecentProducts from './RecentProducts';
 
 import { getCategoryProducts } from "../utils/Data";
-import { setRecentHistory, filterDataByList } from '../utils/ClickUtils'
+import { setRecentHistory, filterDataByList, deleteRecentHistory } from '../utils/ClickUtils'
 
 import '../style/Category.css';
 
@@ -42,13 +42,21 @@ const Category = () => {
         setFilteredData(filtered); // 필터링된 데이터 설정
     }
 
+    const onDeleteRecentProduct = (href) => {
+        deleteRecentHistory(href);
+
+        const filtered = filterDataByList(data); // 리스트로 데이터 필터링
+        setFilteredData(filtered); // 필터링된 데이터 설정
+    }
+
     // Data.js의 getProducts를 사용하여 데이터를 불러와 useState에 저장
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             const res = await getCategoryProducts();
             if (res) { // res가 undefined인 경우에는 setData를 실행하지 않음
-                setData(res.gifts);
+                console.log(res);
+                setData(res);
             }
             setLoading(false);
         };
@@ -85,7 +93,7 @@ const Category = () => {
                                 <Products props={categoryData} onClickProduct={onClickProduct} />
                             </div>
                             <div className='nonScroll-box'>
-                                <RecentProducts props={filteredData} />
+                                <RecentProducts props={filteredData} onDeleteRecentProduct={onDeleteRecentProduct}/>
                                 <img src='img/upward.png' onClick={onScrollToTop} alt="topBtn" id='topBtn' />
                             </div>
                         </div>

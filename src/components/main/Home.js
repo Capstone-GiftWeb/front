@@ -8,7 +8,7 @@ import RecentProducts from './RecentProducts';
 import Loading from "./Loading";
 
 import { getProducts } from "../utils/Data";
-import { setRecentHistory, filterDataByList } from '../utils/ClickUtils'
+import { setRecentHistory, filterDataByList, deleteRecentHistory } from '../utils/ClickUtils'
 
 import '../style/Home.css';
 
@@ -20,6 +20,13 @@ const Home = () => {
 
     const onClickProduct = (href) => {
         setRecentHistory(href); // 로컬 스토리지에 저장
+
+        const filtered = filterDataByList(data); // 리스트로 데이터 필터링
+        setFilteredData(filtered); // 필터링된 데이터 설정
+    }
+
+    const onDeleteRecentProduct = (href) => {
+        deleteRecentHistory(href);
 
         const filtered = filterDataByList(data); // 리스트로 데이터 필터링
         setFilteredData(filtered); // 필터링된 데이터 설정
@@ -71,7 +78,7 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className='nonScroll-box'>
-                                <RecentProducts props={filteredData} />
+                                <RecentProducts props={filteredData} onDeleteRecentProduct={onDeleteRecentProduct}/>
                                 <img src='img/upward.png' onClick={onScrollToTop} alt="topBtn" id='topBtn'/>
                             </div>
                         </div>
