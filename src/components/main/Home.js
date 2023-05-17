@@ -72,7 +72,7 @@ const Home = () => {
                             </div>
                             <div className='nonScroll-box'>
                                 <RecentProducts props={filteredData} />
-                                <img src='img/topBtn.png' onClick={onScrollToTop} alt="topBtn" id='topBtn'/>
+                                <img src='img/upward.png' onClick={onScrollToTop} alt="topBtn" id='topBtn'/>
                             </div>
                         </div>
                     </div>
