@@ -38,7 +38,7 @@ const ProfileDetails = () => {
         },
       })
       .then(() => {
-        movePage("/");
+  
       })
       .catch((error) => {
         console.log(error);
@@ -46,35 +46,32 @@ const ProfileDetails = () => {
       });
   };
 
-  return (
-    <div className="content-pf">
-      <div className="title">
-        <h2>Profile</h2>
-      </div>
-
-      <div className="profile">
-        <div className="information">
-          <div className="pic">
-            <img src="img/profile.png" alt="User" />
-          </div>
-          <div className="detailbox">
-            <div className="detail">
-              <p>Name : </p>
-              <p> {name} </p>
-              <p>Email : </p>
-              <p> {email}</p>
-
-              {/* <button onClick={onEdit}>Edit Profile</button> */}
-              <button onClick={onLogout}>Logout</button>
+    return(
+        <div className="content-pf">
+            <div className="title">
+                <h2>Profile</h2>
             </div>
-          </div>
-        </div>
-        <div className="like">
-          <p>Like♥</p>
+            <div className="information">
+              <div className="profile">
+                  <div className="user">
+                      <div className="pic">
+                          <img src="img/profile.png" alt="User" />
+                      </div>
+                      <div className="detailbox">
+                          <div className="detail">
+                              <p>Name : {name} </p>
+                              <p>Email : {email}</p>
+                              <button onClick={onLogout}>Logout</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            <div className="like">
+              <p>Like♥</p>
+            </div>
         </div>
       </div>
-    </div>
-  )
+    )
 }
 
 export default ProfileDetails;

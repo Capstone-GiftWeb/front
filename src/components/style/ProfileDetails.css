@@ -46,7 +46,7 @@
     border-radius: 10px;
 }
 
-.information {
+.user {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -69,6 +69,22 @@
 }
 
 .detailbox{
-    width: 300px;
+    width: 400px;
     height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.information{
+    display: flex;
+    flex-direction: row;
+}
+
+.like{
+    margin-left: 10px;
+}
+
+.like p{
+    font-size: 1.5rem;
+    font-weight: bold;
 }
