@@ -40,9 +40,9 @@ const Products = ({ props, onClickProduct }) => {
           {
             props.map((product, index) => {
               return (
-                <div key={index} className="product col-md-3 grid">
+                <div key={index} className="product col-md-3 grid" onClick={() => { onClickProduct(product.href) }}>
                   <img src={`${product.image}`} alt="" />
-                  <p className='product-title' onClick={() => { onClickProduct(product.href) }}>{product.title}</p>
+                  <p className='product-title'>{product.title}</p>
                   <p className='product-price'>{product.price}원</p>
                   <div className='icons'>
                     {product.favorite ?

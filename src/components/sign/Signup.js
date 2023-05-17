@@ -136,7 +136,7 @@ const Signup = () => {
           </div>
           <div className='inputBox'>
             <input type="text" value={inputEmail} onChange={handleInputEmail} required="required"></input>
-            <i class="fa-regular fa-envelope"></i>
+            <i className="fa-regular fa-envelope"></i>
             <span>email</span>
           </div>
           <div className='inputBox'>
@@ -146,7 +146,7 @@ const Signup = () => {
           </div>
           <div className='inputBox'>
             <input type="password" value={confirmPw} onChange={handleconfirmPw} required="required"></input>
-            <i class="fa-solid fa-lock"></i>
+            <i className="fa-solid fa-lock"></i>
             <span>confirm password</span>
           </div>
           <div className='inputBox'>
