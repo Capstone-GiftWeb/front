@@ -4,7 +4,7 @@ import axiosInstance from "../..";
 // 전체 랭킹 데이터 > 프론트가 받아와서 메인 페이지에 랜더링
 export const getProducts = async () => {
   try {
-    const response = await axiosInstance('/gifts');
+    const response = await axios.get('https://goldsergeant.github.io/testJson');
     return response.data;
   } catch (error) {
     console.error(error);
