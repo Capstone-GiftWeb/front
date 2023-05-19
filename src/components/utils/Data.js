@@ -15,7 +15,7 @@ export const getProducts = async () => {
 // 카테고리별 추천 아이템 전체 > 프론트가 전체를 받아와서 카테고리별로 mapping
 export const getCategoryProducts = async () => {
   try {
-    const response = await axiosInstance('/recommend/');
+    const response = await axios.get('https://goldsergeant.github.io/testJson');
     return response.data;
   } catch (error) {
     console.error(error);
