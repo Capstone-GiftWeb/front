@@ -12,8 +12,11 @@ const ProfileDetails = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        getCookie("name", name);
-        getCookie("email", email);
+        // const response = await axiosInstance.get("/member/me");
+        // const name = response.data.name;
+        // const email = response.data.email;
+        // setCookie("name", name);
+        // setCookie("email", email);
       } catch (error) {
         console.log("FailProfile", error);
       }
@@ -59,7 +62,7 @@ const ProfileDetails = () => {
                       </div>
                       <div className="detailbox">
                           <div className="detail">
-                              <p>Name : {name} </p>
+                              <p>Name : {name}</p>
                               <p>Email : {email}</p>
                               <button onClick={onLogout}>Logout</button>
                           </div>
