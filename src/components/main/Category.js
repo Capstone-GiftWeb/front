@@ -8,7 +8,7 @@ import CategoryMenu from './CategoryMenu';
 import RecentProducts from './RecentProducts';
 
 import { getCategoryProducts } from "../utils/Data";
-import { setRecentHistory, filterDataByList, deleteRecentHistory } from '../utils/ClickUtils'
+import { setRecentHistory, filterDataByList, deleteRecentHistory, redirectPage } from '../utils/ClickUtils'
 
 import '../style/Category.css';
 
@@ -40,6 +40,8 @@ const Category = () => {
 
         const filtered = filterDataByList(data); // 리스트로 데이터 필터링
         setFilteredData(filtered); // 필터링된 데이터 설정
+
+        redirectPage(href); // 클릭한 값을 서버로 전송 > 리다이렉트!
     }
 
     const onDeleteRecentProduct = (href) => {

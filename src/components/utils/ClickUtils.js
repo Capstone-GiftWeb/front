@@ -1,3 +1,5 @@
+import axiosInstance from "../..";
+
 const MAX_HISTORY_SIZE = 4; // 쿠키 배열의 최대 크기
 
 // 상품을 클릭하면 해당 상품 href를 로컬 스토리지에 넣는 함수
@@ -33,4 +35,17 @@ const filterDataByList = (data) => {
     return data.filter(item => list.includes(item.href));
 };
 
-export { setRecentHistory, filterDataByList, deleteRecentHistory };
+// 클릭한 아이템의 href를 받아서 서버로 GET
+const redirectPage = (href) => {
+  axiosInstance({
+    method: "GET",
+    url: `/${href}`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {
+    },
+  })
+}
+
+export { setRecentHistory, filterDataByList, deleteRecentHistory, redirectPage };
