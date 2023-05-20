@@ -36,19 +36,28 @@ header {
     margin-bottom: 10px;
 }
 
-#search {
+#searchInput {
     position: relative;
-    width: 400px;
+    width: 375px;
     height: 40px;
     border: none;
     background-color: #F5F5F5;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
     padding-left: 13px;
 }
 
-#search-icon {
-    position: absolute;
-    padding: 4px;
-    margin-left: 370px;
+#searchInput:focus {
+    outline: none;
+}
+
+#searchBtn {
+    border: none;
+    background-color: #F5F5F5;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 1px;
+}
+
+.search-window i {
     cursor: pointer;
+    padding: 12px;
 }

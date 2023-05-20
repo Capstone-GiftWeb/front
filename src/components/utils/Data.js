@@ -35,10 +35,24 @@ export const getFavoriteProducts = async () => {
 }
 
 // 검색한 아이템 전체 > 프론트가 받아와서 검색 페이지에 랜더링
-export const getSearchProducts = async () => {
+export const getSearchProducts = async (query) => {
+  // try {
+  //   const response = await axios.get(`https://goldsergeant.github.io/testJson/search/${query}`);
+  //   return response.data;
+  // } catch (error) {
+  //   console.error(error);
+  //   return null;
+  // }
+
   try {
-    const response = await axios.get('https://goldsergeant.github.io/testJson/search');
-    return response.data;
+    const response = await axios.get('https://goldsergeant.github.io/testJson');
+    const data = response.data.gifts.filter(item => item.title.includes(query));
+    console.log(data);
+    if (query === "" || data.length === 0){
+      return "no"
+    }
+    
+    return data;
   } catch (error) {
     console.error(error);
     return null;
