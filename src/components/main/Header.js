@@ -18,7 +18,7 @@ const Header = () => {
             </div>
             <div className="header--user">
                 <a href='Profile' className='name' style={{ textDecoration: "none", color: "black"}}>
-                    {username}
+                    {username} yunjeong
                 </a>
                 <a href='/Profile'>
                     <img src="img/circleprofile.png" alt="User" />

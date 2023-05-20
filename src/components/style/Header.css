@@ -22,9 +22,9 @@ header {
     height: 100%;
 }
 
-.header-body a {
+.header-body .name {
     font-size: 15px;
-    padding: 10px;
+    margin-right: 5px;
 }
 
 .search-window {
@@ -32,21 +32,23 @@ header {
     margin-left: 30px;
     display: flex;
     align-items: center;
+    margin-top: 5px;
     margin-bottom: 10px;
 }
 
 #search {
+    position: relative;
     width: 400px;
     height: 40px;
     border: none;
     background-color: #F5F5F5;
     border-radius: 10px;
-    padding-top: 4px;
-    padding-bottom: 3px;
     padding-left: 13px;
 }
 
 #search-icon {
+    position: absolute;
     padding: 4px;
+    margin-left: 370px;
     cursor: pointer;
 }

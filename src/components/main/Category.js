@@ -57,8 +57,7 @@ const Category = () => {
             setLoading(true);
             const res = await getCategoryProducts();
             if (res) { // res가 undefined인 경우에는 setData를 실행하지 않음
-                console.log(res);
-                setData(res);
+                setData(res.gifts);
             }
             setLoading(false);
         };
