@@ -33,11 +33,6 @@ const Nav = () => {
               Category
             </p>
             <p
-              className={isNavActive === '/Favorite' ? 'navClick' : ''}
-              onClick={goToFavorite}>
-              Favorite
-            </p>
-            <p
               className={isNavActive === '/Profile' ? 'navClick' : ''}
               onClick={goToProfile}>
               Profile

@@ -49,7 +49,7 @@ const Search = () => {
             <div className="content">
                 <Nav />
                 <div className="search-box">
-                    <Header input={query}/>
+                    <Header query={query}/>
                     <div className='scroll-box'>
                         {checkData ? <p>검색 결과가 존재하지 않습니다.</p> :
                             <Products props={data} onClickProduct={onClickProduct} />
