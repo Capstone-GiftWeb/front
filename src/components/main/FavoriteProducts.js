@@ -40,7 +40,7 @@ const FavoriteProducts = ({ props, onClickProduct }) => {
           {
             props.map((product, index) => {
               return (
-                <div key={index} className="product col-md-4 grid" onClick={() => { onClickProduct(product.href) }}>
+                <div key={index} className="likeproduct col-md-4 grid" onClick={() => { onClickProduct(product.href) }}>
                   <img src={`${product.image}`} alt="" />
                   <p className='product-title'>{product.title}</p>
                     <div className='info'>

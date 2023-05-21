@@ -24,7 +24,7 @@
     margin: auto;
 }
 
-.product .product-title {
+.likeproduct .product-title {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -35,16 +35,17 @@
     margin-top: 8px;
     height: 15%;
     margin-left: 10px;
+    font-weight: 300;
 }
 
-.product .product-price {
+.likeproduct .product-price {
     font-size: 18px;
     font-weight: bold;
     margin: 0;
     margin-top: 5px;
 }
 
-.product .icons {
+.likeproduct .icons {
     background-color: transparent;
     margin-top: 2px;
     margin-left: 5px;
