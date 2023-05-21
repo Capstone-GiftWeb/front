@@ -23,10 +23,6 @@ const Start = () => {
                         <button onClick={goToLogin}>Login</button>
                         <button onClick={goToSignUp} className='signupBtn'>SignUp</button>
                     </div>
-
-                    <div className='wishy-image'>
-                        <img src="img/mainBuggi.png" alt='부기' width={400}/>
-                    </div>
                 </section>
             </div>
         </>

@@ -73,12 +73,12 @@ const Login = () => {
         <div className='form login'>
           <h2>Log In</h2>
           <div className='inputBox'>
-            <input type="email" name="input_email" value={inputEmail} onChange={handleInputEmail} required="required"></input>
+            <input type="email" name="input_email" value={inputEmail} onChange={handleInputEmail} onKeyUp={() => {if(window.event.keyCode===13) {onClickLogin()}}} required="required"></input>
             <i className="fa-regular fa-user"></i>
             <span>email</span>
           </div>
           <div className='inputBox'>
-            <input type="password" name="input_pw" value={inputPw} onChange={handleInputPw} required="required"></input>
+            <input type="password" name="input_pw" value={inputPw} onChange={handleInputPw} onKeyUp={() => {if(window.event.keyCode===13) {onClickLogin()}}} required="required"></input>
             <i className="fa-solid fa-lock"></i>
             <span>password</span>
           </div>

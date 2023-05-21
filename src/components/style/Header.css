@@ -22,9 +22,9 @@ header {
     height: 100%;
 }
 
-.header-body a {
+.header-body .name {
     font-size: 15px;
-    padding: 10px;
+    margin-right: 5px;
 }
 
 .search-window {
@@ -32,21 +32,32 @@ header {
     margin-left: 30px;
     display: flex;
     align-items: center;
+    margin-top: 5px;
     margin-bottom: 10px;
 }
 
-#search {
-    width: 400px;
+#searchInput {
+    position: relative;
+    width: 375px;
     height: 40px;
     border: none;
     background-color: #F5F5F5;
-    border-radius: 10px;
-    padding-top: 4px;
-    padding-bottom: 3px;
+    border-radius: 10px 0 0 10px;
     padding-left: 13px;
 }
 
-#search-icon {
-    padding: 4px;
+#searchInput:focus {
+    outline: none;
+}
+
+#searchBtn {
+    border: none;
+    background-color: #F5F5F5;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 1px;
+}
+
+.search-window i {
     cursor: pointer;
+    padding: 12px;
 }

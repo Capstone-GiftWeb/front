@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 const ProfileDetails = () => {
 
-const movePage = useNavigate();
+  const movePage = useNavigate();
 
   useEffect(() => {
     const fetchProfileData = async () => {

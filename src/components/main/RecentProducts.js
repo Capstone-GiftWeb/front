@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '../style/RecentProducts.css'
+import { setRecentHistory, filterDataByList } from '../utils/ClickUtils'
 
-const RecentProducts = ({ props }) => {
+const RecentProducts = ({ props, onDeleteRecentProduct }) => {
 
   return (
     <div className="lasted">
@@ -10,7 +11,8 @@ const RecentProducts = ({ props }) => {
         {props.map((gift, index) => {
           return (
             <div className="row" key={index}>
-              <img src={gift.image} alt="" />
+              <img src='img/btnX.png' alt="deleteRecentItem" className='btnX' onClick={() => {onDeleteRecentProduct(gift.href)}}/>
+              <img src={gift.image} alt="recentItemImage" className='recentItemImage' />
               <p>{gift.title}</p>
             </div>
           );

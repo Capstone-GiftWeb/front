@@ -1,15 +1,17 @@
 .swiper-container {
     margin-left: 15px;
     margin-right: 45px;
-	border-radius: 10px;
+    border-radius: 10px;
     object-fit: contain;
     width: 1110px;
 }
 
 .swiper-slide {
-	text-align:center;
-	display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
-	align-items:center; /* 위아래 기준 중앙정렬 */
+    text-align: center;
+    display: flex;
+    /* 내용을 중앙정렬 하기위해 flex 사용 */
+    align-items: center;
+    /* 위아래 기준 중앙정렬 */
     object-fit: cover;
 }
 
@@ -17,20 +19,24 @@
     font-weight: bold;
     color: #fff;
 }
+
 .swiper-button-next {
     font-weight: bold;
     color: #fff;
 }
 
 .swiper-pagination {
-    color:#fff;
+    color: #fff;
 }
 
-.swiper-slide img{
+.swiper-slide img {
     width: 1100px;
 }
 
 .swiper-pagination-bullet {
-    background-color: rgb(255, 169, 40);;
-  }
-  
+    background-color: black;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: white;
+}

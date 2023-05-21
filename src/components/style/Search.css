@@ -26,3 +26,9 @@
 .search-box .scroll-box::-webkit-scrollbar {
     display: none;
 }
+
+.search-box p {
+    margin-left: 575px;
+    margin-top: 260px;
+    font-size: 25px;
+}
