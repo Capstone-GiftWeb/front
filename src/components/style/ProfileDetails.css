@@ -6,24 +6,31 @@
     width: 1400px;
     height: 820px;
     background-color: rgb(255, 255, 255);
+    z-index: 1;
 }
 
 .profile{
-    margin-left: 30px;
-    width: 500px;
-    height: 720px;
+    margin-left: 40px;
+    margin-top: 70px;
+    width: 450px;
+    height: 700px;
     border: none;
-    border-radius: 30px;
-    background-color: #F5F5F5;
+    border-radius: 5px;
+    background-color: #ffffff;
     flex-direction: row;
     text-align: center;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 1px 2px rgba(112, 112, 112, 0.07), 
+                0 2px 4px rgba(112, 112, 112, 0.07), 
+                0 4px 8px rgba(112, 112, 112, 0.07), 
+                0 8px 16px rgba(112, 112, 112, 0.07),
+                0 16px 32px rgba(112, 112, 112, 0.07), 
+                0 32px 64px rgba(112, 112, 112, 0.07);
 }
 
 .pic{
-    margin-top: 100px;
-    float: left;
+    margin-top: 70px;
     width: 670px;
     height: 360px;
 }
@@ -32,12 +39,13 @@
     flex-direction: row;
 }
 
-.content-pf h2{
-    justify-content: flex-start;
-    font-size: 40px;
-    margin-top: 10px;
-    margin-left: 50px;
-    color: rgb(129, 129, 129);
+.content-pf .color{
+    position: absolute;
+    background-color: rgb(255, 206, 163);
+    width: 1400px;
+    height: 320px;
+    z-index: -1;
+    border-radius: 20px 20px 0px 0px;
 }
 
 .content-pf img{
@@ -51,7 +59,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 500px;
+    width: 450px;
     height: 600px;
 }
 
@@ -66,6 +74,7 @@
     border-radius: 20px;
     margin-right: 10px;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .detailbox{
@@ -81,10 +90,40 @@
 }
 
 .like{
-    margin-left: 10px;
+    margin-left: 30px;
+    margin-top: 70px;
+    width: 840px;
+    height: 700px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(112, 112, 112, 0.07), 
+                0 2px 4px rgba(112, 112, 112, 0.07), 
+                0 4px 8px rgba(112, 112, 112, 0.07), 
+                0 8px 16px rgba(112, 112, 112, 0.07),
+                0 16px 32px rgba(112, 112, 112, 0.07), 
+                0 32px 64px rgba(112, 112, 112, 0.07);
 }
 
 .like p{
     font-size: 1.5rem;
     font-weight: bold;
+    margin-left: 40px;
+}
+
+.like .horizontal-box {
+   display: flex;
+   flex-direction: row;
+   height: 650px;
+}
+  
+.like .scroll-box {
+   overflow-x: hidden;
+   overflow-y: scroll;
+   width: 840px;
+   height: 695px;
+}
+  
+.like .scroll-box::-webkit-scrollbar {
+  display: none;
 }
