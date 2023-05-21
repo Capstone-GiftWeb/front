@@ -40,7 +40,7 @@ const Search = () => {
             setLoading(false);
         };
         fetchData();
-    }, []);
+    }, [query]);
 
     if (loading) return <Loading loading={loading} />
 
@@ -49,7 +49,7 @@ const Search = () => {
             <div className="content">
                 <Nav />
                 <div className="search-box">
-                    <Header />
+                    <Header input={query}/>
                     <div className='scroll-box'>
                         {checkData ? <p>검색 결과가 존재하지 않습니다.</p> :
                             <Products props={data} onClickProduct={onClickProduct} />

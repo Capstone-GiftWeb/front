@@ -17,10 +17,12 @@
 }
 
 .search-box .scroll-box {
+    padding-top: 20px;
+    margin: auto;
     overflow-x: hidden;
     overflow-y: scroll;
     width: 1115px;
-    height: 735px;
+    height: 715px;
 }
 
 .search-box .scroll-box::-webkit-scrollbar {
@@ -28,7 +30,7 @@
 }
 
 .search-box p {
-    margin-left: 575px;
-    margin-top: 260px;
+    margin-left: 418px;
+    margin-top: 240px;
     font-size: 25px;
 }
