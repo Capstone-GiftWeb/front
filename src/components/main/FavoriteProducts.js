@@ -40,17 +40,12 @@ const FavoriteProducts = ({ props, onClickProduct }) => {
           {
             props.map((product, index) => {
               return (
-                <div key={index} className="likeproduct col-md-4 grid" onClick={() => { onClickProduct(product.href) }}>
+                <div key={index} className="likeproduct col-md-6 grid" onClick={() => { onClickProduct(product.href) }}>
                   <img src={`${product.image}`} alt="" />
-                  <p className='product-title'>{product.title}</p>
-                    <div className='info'>
-                        <p className='product-price'>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
-                        <div className='icons'>
-                        {product.favorite ?
-                        <HeartFilled style={{ color: "red", fontSize: "20px" }} onClick={() => onClickFavorite(product)} /> :
-                        <HeartOutlined style={{ fontSize: "20px" }} onClick={() => onClickFavorite(product)} />}
-                        </div>
-                    </div>
+                  <div className='info'>
+                    <p className='product-title'>{product.title}</p>
+                    <p className='product-price'>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
+                  </div>
                 </div>
               );
 

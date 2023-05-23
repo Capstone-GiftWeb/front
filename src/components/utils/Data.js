@@ -26,7 +26,18 @@ export const getCategoryProducts = async () => {
 // 유저별 좋아요 아이템 전체 > 프론트가 받아와서 좋아요 페이지에 랜더링
 export const getFavoriteProducts = async () => {
   try {
-    const response = await axiosInstance('/product');
+    const response = await axios.get('https://goldsergeant.github.io/testJson');
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+//유저별 추천 아이템 > 프론트가 받아와서 메인 페이지에 랜더링
+export const getRecommendProducts = async () => {
+  try {
+    const response = await axios.get('https://goldsergeant.github.io/testJson');
     return response.data;
   } catch (error) {
     console.error(error);

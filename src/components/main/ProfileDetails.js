@@ -4,7 +4,7 @@ import { getCookie, removeCookie, setCookie } from "../utils/Cookie";
 import axiosInstance from "../..";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from 'react';
-import { getProducts } from "../utils/Data";
+import { getFavoriteProducts, getProducts } from "../utils/Data";
 import { setRecentHistory, filterDataByList, deleteRecentHistory, redirectPage } from '../utils/ClickUtils'
 import Loading from "./Loading";
 import FavoriteProducts from "./FavoriteProducts";
@@ -15,8 +15,46 @@ const ProfileDetails = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const setScrollRef = useRef(0);
-
   const movePage = useNavigate();
+
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    // 로그인된 사용자 정보를 가져오는 함수
+    const fetchUserInfo = async () => {
+      try {
+        // 서버에서 회원 정보 가져오기
+        const response = await axiosInstance.get('/member/me');
+
+        // 가져온 회원 정보를 상태에 설정
+        setUsername(response.data.username);
+        setEmail(response.data.email);
+      } catch (error) {
+        // 오류 처리
+        console.error(error);
+      }
+    };
+
+    fetchUserInfo();
+  }, []);
+
+
+  // useEffect(() => {
+  //   const fetchProfileData = async () => {
+  //     try {
+  //       const response = await axiosInstance.get("/member/me");
+  //       const name = response.data.name;
+  //       const email = response.data.email;
+  //       setCookie("name", name);
+  //       setCookie("email", email);
+  //     } catch (error) {
+  //       console.log("FailProfile", error);
+  //     }
+  //   };
+
+  //   fetchProfileData();
+  // }, []);
 
   const onClickProduct = (href) => {
     setRecentHistory(href); // 로컬 스토리지에 저장
@@ -25,29 +63,13 @@ const ProfileDetails = () => {
     setFilteredData(filtered); // 필터링된 데이터 설정
 
     redirectPage(href); // 클릭한 값을 서버로 전송 > 리다이렉트!
-}
-
-  useEffect(() => {
-    const fetchProfileData = async () => {
-      try {
-        // const response = await axiosInstance.get("/member/me");
-        // const name = response.data.name;
-        // const email = response.data.email;
-        // setCookie("name", name);
-        // setCookie("email", email);
-      } catch (error) {
-        console.log("FailProfile", error);
-      }
-    };
-
-    fetchProfileData();
-  }, []);
+  }
 
 // Data.js의 getProducts를 사용하여 데이터를 불러와 useState에 저장
 useEffect(() => {
     const fetchData = async () => {
         setLoading(true);
-        const res = await getProducts();
+        const res = await getFavoriteProducts();
         if (res) { // res가 undefined인 경우에는 setData를 실행하지 않음
             setData(res.gifts);
         }
@@ -56,22 +78,15 @@ useEffect(() => {
     fetchData();
 }, []);
 
-useEffect(() => {
-    if (data.length > 0) {
-        const filtered = filterDataByList(data);
-        setFilteredData(filtered);
-    }
-}, [data])
-
 if (loading) return <Loading loading={loading} />
 
-  const name = getCookie("name");
-  const email = getCookie("email");
+  // const name = getCookie("name");
+  // const email = getCookie("email");
 
   const onLogout = () => {
     localStorage.clear('recentProducts');
-    removeCookie('name');
-    removeCookie('email');
+    // removeCookie('name');
+    // removeCookie('email');
     movePage("/");
     const accessToken = getCookie("accessToken");
     axiosInstance
@@ -100,7 +115,7 @@ if (loading) return <Loading loading={loading} />
                       </div>
                       <div className="detailbox">
                           <div className="detail">
-                              <p>Name : {name}</p>
+                              <p>Name : {username}</p>
                               <p>Email : {email}</p>
                               <button onClick={onLogout}>Logout</button>
                           </div>

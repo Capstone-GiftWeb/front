@@ -10,8 +10,6 @@ import Favorite from './components/main/Favorite';
 import Profile from './components/main/Profile';
 import Search from './components/main/Search';
 
-import Test from './components/main/Test';
-
 import './components/style/App.css';
 
 const App = () => (
@@ -24,7 +22,6 @@ const App = () => (
     <Route path="/Favorite" element={<Favorite />} />
     <Route path="/Profile" element={<Profile />} />
     <Route path="/Search" element={<Search />} />
-    <Route path="/Test" element={<Test />} />
   </Routes>
 );
 
