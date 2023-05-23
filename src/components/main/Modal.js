@@ -1,4 +1,10 @@
+import { categories } from '../utils/ClickUtils';
 import '../style/Modal.css';
+
+const getCategoryNameById = (id) => {
+  const category = categories.find((item) => item.id === id);
+  return category ? category.name : "";
+};
 
 const Modal = ({ onClose, item }) => {
   const handleModalClick = (e) => {
@@ -8,8 +14,16 @@ const Modal = ({ onClose, item }) => {
   return (
     <div className="modal-body" onClick={handleModalClick}>
       <div>
-        <button onClick={onClose}>X</button>
-        {item.title}
+        <img src='img/btnX.png' alt="deleteModal" className='btnX' onClick={onClose} />
+        <div className='modal-contents'>
+          <img src={item.image} alt="modalItemImage" className='modalItemImage' />
+          <div className='modal-details'>
+            <p className='company'>{item.company}</p>
+            <p className='title'>{item.title}</p>
+            <p className='category'>{getCategoryNameById(item.category)}</p>
+            <p className='price'>\{item.price}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

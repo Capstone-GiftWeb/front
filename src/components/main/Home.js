@@ -8,7 +8,7 @@ import RecentProducts from './RecentProducts';
 import Loading from "./Loading";
 
 import { getProducts } from "../utils/Data";
-import { setRecentHistory, filterDataByList, deleteRecentHistory, redirectPage } from '../utils/ClickUtils'
+import { setRecentHistory, filterDataByList, deleteRecentHistory, redirectPage, setClickFavorite } from '../utils/ClickUtils'
 
 import '../style/Home.css';
 
@@ -25,6 +25,10 @@ const Home = () => {
         setFilteredData(filtered); // 필터링된 데이터 설정
 
         redirectPage(href); // 클릭한 값을 서버로 전송 > 리다이렉트!
+    }
+
+    const onClickFavorite = (product) => {
+        setClickFavorite(product);
     }
 
     const onDeleteRecentProduct = (href) => {
@@ -76,7 +80,7 @@ const Home = () => {
                             <div className='scroll-box' ref={setScrollRef}>
                                 <Banner />
                                 <div className='top-rank-products'>
-                                    <Products props={data} onClickProduct={onClickProduct} />
+                                    <Products props={data} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite} />
                                 </div>
                             </div>
                             <div className='nonScroll-box'>
