@@ -38,10 +38,6 @@ const Products = ({ props, onClickProduct }) => {
     //   });
   }
 
-  useEffect(() => {
-    console.log("changeModalOn!");
-  }, [modalOn])
-
   return (
     <div className='products-body'>
       <div className='container'>

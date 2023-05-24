@@ -6,7 +6,6 @@ import Login from "./components/sign/Login";
 import Signup from "./components/sign/Signup";
 import Home from "./components/main/Home"
 import Category from './components/main/Category';
-import Favorite from './components/main/Favorite';
 import Profile from './components/main/Profile';
 import Search from './components/main/Search';
 
@@ -19,7 +18,6 @@ const App = () => (
     <Route path="/Signup" element={<Signup />} />
     <Route path="/Home" element={<Home />} />
     <Route path="/Category" element={<Category />} />
-    <Route path="/Favorite" element={<Favorite />} />
     <Route path="/Profile" element={<Profile />} />
     <Route path="/Search" element={<Search />} />
   </Routes>

@@ -1,37 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import axiosInstance from '../..';
+import Modal from './Modal';
+import ModalPortal from './Portal';
 import '../style/FavoriteProducts.css'
 
 const FavoriteProducts = ({ props, onClickProduct }) => {
+  const [modalOn, setModalOn] = useState(false);
+  const [clickModalItem, setClickModalItem] = useState();
 
-  const onClickFavorite = (product) => {
-    const href = product.href;
-    // 버튼 색 변경
-    product.favorite = !product.favorite
-
-    // 서버로 전송
-    axiosInstance({
-      method: "POST",
-      url: "/" + href,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: {
-        href
-      },
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
-
-  useEffect(() => {
-
-  }, [])
+  const handleModal = () => {
+    setModalOn(!modalOn);
+  };
 
   return (
     <div className='favorite-body'>
@@ -40,15 +20,18 @@ const FavoriteProducts = ({ props, onClickProduct }) => {
           {
             props.map((product, index) => {
               return (
-                <div key={index} className="likeproduct col-md-6 grid" onClick={() => { onClickProduct(product.href) }}>
+                <div key={index} className="likeproduct col-md-6 grid" onClick={() => { setClickModalItem(product); onClickProduct(product.href); handleModal(); }}>
+                  <ModalPortal>
+                     {modalOn && <Modal onClose={handleModal} item={clickModalItem} />}
+                  </ModalPortal>
                   <img src={`${product.image}`} alt="" />
                   <div className='info'>
+                    <img src='img/btnX.png' alt="deleteRecentItem" className='btnX' onClick={() => {}}/>
                     <p className='product-title'>{product.title}</p>
                     <p className='product-price'>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
                   </div>
                 </div>
               );
-
             })
           }
         </div>
