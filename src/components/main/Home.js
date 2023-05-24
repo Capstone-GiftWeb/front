@@ -7,14 +7,15 @@ import Banner from './Banner';
 import RecentProducts from './RecentProducts';
 import Loading from "./Loading";
 
-import { getProducts } from "../utils/Data";
-import { setRecentHistory, filterDataByList, deleteRecentHistory, redirectPage, setClickFavorite } from '../utils/ClickUtils'
+import { getProducts, getRecommendProducts } from "../utils/Data";
+import { setRecentHistory, filterDataByList, deleteRecentHistory, redirectPage } from '../utils/ClickUtils'
 
 import '../style/Home.css';
 
 const Home = () => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
+    const [recommendData, setRecommendData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const setScrollRef = useRef(0)
 
@@ -60,6 +61,19 @@ const Home = () => {
         fetchData();
     }, []);
 
+    // Data.js의 getProducts를 사용하여 데이터를 불러와 useState에 저장
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            const res = await getRecommendProducts();
+            if (res) { // res가 undefined인 경우에는 setData를 실행하지 않음
+                setRecommendData(res.gifts);
+            }
+            setLoading(false);
+        };
+        fetchData();
+    }, []);
+
     useEffect(() => {
         if (data.length > 0) {
             const filtered = filterDataByList(data);
@@ -79,8 +93,13 @@ const Home = () => {
                         <div className='horizontal-box'>
                             <div className='scroll-box' ref={setScrollRef}>
                                 <Banner />
+                                <div className='recommend-products'>
+                                    <p className='title'>Recommend</p>
+                                    <Products props={data} onClickProduct={onClickProduct} />
+                                </div>
                                 <div className='top-rank-products'>
-                                    <Products props={data} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite} />
+                                    <p className='title'>Rank</p>
+                                    <Products props={recommendData} onClickProduct={onClickProduct} />
                                 </div>
                             </div>
                             <div className='nonScroll-box'>

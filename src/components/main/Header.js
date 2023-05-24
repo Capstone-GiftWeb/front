@@ -1,12 +1,30 @@
 import React, { useEffect, useState } from 'react';
-
+import axiosInstance from '../..';
 import { getCookie } from '../utils/Cookie';
 
 import '../style/Header.css'
 
 const Header = ({ query }) => {
     const [inputValue, setInputValue] = useState(query || '');
-    const username = getCookie("name");
+    const [username, setUsername] = useState('');
+    
+    useEffect(() => {
+        // 로그인된 사용자 정보를 가져오는 함수
+        const fetchUserInfo = async () => {
+          try {
+            // 서버에서 회원 정보 가져오기
+            const response = await axiosInstance.get('/member/me');
+    
+            // 가져온 회원 정보를 상태에 설정
+            setUsername(response.data.username);
+          } catch (error) {
+            // 오류 처리
+            console.error(error);
+          }
+        };
+    
+        fetchUserInfo();
+      }, []);
 
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
