@@ -8,7 +8,7 @@ import RecentProducts from './RecentProducts';
 import Loading from "./Loading";
 
 import { getProducts, getRecommendProducts } from "../utils/Data";
-import { setRecentHistory, filterDataByList, deleteRecentHistory, redirectPage } from '../utils/ClickUtils'
+import { setRecentHistory, filterDataByList, deleteRecentHistory, redirectPage, setClickFavorite } from '../utils/ClickUtils'
 
 import '../style/Home.css';
 
@@ -95,7 +95,7 @@ const Home = () => {
                                 <Banner />
                                 <div className='recommend-products'>
                                     <p className='title'>Recommend</p>
-                                    <Products props={data} onClickProduct={onClickProduct} />
+                                    <Products props={data} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite}/>
                                 </div>
                                 <div className='top-rank-products'>
                                     <p className='title'>Rank</p>

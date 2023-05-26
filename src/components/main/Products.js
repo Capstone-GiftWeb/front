@@ -51,7 +51,7 @@ const Products = ({ props, onClickProduct, onClickFavorite }) => {
         </div>
       </div>
       <ModalPortal>
-        {modalOn && <Modal onClose={handleModal} item={clickModalItem} />}
+        {modalOn && <Modal onClose={handleModal} item={clickModalItem} onClickFavorite={onClickFavorite}/>}
       </ModalPortal>
     </div>
   );
