@@ -30,9 +30,9 @@
     align-items: center;
     /* 아이콘의 크기는 폰트 사이즈로 조정 가능 */
     font-size: 1.2rem;
-    color: #d0d4d9;
+    color: #ffd0a7;
 }
   
 .checked {
-    color: #dbe0df;
+    color: #ffd0a7;
 }

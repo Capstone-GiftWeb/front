@@ -1,12 +1,13 @@
 @font-face {
     font-family: 'Montserrat';
-    
-    src: url(C:\Users\qkrwl\OneDrive\바탕 화면\capston-giftweb\front\public\font\Montserrat-VariableFont_wght.ttf);
+
+    src: url(C:\workspace\VisualStudioCode_Workspace\GiftWebProject\proj\public\font\Montserrat-VariableFont_wght.ttf);
     unicode-range: U+0041-005A, U+0061-007A;
 }
+
 @font-face {
     font-family: 'SUITE';
-    src: url(C:\Users\qkrwl\OneDrive\바탕 화면\capston-giftweb\front\public\font\SUITE-Regular.ttf) format("truetype");
+    src: url(C:\workspace\VisualStudioCode_Workspace\GiftWebProject\proj\public\font\SUITE-Regular.ttf) format("truetype");
     unicode-range: U+AC00-D7A3;
 }
 
@@ -19,6 +20,30 @@
     text-decoration: none;
 }
 
+body {
+    background-color: #EAA763;
+}
+
+.wishy-text {
+    position: relative;
+    top: 225px;
+    animation-name: animation;
+    animation-duration: 1.6s;
+    animation-delay: 0s;
+}
+
+@keyframes animation {
+    from {
+        opacity: 0%;
+        top: 150px;
+    }
+
+    to {
+        opacity: 100%;
+        top: 225px;
+    }
+}
+
 .start header {
     position: fixed;
     right: 0;
@@ -27,10 +52,6 @@
     width: 100%;
     padding: 33px 7%;
     background: transparent;
-}
-
-body {
-    background-color: #EAA763;
 }
 
 .start .logo {
@@ -45,8 +66,6 @@ body {
     min-height: 100vh;
     background: linear-gradient(to right, #FDBB7d, #EAA763, #dc7309de 10);
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 2rem;
 }
