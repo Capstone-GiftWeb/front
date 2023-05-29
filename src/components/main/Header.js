@@ -16,7 +16,7 @@ const Header = ({ query }) => {
             const response = await axiosInstance.get('/member/me');
     
             // 가져온 회원 정보를 상태에 설정
-            setUsername(response.data.username);
+            setUsername(response.data.name);
           } catch (error) {
             // 오류 처리
             console.error(error);
@@ -41,7 +41,7 @@ const Header = ({ query }) => {
             </div>
             <div className="header--user">
                 <a href='Profile' className='name' style={{ textDecoration: "none", color: "black" }}>
-                    {username} yunjeong
+                    {username}
                 </a>
                 <a href='/Profile'>
                     <img src="img/circleprofile.png" alt="User" />
