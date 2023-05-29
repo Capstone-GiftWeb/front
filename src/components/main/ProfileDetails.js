@@ -28,7 +28,7 @@ const ProfileDetails = () => {
         const response = await axiosInstance.get('/member/me');
 
         // 가져온 회원 정보를 상태에 설정
-        setUsername(response.data.username);
+        setUsername(response.data.name);
         setEmail(response.data.email);
       } catch (error) {
         // 오류 처리

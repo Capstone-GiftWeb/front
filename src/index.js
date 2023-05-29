@@ -10,7 +10,7 @@ import { Cookies } from 'react-cookie';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const axiosInstance = axios.create({
-  baseURL: 'http://13.125.82.232',
+  baseURL: 'http://13.125.82.232:8080',
   headers: { "Content-type": "application/json" },
   withCredentials: true,
 });

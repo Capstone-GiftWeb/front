@@ -11,7 +11,7 @@ const Start = () => {
         <>
             <div className='start'>
                 <header>
-                    <p class="logo">WishyMatch</p>
+                    <p className="logo">WishyMatch</p>
                 </header>
 
                 <section className='wishy'>
