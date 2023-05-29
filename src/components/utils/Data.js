@@ -48,7 +48,7 @@ export const getRecommendProducts = async () => {
 // 검색한 아이템 전체 > 프론트가 받아와서 검색 페이지에 랜더링
 export const getSearchProducts = async (query) => {
   // try {
-  //   const response = await axios.get(`https://goldsergeant.github.io/testJson/search/${query}`);
+  //   const response = await axios.get(`http://13.125.82.232/search/${query}`);
   //   return response.data;
   // } catch (error) {
   //   console.error(error);

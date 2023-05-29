@@ -3,6 +3,7 @@ import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import axiosInstance from '../..';
 import Modal from './Modal';
 import ModalPortal from './Portal';
+import { setClickFavorite } from '../utils/ClickUtils'
 import '../style/FavoriteProducts.css'
 
 const FavoriteProducts = ({ props, onClickProduct }) => {
@@ -23,7 +24,7 @@ const FavoriteProducts = ({ props, onClickProduct }) => {
                 <div key={index} className="likeproduct col-md-6 grid" onClick={() => { setClickModalItem(product); onClickProduct(product.href); handleModal(); }}>
                   <img src={`${product.image}`} alt="" />
                   <div className='info'>
-                    <img src='img/btnX.png' alt="deleteRecentItem" className='btnX' onClick={() => {}}/>
+                    <img src='img/btnX.png' alt="deleteRecentItem" className='btnX' onClick={() => { }} />
                     <p className='product-title'>{product.title}</p>
                     <p className='product-price'>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
                   </div>
@@ -37,6 +38,9 @@ const FavoriteProducts = ({ props, onClickProduct }) => {
           }
         </div>
       </div>
+      <ModalPortal>
+        {modalOn && <Modal onClose={handleModal} item={clickModalItem} onClickFavorite={setClickFavorite} />}
+      </ModalPortal>
     </div>
   );
 
