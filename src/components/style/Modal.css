@@ -1,47 +1,90 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .modal-body {
     width: 900px;
-    height: 650px;
+    height: 483px;
 
     z-index: 1;
     position: absolute;
-    top: 50%;
-    left: 49%;
+    top: 52%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    
+
     background-color: white;
-    border: 1px solid black;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 .modal-body .btnX {
     position: absolute;
-    top: 8px;
-    right: 4px;
+    top: 15px;
+    right: 10px;
     width: 26px;
     cursor: pointer;
 }
 
 .modal-contents {
-    padding: 10px;
-    margin-top: 20px;
     display: flex;
     flex-direction: row;
 }
 
 .modal-contents .modalItemImage {
-    width: 430px;
-    border-radius: 8px;
-    margin-right: 20px;
+    width: 450px;
+    border-radius: 4px;
+    padding: 10px;
 }
 
 .modal-details {
+    margin-top: 90px;
+    margin-left: 50px;
+}
+
+.modal-details .company {
+    font-size: 15px;
+    margin: 0;
 }
 
 .modal-details .title {
     font-size: 20px;
     font-weight: bold;
+    margin: 0;
+    margin-bottom: 5px;
 }
+
 .modal-details .price {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
+}
+
+.modal-details .modal-btns {
+    display: flex;
+    flex-direction: row;
+    margin-top: 60px;
+}
+
+.modal-details .btnLink {
+    border: 1px solid black;
+    background-color: white;
+    text-align: center;
+    font-size: 17px;
+    padding: 5px;
+    width: 250px;
+}
+
+.modal-details .btnFavorite {
+    height: 40px;
+    border: 1px solid black;
+    background-color: white;
+    text-align: center;
+    padding: 8px;
+    margin-left: 10px;
 }

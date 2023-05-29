@@ -95,7 +95,7 @@ const Home = () => {
                                 <Banner />
                                 <div className='recommend-products'>
                                     <p className='title'>Recommend</p>
-                                    <Products props={data} onClickProduct={onClickProduct} />
+                                    <Products props={data} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite}/>
                                 </div>
                                 <div className='top-rank-products'>
                                     <p className='title'>Rank</p>
