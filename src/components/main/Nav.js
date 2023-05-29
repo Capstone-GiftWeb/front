@@ -39,9 +39,6 @@ const Nav = () => {
             </p>
           </nav>
         </div>
-        <button onClick={goToStart}>
-          <i className='fa-solid fa-chevron-left fa-1x'></i>
-        </button>
       </div>
     </>
   );
