@@ -5,6 +5,7 @@ import axiosInstance from "../..";
 export const getProducts = async () => {
   try {
     const response = await axiosInstance.get('/gifts');
+    const response = await axiosInstance.get('/gifts');
     return response.data;
   } catch (error) {
     console.error(error);

@@ -76,7 +76,7 @@ const Signup = () => {
         
         axios({
             method: "POST",
-            url: "http://13.125.82.232/auth/signup",
+            url: "http://13.125.82.232:8080/auth/signup",
             headers:{
                 "Content-Type":"application/json",
             },

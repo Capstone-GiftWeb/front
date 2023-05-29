@@ -50,14 +50,30 @@
     margin-left: 10px;
 }
 
-.info img{
+.btnX img{
     width: 15px;
     height: 15px;
-    margin-left: 280px;
-    border-radius: 3px;
+    margin-left: 10px;
+    border: none;
     cursor: pointer;
 }
 
 .info img:hover{
     background-color: gainsboro;
+}
+
+.goModal{
+    display: flex;
+    flex-direction: row;
+}
+
+.goModal .btnX{
+    width: 15px;
+    height: 15px;
+}
+
+.clickarea{
+    display: flex;
+    flex-direction: row;
+    width: 375px;
 }
