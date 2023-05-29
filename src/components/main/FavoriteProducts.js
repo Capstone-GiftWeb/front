@@ -28,7 +28,11 @@ const FavoriteProducts = ({ props, onClickProduct }) => {
                     <p className='product-title'>{product.title}</p>
                     <p className='product-price'>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
                   </div>
+                  <ModalPortal>
+                     {modalOn && <Modal onClose={handleModal} item={clickModalItem} />}
+                  </ModalPortal>
                 </div>
+                
               );
             })
           }
