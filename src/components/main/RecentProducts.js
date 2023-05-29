@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import '../style/RecentProducts.css'
-import { setRecentHistory, filterDataByList } from '../utils/ClickUtils'
 
 const RecentProducts = ({ props, onDeleteRecentProduct }) => {
 
