@@ -93,13 +93,13 @@ const Home = () => {
                         <div className='horizontal-box'>
                             <div className='scroll-box' ref={setScrollRef}>
                                 <Banner />
-                                <div className='recommend-products'>
+                                <div className='rank-products'>
                                     <p className='title'>Recommend</p>
-                                    <Products props={data} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite}/>
+                                    <Products props={data} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite} itemSize={8}/>
                                 </div>
-                                <div className='top-rank-products'>
+                                <div className='rank-products'>
                                     <p className='title'>Rank</p>
-                                    <Products props={recommendData} onClickProduct={onClickProduct} />
+                                    <Products props={recommendData} onClickProduct={onClickProduct} itemSize={8}/>
                                 </div>
                             </div>
                             <div className='nonScroll-box'>

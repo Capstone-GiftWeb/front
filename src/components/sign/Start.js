@@ -6,7 +6,7 @@ const Start = () => {
     const movePage = useNavigate();
     const goToLogin = () => movePage('/Login');
     const goToSignUp = () => movePage('/SignUp');
-
+    
     return (
         <>
             <div className='start'>

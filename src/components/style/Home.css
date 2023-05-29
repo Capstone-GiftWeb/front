@@ -32,8 +32,8 @@
   display: none;
 }
 
-.home-box .top-rank-products {
-  margin-top: 30px;
+.home-box .rank-products {
+  margin-bottom: 30px;
 }
 
 .home-box .nonScroll-box {
@@ -52,7 +52,8 @@
 }
 
 .home-box .scroll-box .title{
-  margin-left: 50px;
-  margin-top: 10px;
-  font-size: 1.2rem;
+  margin-left: 27px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
 }
