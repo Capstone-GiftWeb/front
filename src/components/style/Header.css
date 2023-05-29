@@ -13,7 +13,7 @@ header {
 
 .header--user {
     position: absolute;
-    margin-left: 90%;
+    right: 2.3%;
     height: 35px;
 }
 
@@ -22,7 +22,7 @@ header {
     height: 100%;
 }
 
-.header-body .name {
+.header--user .name {
     font-size: 15px;
     margin-right: 5px;
 }

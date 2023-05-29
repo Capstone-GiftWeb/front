@@ -26,7 +26,7 @@ body {
 
 .wishy-text {
     position: relative;
-    top: 225px;
+    top: 250px;
     animation-name: animation;
     animation-duration: 1.6s;
     animation-delay: 0s;
@@ -40,7 +40,7 @@ body {
 
     to {
         opacity: 100%;
-        top: 225px;
+        top: 250px;
     }
 }
 

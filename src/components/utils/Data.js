@@ -15,7 +15,7 @@ export const getProducts = async () => {
 // 카테고리별 추천 아이템 전체 > 프론트가 전체를 받아와서 카테고리별로 mapping
 export const getCategoryProducts = async () => {
   try {
-    const response = await axios.get('/recommend/');
+    const response = await axiosInstance.get('/recommend/');
     return response.data;
   } catch (error) {
     console.error(error);
@@ -26,7 +26,7 @@ export const getCategoryProducts = async () => {
 // 유저별 좋아요 아이템 전체 > 프론트가 받아와서 좋아요 페이지에 랜더링
 export const getFavoriteProducts = async () => {
   try {
-    const response = await axios.get('/');
+    const response = await axiosInstance.get('/product');
     return response.data;
   } catch (error) {
     console.error(error);
@@ -34,14 +34,16 @@ export const getFavoriteProducts = async () => {
   }
 }
 
-//유저별 추천 아이템 > 프론트가 받아와서 메인 페이지에 랜더링
-
-
 // 검색한 아이템 전체 > 프론트가 받아와서 검색 페이지에 랜더링
 export const getSearchProducts = async (query) => {
   // try {
-  //   const response = await axiosInstance(`/search/${query}`);
-  //   return response.data;
+  //   const response = await axiosInstance.get(`/gifts/search/${query}`);
+  //   const data = response.data.gifts.filter(item => item.title.includes(query));
+  //   console.log(data);
+  //   if (query === "" || data.length === 0) {
+  //     return "no"
+  //   }
+  //   return data;
   // } catch (error) {
   //   console.error(error);
   //   return null;
@@ -51,10 +53,10 @@ export const getSearchProducts = async (query) => {
     const response = await axios.get('https://goldsergeant.github.io/testJson');
     const data = response.data.gifts.filter(item => item.title.includes(query));
     console.log(data);
-    if (query === "" || data.length === 0){
+    if (query === "" || data.length === 0) {
       return "no"
     }
-    
+
     return data;
   } catch (error) {
     console.error(error);

@@ -17,8 +17,6 @@ const Header = ({ query }) => {
     
             // 가져온 회원 정보를 상태에 설정
             setUsername(response.data.name);
-            console.log(response.data.name);
-            console.log(username);
           } catch (error) {
             // 오류 처리
             console.error(error);
