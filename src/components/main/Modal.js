@@ -21,7 +21,7 @@ const Modal = ({ onClose, item }) => {
             <p className='company'>{item.company}</p>
             <p className='title'>{item.title}</p>
             <p className='category'>{getCategoryNameById(item.category)}</p>
-            <p className='price'>\{item.price}</p>
+            <p className='price'>\{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
           </div>
         </div>
       </div>
