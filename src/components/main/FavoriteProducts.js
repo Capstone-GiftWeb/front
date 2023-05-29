@@ -21,16 +21,17 @@ const FavoriteProducts = ({ props, onClickProduct }) => {
             props.map((product, index) => {
               return (
                 <div key={index} className="likeproduct col-md-6 grid" onClick={() => { setClickModalItem(product); onClickProduct(product.href); handleModal(); }}>
-                  <ModalPortal>
-                     {modalOn && <Modal onClose={handleModal} item={clickModalItem} />}
-                  </ModalPortal>
                   <img src={`${product.image}`} alt="" />
                   <div className='info'>
                     <img src='img/btnX.png' alt="deleteRecentItem" className='btnX' onClick={() => {}}/>
                     <p className='product-title'>{product.title}</p>
                     <p className='product-price'>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
                   </div>
+                  <ModalPortal>
+                     {modalOn && <Modal onClose={handleModal} item={clickModalItem} />}
+                  </ModalPortal>
                 </div>
+                
               );
             })
           }
