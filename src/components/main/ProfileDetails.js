@@ -39,23 +39,6 @@ const ProfileDetails = () => {
     fetchUserInfo();
   }, []);
 
-
-  // useEffect(() => {
-  //   const fetchProfileData = async () => {
-  //     try {
-  //       const response = await axiosInstance.get("/member/me");
-  //       const name = response.data.name;
-  //       const email = response.data.email;
-  //       setCookie("name", name);
-  //       setCookie("email", email);
-  //     } catch (error) {
-  //       console.log("FailProfile", error);
-  //     }
-  //   };
-
-  //   fetchProfileData();
-  // }, []);
-
   const onClickProduct = (href) => {
     setRecentHistory(href); // 로컬 스토리지에 저장
 
@@ -78,13 +61,8 @@ useEffect(() => {
 
 if (loading) return <Loading loading={loading} />
 
-  // const name = getCookie("name");
-  // const email = getCookie("email");
-
   const onLogout = () => {
     localStorage.clear('recentProducts');
-    // removeCookie('name');
-    // removeCookie('email');
     movePage("/");
     const accessToken = getCookie("accessToken");
     axiosInstance
