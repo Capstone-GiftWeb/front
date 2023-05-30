@@ -10,9 +10,8 @@
   position: relative;
   justify-content: space-between;
   border-radius: 20px;
-  margin-top: 20px;
-  width: 1400px;
-  height: 820px;
+  width: 1550px;
+  height: 900px;
   background-color: rgb(255, 255, 255);
 }
 
@@ -24,8 +23,8 @@
 .home-box .scroll-box {
   overflow-x: hidden;
   overflow-y: scroll;
-  width: 1115px;
-  height: 735px;
+  width: 1250px;
+  height: 820px;
 }
 
 .home-box .scroll-box::-webkit-scrollbar {
@@ -40,7 +39,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 14px;
+  margin-left: 17px;
 }
 
 .home-box .nonScroll-box #topBtn {
@@ -52,7 +51,7 @@
 }
 
 .home-box .scroll-box .title{
-  margin-left: 27px;
+  margin-left: 48px;
   margin-top: 15px;
   margin-bottom: 5px;
   font-size: 1.5rem;

@@ -52,15 +52,15 @@ const filterDataByList = (data) => {
 
 // 클릭한 아이템의 href를 받아서 서버로 GET
 const redirectPage = (href) => {
-  // axiosInstance({
-  //   method: "GET",
-  //   url: `/${href}`,
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   data: {
-  //   },
-  // })
+  axiosInstance({
+    method: "GET",
+    url: `/${href}`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {
+    },
+  })
 }
 
 const setClickFavorite = (product) => {

@@ -20,7 +20,7 @@ const Banner = () => {
         <div className="swiper-container">
             <div className="swiper-wrapper">
                 <Swiper 
-                    style={{height:'200px'}}
+                    style={{height:'230px', width:'1200px'}}
                     className="banner"
                     spaceBetween={30}
                     slidesPerView={1}
