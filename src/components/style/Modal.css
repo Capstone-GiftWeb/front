@@ -72,6 +72,8 @@
 }
 
 .modal-details .btnLink {
+    text-decoration-line: none;
+    color: black;
     border: 1px solid black;
     background-color: white;
     text-align: center;

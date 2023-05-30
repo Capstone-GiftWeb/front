@@ -17,7 +17,7 @@ export const categories = [
 
 const MAX_HISTORY_SIZE = 4; // 쿠키 배열의 최대 크기
 
-// 상품을 클릭하면 해당 상품 href를 로컬 스토리지에 넣는 함수
+// 상품을 클릭하면 해당 상품 href를 최근 본 상품 로컬 스토리지에 넣는 함수
 const setRecentHistory = (href) => {
   let existingHistory = JSON.parse(localStorage.getItem('recentProducts')) || [];
 
@@ -30,7 +30,7 @@ const setRecentHistory = (href) => {
   localStorage.setItem('recentProducts', JSON.stringify(existingHistory));
 };
 
-// 버튼을 클릭하면 해당 상품을 로컬에서 지우는 함수
+// 버튼을 클릭하면 해당 상품을 최근 본 상품 로컬에서 지우는 함수
 const deleteRecentHistory = (href) => {
   let existingHistory = JSON.parse(localStorage.getItem('recentProducts')) || [];
 
@@ -43,47 +43,80 @@ const getRecentHistory = () => {
 };
 
 
-// 전체 데이터와 로컬 스토리지 리스트를 받아서, 데이터를 비교하여 보내는 함수
+// 전체 데이터와 최근 본 상품 href 리스트를 받아서, 데이터를 비교하여 보내는 함수
 const filterDataByList = (data) => {
   // 스토리지지 값과 데이터를 비교하여 필터링된 데이터 반환
   const list = getRecentHistory();
   return data.filter(item => list.includes(item.href));
 };
 
-// 클릭한 아이템의 href를 받아서 서버로 GET
-const redirectPage = (href) => {
-  // axiosInstance({
-  //   method: "GET",
-  //   url: `/${href}`,
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   data: {
-  //   },
-  // })
+// 상품 클릭을 서버로 전송하여 페이지를 리다이렉트시키는 함수
+const setClickProduct = (href) => {
+  axiosInstance({
+    method: "GET",
+    url: `/${href}`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {
+    },
+  })
 }
 
+// 상품 좋아요 클릭을 서버로 전송하고 버튼 색을 바꾸는 함수
 const setClickFavorite = (product) => {
   const href = product.href;
   product.favorite = !product.favorite; // 버튼 색 변경
 
   // 서버로 전송
+  axiosInstance({
+    method: 'GET',
+    url: '/' + href + '/liked',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: {
+      href,
+    },
+  })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+}
+
+// 검색 창을 클릭하면 서버로 query를 주고받으면서 검색어 자동완성을 구현하는 함수
+const setClickSearchInput = (query) => {
+
+  let list = [];
+
+  if (query !== "") {
+    for (let i = 0; i < 5; i++) {
+      list.push((i + 1) + ". " + query);
+    }
+  }
+
+  return list;
+
+  // 서버로 전송
   // axiosInstance({
-  //   method: 'POST',
-  //   url: '/' + href,
+  //   method: 'GET',
+  //   url: '/gifts/search/' + query,
   //   headers: {
   //     'Content-Type': 'application/json',
   //   },
   //   data: {
-  //     href,
   //   },
   // })
   //   .then((res) => {
   //     console.log(res);
+  //     return res;
   //   })
   //   .catch((e) => {
   //     console.log(e);
   //   });
 }
 
-export { setRecentHistory, filterDataByList, deleteRecentHistory, redirectPage, setClickFavorite };
+export { setRecentHistory, filterDataByList, deleteRecentHistory, setClickProduct, setClickFavorite, setClickSearchInput };

@@ -1,13 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Nav from './Nav';
 import Products from './Products';
 import Header from './Header';
 import Loading from "./Loading";
-import axiosInstance from '../..';
 
 import { getSearchProducts } from "../utils/Data";
-import { setRecentHistory } from '../utils/ClickUtils'
+import { setRecentHistory, setClickFavorite } from '../utils/ClickUtils'
 
 import '../style/Search.css';
 
@@ -52,7 +51,7 @@ const Search = () => {
                     <Header query={query}/>
                     <div className='scroll-box'>
                         {checkData ? <p>검색 결과가 존재하지 않습니다.</p> :
-                            <Products props={data} onClickProduct={onClickProduct} />
+                            <Products props={data} onClickProduct={onClickProduct} onClickFavorite={setClickFavorite}/>
                         }
                     </div>
                 </div>

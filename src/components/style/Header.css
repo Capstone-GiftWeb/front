@@ -35,6 +35,10 @@ header {
     margin-top: 5px;
 }
 
+.search-window .search-auto-hide {
+    display: none;
+}
+
 #searchInput {
     position: relative;
     width: 375px;
@@ -47,13 +51,14 @@ header {
 
 #searchInput:focus {
     outline: none;
+    
 }
 
 #searchBtn {
     border: none;
     background-color: #F5F5F5;
     border-radius: 0 10px 10px 0;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
 }
 
 .search-window i {

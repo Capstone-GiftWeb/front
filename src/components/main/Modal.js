@@ -25,7 +25,7 @@ const Modal = ({ onClose, item, onClickFavorite }) => {
               {/* <p className='category'>{getCategoryNameById(item.category)}</p> */}
               <p className='price'>\{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
               <div className='modal-btns'>
-                <button className='btnLink'>카카오톡 선물하기</button>
+                <a href={`https://gift.kakao.com/${item.href}`} className='btnLink'>카카오톡 선물하기</a>
                 {item.favorite ? (
                   <HeartFilled
                     className="btnFavorite"
