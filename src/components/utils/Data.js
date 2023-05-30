@@ -26,7 +26,7 @@ export const getCategoryProducts = async () => {
 // 유저별 좋아요 아이템 전체 > 프론트가 받아와서 좋아요 페이지에 랜더링
 export const getFavoriteProducts = async () => {
   try {
-    const response = await axiosInstance.get('/product');
+    const response = await axiosInstance.get('/like');
     return response.data;
   } catch (error) {
     console.error(error);

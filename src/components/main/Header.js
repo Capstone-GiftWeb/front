@@ -39,15 +39,18 @@ const Header = ({ query }) => {
 
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
+
+        if (inputValue !== "")
+            toggleAutoValue();
     };
 
     return (
         <header className='header-body'>
             <div className="search-window">
                 <form action="/search" method="GET">
-                    <input type="text" id="searchInput" name='query' placeholder="검색" value={inputValue}
-                        onChange={handleInputChange} onClick={() => { toggleAutoValue();}}/>
-                    <button type="submit" id="searchBtn"><i className="fas fa-search" /></button>
+                    <input type="text" id="searchInput" className={isSearch ? "inputShow" : "inputHide"} name='query' placeholder="검색" value={inputValue}
+                        onChange={handleInputChange} />
+                    <button type="submit" id="searchBtn" className={isSearch ? "searchBtnShow" : "searchBtnHide"}><i className="fas fa-search" /></button>
                 </form>
                 <div className={isSearch ? "search-auto-show" : "search-auto-hide"}>
                     {autoValue.map((word) => {

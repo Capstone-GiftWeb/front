@@ -80,7 +80,7 @@ const setClickFavorite = (product) => {
     },
   })
     .then((res) => {
-      console.log(res);
+      console.log("favorite click!");
     })
     .catch((e) => {
       console.log(e);
@@ -94,7 +94,7 @@ const setClickSearchInput = (query) => {
 
   if (query !== "") {
     for (let i = 0; i < 5; i++) {
-      list.push((i + 1) + ". " + query);
+      list.push(query+(i + 1));
     }
   }
 
