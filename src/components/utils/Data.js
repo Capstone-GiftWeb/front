@@ -16,6 +16,7 @@ export const getProducts = async () => {
 export const getCategoryProducts = async () => {
   try {
     const response = await axiosInstance.get('/recommend');
+    const response = await axiosInstance.get('/recommend');
     return response.data;
   } catch (error) {
     console.error(error);

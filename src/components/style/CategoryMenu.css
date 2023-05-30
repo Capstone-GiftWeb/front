@@ -1,5 +1,6 @@
 .category-menu .container {
-    margin-left: 30px;
+    margin-top: 20px;
+    margin-left: 22px;
     margin-bottom: 10px;
 }
 
@@ -8,10 +9,10 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 80px;
+    width: 89px;
     background-color: whitesmoke;
     border-radius: 20px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .category-menu li:hover:not(.click) {
@@ -25,5 +26,5 @@
 .category-menu p {
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 13px;
+    font-size: 15px;
 }
