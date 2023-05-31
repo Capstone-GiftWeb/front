@@ -7,7 +7,7 @@ const getCategoryNameById = (id) => {
   return category ? category.name : "";
 };
 
-const Modal = ({ onClose, item, onClickFavorite }) => {
+const Modal = ({ onClose, item, onClickFavorite, favoriteList }) => {
   const handleModalClick = (e) => {
     e.stopPropagation(); // 클릭 이벤트 전파 중지
   };
@@ -26,7 +26,7 @@ const Modal = ({ onClose, item, onClickFavorite }) => {
               <p className='price'>\{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
               <div className='modal-btns'>
                 <a href={`https://gift.kakao.com/${item.href}`} className='btnLink'>카카오톡 선물하기</a>
-                {item.favorite ? (
+                {favoriteList.some(href => item.href.includes(href)) ? (
                   <HeartFilled
                     className="btnFavorite"
                     style={{ color: 'red', fontSize: '20px' }}

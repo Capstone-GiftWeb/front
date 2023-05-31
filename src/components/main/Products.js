@@ -6,7 +6,7 @@ import ModalPortal from './Portal';
 
 import '../style/Products.css';
 
-const Products = ({ props, onClickProduct, onClickFavorite, itemSize }) => {
+const Products = ({ props, onClickProduct, onClickFavorite, itemSize, favoriteList }) => {
   const [modalOn, setModalOn] = useState(false);
   const [clickModalItem, setClickModalItem] = useState();
   const [productSize] = useState(itemSize || 900);
@@ -33,7 +33,7 @@ const Products = ({ props, onClickProduct, onClickFavorite, itemSize }) => {
                   <p className="product-title" onClick={() => handleClick(product)} >{product.title}</p>
                   <div className="product-details">
                     <p className="product-price" onClick={() => handleClick(product)} >{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
-                    {product.favorite ? (
+                    {favoriteList.some(href => product.href.includes(href)) ? (
                       <HeartFilled
                         className="icons"
                         style={{ color: 'red', fontSize: '20px' }}
@@ -54,7 +54,7 @@ const Products = ({ props, onClickProduct, onClickFavorite, itemSize }) => {
         </div>
       </div>
       <ModalPortal>
-        {modalOn && <Modal onClose={handleModal} item={clickModalItem} onClickFavorite={onClickFavorite} />}
+        {modalOn && <Modal onClose={handleModal} item={clickModalItem} onClickFavorite={onClickFavorite} favoriteList={favoriteList} />}
       </ModalPortal>
     </div>
   );

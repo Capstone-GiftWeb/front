@@ -26,16 +26,11 @@ const Search = () => {
         const fetchData = async () => {
             setLoading(true);
             const res = await getSearchProducts(query);
+            console.log(res);
             if (res) { // res가 undefined인 경우에는 setData를 실행하지 않음
-                if (res === "no") {
-                    setData([]);
-                    setCheckData(true);
-                }
-                else {
-                    setData(res);
-                    setCheckData(false);
-                }
+                setData(res);
             }
+
             setLoading(false);
         };
         fetchData();
@@ -48,10 +43,10 @@ const Search = () => {
             <div className="content">
                 <Nav />
                 <div className="search-box">
-                    <Header query={query}/>
+                    <Header query={query} />
                     <div className='scroll-box'>
                         {checkData ? <p>검색 결과가 존재하지 않습니다.</p> :
-                            <Products props={data} onClickProduct={onClickProduct} onClickFavorite={setClickFavorite}/>
+                            <Products props={data} onClickProduct={onClickProduct} onClickFavorite={setClickFavorite} />
                         }
                     </div>
                 </div>

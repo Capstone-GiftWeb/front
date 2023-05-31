@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from '../..';
-import { setClickSearchInput } from '../utils/ClickUtils'
 
 import '../style/Header.css'
 
@@ -27,21 +26,28 @@ const Header = ({ query }) => {
         fetchUserInfo();
     }, []);
 
-    // 검색 input이 달라질 때마다 서버로 전송해서 자동완성 리스트를 받아오기
-    useEffect(() => {
-        const list = setClickSearchInput(inputValue);
-        setAutoValue(list);
-    }, [inputValue]);
-
     const toggleAutoValue = () => {
         setIsSearch(!isSearch);
     }
 
-    const handleInputChange = (event) => {
-        setInputValue(event.target.value);
-
+    // 검색창의 변화되는 내용을 감지하여 서버로 전송 > autoValue를 받아와서 랜더링
+    const handleInputChange = async (event) => {
         if (inputValue !== "")
             toggleAutoValue();
+
+        setInputValue(event.target.value);
+
+        try {
+            await axiosInstance.get(`/gifts/wordSearchShow.action`, {
+                params: {
+                    searchWord: inputValue,
+                },
+            }).then((res) => {
+                setAutoValue(res.data.words);
+            })
+        } catch (e) {
+            console.error(e);
+        }
     };
 
     return (
@@ -53,11 +59,14 @@ const Header = ({ query }) => {
                     <button type="submit" id="searchBtn" className={isSearch ? "searchBtnShow" : "searchBtnHide"}><i className="fas fa-search" /></button>
                 </form>
                 <div className={isSearch ? "search-auto-show" : "search-auto-hide"}>
-                    {autoValue.map((word) => {
-                        return (
-                            <p>{word}</p>
-                        )
-                    })}
+                    {
+                        autoValue && autoValue.map((word, index) => {
+                            return (
+                                <p key={index} onClick={() => {
+                                    setInputValue(word);
+                                }}>{word}</p>
+                            )
+                        })}
                 </div>
             </div>
             <div className="header--user">

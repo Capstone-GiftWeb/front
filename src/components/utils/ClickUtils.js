@@ -1,4 +1,5 @@
 import axiosInstance from "../..";
+import { getCategoryProducts, getFavoriteProducts, getProducts } from "./Data";
 
 export const categories = [
   { id: 0, name: "전체", img: "img/category/total.png" },
@@ -45,8 +46,9 @@ const getRecentHistory = () => {
 
 // 전체 데이터와 최근 본 상품 href 리스트를 받아서, 데이터를 비교하여 보내는 함수
 const filterDataByList = (data) => {
-  // 스토리지지 값과 데이터를 비교하여 필터링된 데이터 반환
+  // 스토리지 값과 데이터를 비교하여 필터링된 데이터 반환
   const list = getRecentHistory();
+  console.log(list);
   return data.filter(item => list.includes(item.href));
 };
 
@@ -63,60 +65,27 @@ const setClickProduct = (href) => {
   })
 }
 
+// 좋아요 id 목록을 받아 data와 비교하여 필터링된 데이터 반환
+const setFilterFavorite = async () => {
+  const data = await getProducts();
+  const res = await getFavoriteProducts();
+  if (res) {
+    console.log(data.gifts);
+    console.log(res);
+    const item = data.gifts.filter(item => res.some(value => item.href.includes(value)));
+    console.log(item);
+    return item;
+  } else
+  return [];
+}
+
 // 상품 좋아요 클릭을 서버로 전송하고 버튼 색을 바꾸는 함수
 const setClickFavorite = (product) => {
   const href = product.href;
   product.favorite = !product.favorite; // 버튼 색 변경
 
   // 서버로 전송
-  axiosInstance({
-    method: 'GET',
-    url: '/' + href + '/liked',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: {
-      href,
-    },
-  })
-    .then((res) => {
-      console.log("favorite click!");
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+  axiosInstance.get(`/${href}/liked`);
 }
 
-// 검색 창을 클릭하면 서버로 query를 주고받으면서 검색어 자동완성을 구현하는 함수
-const setClickSearchInput = (query) => {
-
-  let list = [];
-
-  if (query !== "") {
-    for (let i = 0; i < 5; i++) {
-      list.push(query+(i + 1));
-    }
-  }
-
-  return list;
-
-  // 서버로 전송
-  // axiosInstance({
-  //   method: 'GET',
-  //   url: '/gifts/search/' + query,
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   data: {
-  //   },
-  // })
-  //   .then((res) => {
-  //     console.log(res);
-  //     return res;
-  //   })
-  //   .catch((e) => {
-  //     console.log(e);
-  //   });
-}
-
-export { setRecentHistory, filterDataByList, deleteRecentHistory, setClickProduct, setClickFavorite, setClickSearchInput };
+export { setRecentHistory, filterDataByList, deleteRecentHistory, setClickProduct, setClickFavorite, setFilterFavorite };

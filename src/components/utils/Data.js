@@ -1,4 +1,3 @@
-import axios from "axios";
 import axiosInstance from "../..";
 
 // 전체 랭킹 데이터 > 프론트가 받아와서 메인 페이지에 랜더링
@@ -15,7 +14,6 @@ export const getProducts = async () => {
 // 카테고리별 추천 아이템 전체 > 프론트가 전체를 받아와서 카테고리별로 mapping
 export const getCategoryProducts = async () => {
   try {
-    const response = await axiosInstance.get('/recommend');
     const response = await axiosInstance.get('/recommend');
     return response.data;
   } catch (error) {
@@ -37,28 +35,9 @@ export const getFavoriteProducts = async () => {
 
 // 검색한 아이템 전체 > 프론트가 받아와서 검색 페이지에 랜더링
 export const getSearchProducts = async (query) => {
-  // try {
-  //   const response = await axiosInstance.get(`/gifts/search/${query}`);
-  //   const data = response.data.gifts.filter(item => item.title.includes(query));
-  //   console.log(data);
-  //   if (query === "" || data.length === 0) {
-  //     return "no"
-  //   }
-  //   return data;
-  // } catch (error) {
-  //   console.error(error);
-  //   return null;
-  // }
-
   try {
-    const response = await axiosInstance.get(`/gifts`);
-    const data = response.data.gifts.filter(item => item.title.includes(query));
-    console.log(data);
-    if (query === "" || data.length === 0) {
-      return "no"
-    }
-
-    return data;
+    const response = await axiosInstance.get('/gifts/search', {params : {search:query}});
+    return response.data.gifts;
   } catch (error) {
     console.error(error);
     return null;

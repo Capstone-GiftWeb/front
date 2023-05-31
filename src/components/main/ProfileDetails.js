@@ -1,11 +1,11 @@
 import React from "react";
 import '../style/ProfileDetails.css';
-import { getCookie, removeCookie, setCookie } from "../utils/Cookie";
+import { getCookie } from "../utils/Cookie";
 import axiosInstance from "../..";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from 'react';
-import { getFavoriteProducts, getProducts } from "../utils/Data";
-import { setRecentHistory, filterDataByList } from '../utils/ClickUtils'
+import { getFavoriteProducts } from "../utils/Data";
+import { setRecentHistory, setFilterFavorite } from '../utils/ClickUtils'
 import Loading from "./Loading";
 import FavoriteProducts from "./FavoriteProducts";
 
@@ -13,7 +13,6 @@ const ProfileDetails = () => {
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
   const setScrollRef = useRef(0);
   const movePage = useNavigate();
 
@@ -41,18 +40,15 @@ const ProfileDetails = () => {
 
   const onClickProduct = (href) => {
     setRecentHistory(href); // 로컬 스토리지에 저장
-
-    const filtered = filterDataByList(data); // 리스트로 데이터 필터링
-    setFilteredData(filtered); // 필터링된 데이터 설정
   }
 
 // Data.js의 getProducts를 사용하여 데이터를 불러와 useState에 저장
 useEffect(() => {
     const fetchData = async () => {
         setLoading(true);
-        const res = await getFavoriteProducts();
+        const res = await setFilterFavorite();
         if (res) { // res가 undefined인 경우에는 setData를 실행하지 않음
-            setData(res.gifts);
+            setData(res);
         }
         setLoading(false);
     };
