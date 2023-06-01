@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { HeartOutlined, HeartFilled } from '@ant-design/icons';
-import axiosInstance from '../..';
 import Modal from './Modal';
 import ModalPortal from './Portal';
 import { setClickFavorite } from '../utils/ClickUtils'

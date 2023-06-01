@@ -33,7 +33,7 @@ const Products = ({ props, onClickProduct, onClickFavorite, itemSize, favoriteLi
                   <p className="product-title" onClick={() => handleClick(product)} >{product.title}</p>
                   <div className="product-details">
                     <p className="product-price" onClick={() => handleClick(product)} >{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
-                    {favoriteList.some(href => product.href.includes(href)) ? (
+                    {favoriteList && favoriteList.some(item => product.href.includes(item)) ? (
                       <HeartFilled
                         className="icons"
                         style={{ color: 'red', fontSize: '20px' }}

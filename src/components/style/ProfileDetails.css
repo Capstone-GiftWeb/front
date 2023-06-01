@@ -112,17 +112,10 @@
     margin-bottom: 0px;
 }
 
-.like .horizontal-box {
-   display: flex;
-   flex-direction: row;
-   height: 650px;
-}
-  
 .like .scroll-box {
    overflow-x: hidden;
    overflow-y: scroll;
-   width: 900px;
-   height: 695px;
+   margin-bottom: 10px;
 }
   
 .like .scroll-box::-webkit-scrollbar {

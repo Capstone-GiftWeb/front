@@ -69,14 +69,17 @@ const setClickProduct = (href) => {
 const setFilterFavorite = async () => {
   const data = await getProducts();
   const res = await getFavoriteProducts();
+  let item = [];
+  console.log(res);
   if (res) {
-    console.log(data.gifts);
-    console.log(res);
-    const item = data.gifts.filter(item => res.some(value => item.href.includes(value)));
+    if (res.length !== 0) {
+      item = data.gifts.filter(item => res.some(value => item.href.includes(value)));
+
+    }
     console.log(item);
     return item;
   } else
-  return [];
+    return [];
 }
 
 // 상품 좋아요 클릭을 서버로 전송하고 버튼 색을 바꾸는 함수
