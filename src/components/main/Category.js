@@ -7,7 +7,7 @@ import Loading from "./Loading";
 import CategoryMenu from './CategoryMenu';
 import RecentProducts from './RecentProducts';
 
-import { getCategoryProducts } from "../utils/Data";
+import { getCategoryProducts, getFavoriteProducts, getProducts } from "../utils/Data";
 import { setRecentHistory, filterDataByList, deleteRecentHistory, setClickProduct, setClickFavorite } from '../utils/ClickUtils'
 
 import '../style/Category.css';
@@ -16,6 +16,7 @@ const Category = () => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+    const [favoriteData, setFavoriteData] = useState([]);
 
     const [selectedCategory, setSelectedCategory] = useState(0);
     const [categoryData, setCategoryData] = useState([]);
@@ -44,8 +45,9 @@ const Category = () => {
         setClickProduct(href); // 클릭한 값을 서버로 전송 > 리다이렉트!
     }
 
-    const onClickFavorite = (product) => {
-        setClickFavorite(product);
+    const onClickFavorite = async (product) => {
+        const list = await setClickFavorite(product);
+        setFavoriteData(list);
     }
 
     const onDeleteRecentProduct = (href) => {
@@ -59,10 +61,14 @@ const Category = () => {
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
-            const res = await getCategoryProducts();
+            const res = await getProducts();
             if (res) { // res가 undefined인 경우에는 setData를 실행하지 않음
-                setData(res);
+                setData(res.gifts);
             }
+
+            const favoriterRes = await getFavoriteProducts();
+            if (favoriterRes) { setFavoriteData(favoriterRes); }
+
             setLoading(false);
         };
         fetchData();
@@ -95,10 +101,10 @@ const Category = () => {
                         <CategoryMenu selectedCategory={selectedCategory} onCategorySelect={onCategorySelect} />
                         <div className='horizontal-box'>
                             <div className='scroll-box' ref={setScrollRef}>
-                                <Products props={categoryData} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite} />
+                                <Products props={categoryData} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite} favoriteList={favoriteData} />
                             </div>
                             <div className='nonScroll-box'>
-                                <RecentProducts props={filteredData} onDeleteRecentProduct={onDeleteRecentProduct}/>
+                                <RecentProducts props={filteredData} onDeleteRecentProduct={onDeleteRecentProduct} />
                                 <img src='img/upward.png' onClick={onScrollToTop} alt="topBtn" id='topBtn' />
                             </div>
                         </div>

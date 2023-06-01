@@ -52,3 +52,7 @@
     margin-top: 2px;
     background-color: transparent;
 }
+
+.product .icons:hover {
+    color: red;
+}

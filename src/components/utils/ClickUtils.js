@@ -48,7 +48,6 @@ const getRecentHistory = () => {
 const filterDataByList = (data) => {
   // 스토리지 값과 데이터를 비교하여 필터링된 데이터 반환
   const list = getRecentHistory();
-  console.log(list);
   return data.filter(item => list.includes(item.href));
 };
 
@@ -69,26 +68,29 @@ const setClickProduct = (href) => {
 const setFilterFavorite = async () => {
   const data = await getProducts();
   const res = await getFavoriteProducts();
-  let item = [];
-  console.log(res);
-  if (res) {
-    if (res.length !== 0) {
-      item = data.gifts.filter(item => res.some(value => item.href.includes(value)));
 
-    }
-    console.log(item);
-    return item;
-  } else
-    return [];
+  let list = [];
+
+  if (res) {
+    list = data.gifts.flatMap(item => {
+      if (res.includes(item.href.replace('product/', ''))) {
+        return item;
+      } else return [];
+    })
+  }
+  console.log(list.map(item => item.href));
+  return list;
 }
 
+
 // 상품 좋아요 클릭을 서버로 전송하고 버튼 색을 바꾸는 함수
-const setClickFavorite = (product) => {
-  const href = product.href;
-  product.favorite = !product.favorite; // 버튼 색 변경
+const setClickFavorite = async (product) => {
 
   // 서버로 전송
-  axiosInstance.get(`/${href}/liked`);
+  await axiosInstance.get(`/${product.href}/liked`);
+
+  const res = await getFavoriteProducts();
+  return res || [];
 }
 
 export { setRecentHistory, filterDataByList, deleteRecentHistory, setClickProduct, setClickFavorite, setFilterFavorite };
