@@ -3,8 +3,13 @@ import Modal from './Modal';
 import ModalPortal from './Portal';
 import '../style/FavoriteProducts.css'
 
-const FavoriteProducts = ({ props, onClickProduct, onClickFavorite, favoriteList, onClose, modalOn }) => {
+const FavoriteProducts = ({ props, onClickProduct, onClickFavorite, favoriteList }) => {
+  const [modalOn, setModalOn] = useState(false);
   const [clickModalItem, setClickModalItem] = useState();
+
+  const handleModal = () => {
+    setModalOn(!modalOn);
+  };
 
   return (
     <div className='favorite-body'>
@@ -15,7 +20,7 @@ const FavoriteProducts = ({ props, onClickProduct, onClickFavorite, favoriteList
               return (
                 <div key={index} className="likeproduct col-md-6 grid">
                   <div className='goModal'>
-                    <div className="clickarea" onClick={() => { setClickModalItem(product); onClickProduct(product.href); onClose(); }}>
+                    <div className="clickarea" onClick={() => { setClickModalItem(product); onClickProduct(product.href); handleModal(); }}>
                       <img src={`${product.image}`} alt="" />
                       <div className='info'>
                         <p className='product-title'>{product.title}</p>
@@ -34,7 +39,7 @@ const FavoriteProducts = ({ props, onClickProduct, onClickFavorite, favoriteList
         </div>
       </div>
       <ModalPortal>
-        {modalOn && <Modal onClose={onClose} item={clickModalItem} onClickFavorite={onClickFavorite} favoriteList={favoriteList}/>}
+        {modalOn && <Modal onClose={handleModal} item={clickModalItem} onClickFavorite={onClickFavorite} favoriteList={favoriteList}/>}
       </ModalPortal>
     </div>
   );
