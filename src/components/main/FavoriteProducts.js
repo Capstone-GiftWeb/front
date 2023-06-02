@@ -3,13 +3,8 @@ import Modal from './Modal';
 import ModalPortal from './Portal';
 import '../style/FavoriteProducts.css'
 
-const FavoriteProducts = ({ props, onClickProduct, onClickFavorite, favoriteList }) => {
-  const [modalOn, setModalOn] = useState(false);
+const FavoriteProducts = ({ props, onClickProduct, onClickFavorite, favoriteList, onClose, modalOn }) => {
   const [clickModalItem, setClickModalItem] = useState();
-
-  const handleModal = () => {
-    setModalOn(!modalOn);
-  };
 
   return (
     <div className='favorite-body'>
@@ -20,15 +15,15 @@ const FavoriteProducts = ({ props, onClickProduct, onClickFavorite, favoriteList
               return (
                 <div key={index} className="likeproduct col-md-6 grid">
                   <div className='goModal'>
-                    <div className="clickarea" onClick={() => { setClickModalItem(product); onClickProduct(product.href); handleModal(); }}>
+                    <div className="clickarea" onClick={() => { setClickModalItem(product); onClickProduct(product.href); onClose(); }}>
                       <img src={`${product.image}`} alt="" />
                       <div className='info'>
                         <p className='product-title'>{product.title}</p>
                         <p className='product-price'>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
                       </div>
                     </div>
-                    <div className='btnX'>
-                      <img src='img/btnX.png' alt="deleteRecentItem" onClick={onClickFavorite} />
+                    <div className='btnX' onClick={() => onClickFavorite(product)}>
+                      <img src='img/btnX.png' alt="deleteRecentItem" />
                     </div>
                   </div>
                 </div>
@@ -39,7 +34,7 @@ const FavoriteProducts = ({ props, onClickProduct, onClickFavorite, favoriteList
         </div>
       </div>
       <ModalPortal>
-        {modalOn && <Modal onClose={handleModal} item={clickModalItem} onClickFavorite={onClickFavorite} favoriteList={favoriteList}/>}
+        {modalOn && <Modal onClose={onClose} item={clickModalItem} onClickFavorite={onClickFavorite} favoriteList={favoriteList}/>}
       </ModalPortal>
     </div>
   );

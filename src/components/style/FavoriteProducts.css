@@ -50,27 +50,23 @@
     margin-left: 10px;
 }
 
-.btnX img{
+.goModal .btnX img{
     width: 15px;
     height: 15px;
-    margin-left: 56px;
-    margin-bottom: 10px;
     border: none;
     cursor: pointer;
 }
 
-.info img:hover{
-    background-color: gainsboro;
+.goModal .btnX {
+    width: 20px;
+    height: 30px;
+    margin-left: 56px;
+    margin-bottom: 10px;
 }
 
 .goModal{
     display: flex;
     flex-direction: row;
-}
-
-.goModal .btnX{
-    width: 15px;
-    height: 15px;
 }
 
 .clickarea{

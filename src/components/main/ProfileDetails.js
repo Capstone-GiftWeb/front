@@ -13,6 +13,7 @@ const ProfileDetails = () => {
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
+  const [modalOn, setModalOn] = useState(false);
   const [favoriteData, setFavoriteData] = useState([]);
   const setScrollRef = useRef(0);
   const movePage = useNavigate();
@@ -27,6 +28,10 @@ const ProfileDetails = () => {
   const onClickFavorite = async (product) => {
     const list = await setClickFavorite(product);
     setFavoriteData(list);
+  }
+
+  const onClose = () => {
+    setModalOn(!modalOn);
   }
 
   const onLogout = () => {
@@ -116,7 +121,7 @@ const ProfileDetails = () => {
           <p>Like♥</p>
           <div className='scroll-box' ref={setScrollRef}>
             <div className='like-products'>
-              <FavoriteProducts props={data} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite} favoriteList={favoriteData} />
+              <FavoriteProducts props={data} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite} favoriteList={favoriteData} onClose={onClose} modalOn={modalOn}/>
             </div>
           </div>
         </div>
