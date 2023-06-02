@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
-import axiosInstance from '../..';
 import Modal from './Modal';
 import ModalPortal from './Portal';
 
@@ -33,7 +32,7 @@ const Products = ({ props, onClickProduct, onClickFavorite, itemSize, favoriteLi
                   <p className="product-title" onClick={() => handleClick(product)} >{product.title}</p>
                   <div className="product-details">
                     <p className="product-price" onClick={() => handleClick(product)} >{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
-                    {favoriteList && favoriteList.some(item => product.href.includes(item)) ? (
+                    {favoriteList && favoriteList.includes(product.href.replace('product/','')) ? (
                       <HeartFilled
                         className="icons"
                         style={{ color: 'red', fontSize: '20px' }}

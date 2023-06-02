@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Modal from './Modal';
 import ModalPortal from './Portal';
-import { setClickFavorite } from '../utils/ClickUtils'
 import '../style/FavoriteProducts.css'
 
-const FavoriteProducts = ({ props, onClickProduct }) => {
+const FavoriteProducts = ({ props, onClickProduct, onClickFavorite, favoriteList }) => {
   const [modalOn, setModalOn] = useState(false);
   const [clickModalItem, setClickModalItem] = useState();
 
@@ -29,7 +28,7 @@ const FavoriteProducts = ({ props, onClickProduct }) => {
                       </div>
                     </div>
                     <div className='btnX'>
-                      <img src='img/btnX.png' alt="deleteRecentItem" onClick={() => {setClickFavorite(product)}} />
+                      <img src='img/btnX.png' alt="deleteRecentItem" onClick={onClickFavorite} />
                     </div>
                   </div>
                 </div>
@@ -40,7 +39,7 @@ const FavoriteProducts = ({ props, onClickProduct }) => {
         </div>
       </div>
       <ModalPortal>
-        {modalOn && <Modal onClose={handleModal} item={clickModalItem} onClickFavorite={setClickFavorite} />}
+        {modalOn && <Modal onClose={handleModal} item={clickModalItem} onClickFavorite={onClickFavorite} favoriteList={favoriteList}/>}
       </ModalPortal>
     </div>
   );

@@ -26,15 +26,8 @@ const Header = ({ query }) => {
         fetchUserInfo();
     }, []);
 
-    const toggleAutoValue = () => {
-        setIsSearch(!isSearch);
-    }
-
     // 검색창의 변화되는 내용을 감지하여 서버로 전송 > autoValue를 받아와서 랜더링
     const handleInputChange = async (event) => {
-        if (inputValue !== "")
-            toggleAutoValue();
-
         setInputValue(event.target.value);
 
         try {
@@ -55,19 +48,19 @@ const Header = ({ query }) => {
             <div className="search-window">
                 <form action="/search" method="GET">
                     <input type="text" id="searchInput" className={isSearch ? "inputShow" : "inputHide"} name='query' placeholder="검색" value={inputValue}
-                        onChange={handleInputChange} />
+                        onChange={handleInputChange} onFocus={()=>{setIsSearch(!isSearch)}} onBlur={()=>{setIsSearch(!isSearch)}} />
                     <button type="submit" id="searchBtn" className={isSearch ? "searchBtnShow" : "searchBtnHide"}><i className="fas fa-search" /></button>
                 </form>
-                <div className={isSearch ? "search-auto-show" : "search-auto-hide"}>
-                    {
-                        autoValue && autoValue.map((word, index) => {
+                {isSearch && <div className="search-auto-show">
+                        {autoValue && autoValue.map((word, index) => {
                             return (
                                 <p key={index} onClick={() => {
-                                    setInputValue(word);
+                                    setInputValue(()=>word);
                                 }}>{word}</p>
                             )
                         })}
                 </div>
+                }
             </div>
             <div className="header--user">
                 <a href='Profile' className='name' style={{ textDecoration: "none", color: "black" }}>

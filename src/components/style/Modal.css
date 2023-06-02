@@ -90,3 +90,7 @@
     padding: 8px;
     margin-left: 10px;
 }
+
+.modal-details .btnFavorite:hover {
+    color: red;
+}
