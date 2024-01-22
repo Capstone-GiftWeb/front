@@ -63,6 +63,7 @@ const Home = () => {
             const dummyRes = await getProducts();
             if (dummyRes) {
                 setDummyData(dummyRes.gifts);
+                console.log(dummyData);
             }
 
             const FavoriteRes = await getFavoriteProducts();
