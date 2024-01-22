@@ -32,14 +32,14 @@ const FavoriteProducts = ({ props, onClickProduct, onClickFavorite, favoriteList
                     </div>
                   </div>
                 </div>
-                
+
               );
             })
           }
         </div>
       </div>
       <ModalPortal>
-        {modalOn && <Modal onClose={handleModal} item={clickModalItem} onClickFavorite={onClickFavorite} favoriteList={favoriteList}/>}
+        {modalOn && <Modal onClose={handleModal} item={clickModalItem} onClickFavorite={onClickFavorite} favoriteList={favoriteList} />}
       </ModalPortal>
     </div>
   );
