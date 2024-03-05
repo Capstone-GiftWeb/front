@@ -22,7 +22,8 @@ const Search = () => {
     }
 
     const onClickFavorite = (product) => {
-        setFavoriteData(setClickFavorite(product));
+        const list = setClickFavorite(product);
+        setFavoriteData(list);
     }
 
     // Data.js의 getProducts를 사용하여 데이터를 불러와 useState에 저장

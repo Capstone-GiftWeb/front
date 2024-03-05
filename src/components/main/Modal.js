@@ -1,4 +1,5 @@
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
+
 import '../style/Modal.css';
 
 const Modal = ({ onClose, item, onClickFavorite, favoriteList }) => {

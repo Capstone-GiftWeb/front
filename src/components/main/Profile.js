@@ -1,10 +1,11 @@
 import React from "react";
+
 import Nav from './Nav';
 import ProfileDetails from "./ProfileDetails";
+
 import '../style/Profile.css'
 
 const Profile = () => {
-
     
     return (
         <>

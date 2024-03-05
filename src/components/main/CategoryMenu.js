@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+
 import { categories } from '../utils/ClickUtils';
+
 import '../style/CategoryMenu.css';
 
 const CategoryMenu = ({ onCategorySelect }) => {

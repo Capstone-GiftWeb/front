@@ -1,13 +1,15 @@
 import React from "react";
-import '../style/ProfileDetails.css';
-import { getCookie } from "../utils/Cookie";
-import axiosInstance from "../..";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from 'react';
-import { getFavoriteProducts } from "../utils/Data";
-import { setRecentHistory, setFilterFavorite, setClickFavorite } from '../utils/ClickUtils'
+import { useNavigate } from "react-router-dom";
+
+import axiosInstance from "../..";
 import Loading from "./Loading";
 import FavoriteProducts from "./FavoriteProducts";
+import { getCookie } from "../utils/Cookie";
+import { getFavoriteProducts } from "../utils/Data";
+import { setRecentHistory, setFilterFavorite, setClickFavorite } from '../utils/ClickUtils'
+
+import '../style/ProfileDetails.css';
 
 const ProfileDetails = () => {
 
@@ -73,7 +75,7 @@ const ProfileDetails = () => {
       }
 
       const FavoriteRes = await getFavoriteProducts();
-      if (FavoriteRes) { setFavoriteData(FavoriteRes); }
+      if (FavoriteRes.length > 0) { setFavoriteData(FavoriteRes); }
 
       setLoading(false);
     };

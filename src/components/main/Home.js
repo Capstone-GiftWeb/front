@@ -7,7 +7,7 @@ import Banner from './Banner';
 import RecentProducts from './RecentProducts';
 import Loading from "./Loading";
 
-import { getCategoryProducts, getFavoriteProducts, getProducts } from "../utils/Data";
+import { getFavoriteProducts, getProducts } from "../utils/Data";
 import { setRecentHistory, filterDataByList, deleteRecentHistory, setClickProduct, setClickFavorite } from '../utils/ClickUtils'
 
 import '../style/Home.css';
@@ -94,10 +94,6 @@ const Home = () => {
                         <div className='horizontal-box'>
                             <div className='scroll-box' ref={setScrollRef}>
                                 <Banner />
-                                {/* <div className='rank-products'>
-                                    <p className='title'>Recommend</p>
-                                    <Products props={data} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite} itemSize={8} favoriteList={favoriteData} />
-                                </div> */}
                                 <div className='rank-products'>
                                     <p className='title'>Recommend</p>
                                     <Products props={dummyData} onClickProduct={onClickProduct} onClickFavorite={onClickFavorite} itemSize={8} favoriteList={favoriteData} />

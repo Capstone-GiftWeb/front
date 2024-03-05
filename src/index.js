@@ -1,13 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './components/style/index.css';
-import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+
+import App from './App';
 import axios from 'axios';
 import { getCookie, setCookie } from './components/utils/Cookie';
-import { Cookies } from 'react-cookie';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+import './components/style/index.css';
 
 const axiosInstance = axios.create({
   baseURL: 'http://13.125.82.232:8080',

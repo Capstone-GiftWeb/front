@@ -1,5 +1,5 @@
 import axiosInstance from "../..";
-import { getCategoryProducts, getFavoriteProducts, getProducts } from "./Data";
+import { getFavoriteProducts, getProducts } from "./Data";
 
 export const categories = [
   { id: 0, name: "전체", img: "img/category/total.png" },

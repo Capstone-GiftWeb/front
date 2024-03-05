@@ -7,7 +7,7 @@ import Loading from "./Loading";
 import CategoryMenu from './CategoryMenu';
 import RecentProducts from './RecentProducts';
 
-import { getCategoryProducts, getFavoriteProducts, getProducts } from "../utils/Data";
+import { getFavoriteProducts, getProducts } from "../utils/Data";
 import { setRecentHistory, filterDataByList, deleteRecentHistory, setClickProduct, setClickFavorite } from '../utils/ClickUtils'
 
 import '../style/Category.css';

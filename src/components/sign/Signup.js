@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../style/Signup.css'
+
 import axios from 'axios'
 import CheckBox from '../utils/CheckBox'
 
+import '../style/Signup.css'
 
 const Signup = () => {
   const movePage = useNavigate();

@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import '../style/Nav.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+import '../style/Nav.css';
 
 const Nav = () => {
   const movePage = useNavigate();
   const location = useLocation();
   const goToHome = () => movePage('/Home');
   const goToCategory = () => movePage('/Category');
-  const goToFavorite = () => movePage('/Favorite');
   const goToProfile = () => movePage('/Profile');
-  const goToStart = () => movePage('/');
   const [isNavActive, setIsNavActive] = useState('Home');
 
   useEffect(() => {

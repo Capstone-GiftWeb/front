@@ -1,9 +1,11 @@
 import React from "react";
+
 import {Swiper, SwiperSlide} from "swiper/react";
-import "swiper/swiper.min.css"
+import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper";
+
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
-import SwiperCore, {Autoplay, Navigation, Pagination} from "swiper";
+import "swiper/swiper.min.css"
 import "../style/Banner.css"
 
 const Banner = () => {
